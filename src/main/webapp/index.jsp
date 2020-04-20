@@ -21,20 +21,23 @@
         <div class="row">
             <div class="col-4">
                 <div class="text-center">
-                    <img class="img-fluid" src="images/fggf.JPG">
+                    <img src="images/fggf.JPG">
                 </div>
             </div>
         </div>
     </div>
-    <!-- Navigation -->
-    <div class="navi container">
-
-
-            </div>
-
-            <!-- Display user -->
-
-        </nav>
-
-    </div>
 </header>
+<div class="m-md-5 ">
+<div>Quick byg</div>
+<nav class="nav flex-column">
+    <a class="nav-link active" href="#">Active</a>
+    <a class="nav-link" href="#">Link</a>
+    <a class="nav-link" href="#">Link</a>
+    <a class="nav-link disabled" href="#">Disabled</a>
+</nav>
+
+</div>
+
+
+
+</body>
