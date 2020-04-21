@@ -23,5 +23,19 @@
     text-align: left;
 }
 p.uppercase {
+    background-color: white;
+    color: #5f5f5f;
     font-weight: bold;
+}
+
+.icon1 {
+float: right;
+}
+
+
+.drop {
+    width: 300px;
+}
+label, input {
+    display: block;
 }

@@ -31,8 +31,8 @@
 <div class="m-md-5 ">
 <div class="text1">Quickbyg</div>
 <nav class="navi">
-    <a class="nav-link " href="FrontController?target=redirect&destination=customerpage">Carport med rejsning</a>
-    <a class="nav-link" href="#">Carport med fladt tag</a>
-    <a class="nav-link" href="#">Standard carport</a>
+    <a class="nav-link nav-item" href="FrontController?target=redirect&destination=Carport_Rejsning">Carport med rejsning</a>
+    <a class="nav-link nav-item" href="FrontController?target=redirect&destination=Carport_Fladt">Carport med fladt tag</a>
+    <a class="nav-link nav-item" href="#">Standard carport</a>
 </nav>
 </div>

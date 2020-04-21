@@ -28,7 +28,9 @@
                 <p class="font-weight-bold">
                     Carport med fladt tag.
                 </p>
-                <img src="images/fladt%20tag.jpg" onclick="">
+                <a href="FrontController?target=redirect&destination=Carport_Fladt">
+                <img alt="Fladt tag" src="images/fladt%20tag.jpg">
+                </a>
             </div>
     </div>
 </div>
@@ -42,9 +44,11 @@
             <p class="font-weight-bold">
             Carport med rejsning
             </p>
-            <img src="images/Rejsning.jpg" onclick="">
+            <a href="FrontController?target=redirect&destination=Carport_Rejsning">
+                <img alt="Rejsning" src="images/Rejsning.jpg">
+            </a>
         </div>
     </div>
 </div>
-
+<img src="images/fladt%20tag.jpg" class="icon1"/>
 </body>
