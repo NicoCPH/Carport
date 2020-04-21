@@ -2,11 +2,10 @@ package PresentationLayer;
 /**
  @author Mark, Nicolas, Henrik, Jean-Poul
  */
-import FunctionLayer.LoginSampleException;
+import FunctionLayer.ExceptionHandler;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 /**
  * One example on this could be this button: href="FrontController?target=redirect&destination=customerpage"
@@ -21,7 +20,7 @@ import java.io.IOException;
 
 public class Redirect extends Command {
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException{
+    String execute(HttpServletRequest request, HttpServletResponse response) throws ExceptionHandler {
 
         String destination = request.getParameter("destination");
 
