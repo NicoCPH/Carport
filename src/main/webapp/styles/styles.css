@@ -5,7 +5,7 @@
 }
 
 .text1 {
-    position: absolute;
+    position: fixed;
     left: 150px;
     height: 200px;
     margin-left: 50px;
@@ -23,6 +23,5 @@
     text-align: left;
 }
 p.uppercase {
-    text-transform: uppercase;
     font-weight: bold;
 }
