@@ -28,16 +28,25 @@
     </div>
 </header>
 <div class="m-md-5 ">
-<div>Quick byg</div>
-<nav class="nav flex-column">
-    <a class="nav-link active" href="#">Active</a>
-    <a class="nav-link" href="#">Link</a>
-    <a class="nav-link" href="#">Link</a>
-    <a class="nav-link disabled" href="#">Disabled</a>
+<div class="text1">Quickbyg</div>
+<nav class="navi">
+    <a class="nav-link " href="FrontController?target=redirect&destination=customerpage">Carport med rejsning</a>
+    <a class="nav-link" href="#">Carport med fladt tag</a>
+    <a class="nav-link" href="#">Standard carport</a>
 </nav>
-
 </div>
-
+<p class="text2">
+    QUICK-BYG TILBUD<br>
+    Med et specialudviklet computerprogram kan vi lynhurtigt beregne prisen og udskrive en skitsetegning på en carport indenfor vores standardprogram, der tilpasses dine specifikke ønsker.
+<br>
+    <br>
+    Tilbud og skitsetegning fremsendes med post hurtigst muligt.
+    <br>
+    Ved bestilling medfølger standardbyggevejledning.
+<br>
+    <br>
+    Rekvirér tilbud - start med at vælge type:
+</p>
 
 
 </body>

@@ -1,0 +1,28 @@
+.navi {
+    position: fixed;
+    padding: 100px;
+    margin-left: 35px;
+}
+
+.text1 {
+    position: absolute;
+    left: 150px;
+    height: 200px;
+    margin-left: 50px;
+    color: #0c2069;
+    font-size: 30px;
+    font-family: "Microsoft YaHei UI";
+    font-weight: bold;
+}
+
+.text2 {
+    position: center;
+    font-family: "Microsoft YaHei UI";
+    max-width: 600px;
+    margin: auto;
+    text-align: left;
+}
+p.uppercase {
+    text-transform: uppercase;
+    font-weight: bold;
+}
