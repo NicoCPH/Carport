@@ -29,28 +29,138 @@
         <br>
         Ønsket carport mål:
     </p>
+    <br>
+    <br>
+    <br>
 </div>
+    <div class="container col-lg-5">
+   <div class="form-group">
 
+    <label>Carport Bredde</label>
+<select class="form-control">
+    <option value="kg">Kg</option>
+    <option value="gm">Gm</option>
+    <option value="pound">Pound</option>
+    <option value="MetricTon">Metric ton</option>
+    <option value="litre">Litre</option>
+    <option value="ounce">Ounce</option>
+</select>
 
+<br>
 
-    <div class="container">
-        <div class="dropdown text-center">
-            <label> Type</label>
-            <select class="dropdown-menu-center drop" type="number" name="quantity">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-                <option>10</option>
-            </select>
-        </div>
+    <label>Carport Længde</label>
+    <select class="form-control">
+        <option value="kg">Kg</option>
+        <option value="gm">Gm</option>
+        <option value="pound">Pound</option>
+        <option value="MetricTon">Metric ton</option>
+        <option value="litre">Litre</option>
+        <option value="ounce">Ounce</option>
+    </select>
+<br>
+    <label>Tag type og farve</label>
+    <select class="form-control">
+        <option value="kg">Kg</option>
+        <option value="gm">Gm</option>
+        <option value="pound">Pound</option>
+        <option value="MetricTon">Metric ton</option>
+        <option value="litre">Litre</option>
+        <option value="ounce">Ounce</option>
+    </select>
+       <label>Carport farve</label>
+       <select class="form-control">
+           <option value="kg">Kg</option>
+           <option value="gm">Gm</option>
+           <option value="pound">Pound</option>
+           <option value="MetricTon">Metric ton</option>
+           <option value="litre">Litre</option>
+           <option value="ounce">Ounce</option>
+       </select>
+       <br>
+       <p class="text2">
+           Redskabsrum:<br>
+           NB! Der skal beregnes 15 cm tagudhæng på hver side af redskabsrummet*
+           <br>
+           <br>
+       </p>
+       <label>Redskabsrum bredde</label>
+       <select class="form-control">
+           <option value="kg">Kg</option>
+           <option value="gm">Gm</option>
+           <option value="pound">Pound</option>
+           <option value="MetricTon">Metric ton</option>
+           <option value="litre">Litre</option>
+           <option value="ounce">Ounce</option>
+       </select>
+       <br>
+       <label>Redskabsrum Længde</label>
+       <select class="form-control">
+           <option value="kg">Kg</option>
+           <option value="gm">Gm</option>
+           <option value="pound">Pound</option>
+           <option value="MetricTon">Metric ton</option>
+           <option value="litre">Litre</option>
+           <option value="ounce">Ounce</option>
+       </select>
+       <br>
+       <label>Redskabsrum beklædnings type</label>
+       <select class="form-control">
+           <option value="kg">Kg</option>
+           <option value="gm">Gm</option>
+           <option value="pound">Pound</option>
+           <option value="MetricTon">Metric ton</option>
+           <option value="litre">Litre</option>
+           <option value="ounce">Ounce</option>
+       </select>
+        <br>
+       <label>Redskabsrum gulv</label>
+       <select class="form-control">
+           <option value="kg">Kg</option>
+           <option value="gm">Gm</option>
+           <option value="pound">Pound</option>
+           <option value="MetricTon">Metric ton</option>
+           <option value="litre">Litre</option>
+           <option value="ounce">Ounce</option>
+       </select>
+       <br>
+       <label>Redskabsrum position</label>
+       <select class="form-control">
+           <option value="kg">Kg</option>
+           <option value="gm">Gm</option>
+           <option value="pound">Pound</option>
+           <option value="MetricTon">Metric ton</option>
+           <option value="litre">Litre</option>
+           <option value="ounce">Ounce</option>
+       </select>
+       <br>
+       <br>
+       <br>
+       <br>
+       <label for="navn">Navn:</label><br>
+       <input style="width: 450px" type="text" id="navn" name="fname"><br>
+
+       <label for="adresse">Adresse:</label><br>
+       <input style="width: 450px" type="text" id="adresse" name="adresse"><br>
+
+       <label for="pnr">Postnummer:</label><br>
+       <input style="width: 450px" type="text" id="pnr" name="pnr"><br>
+
+       <label for="by">By:</label><br>
+       <input style="width: 450px" type="text" id="by" name="by"><br>
+
+       <label for="tlf">Telefon</label><br>
+       <input style="width: 450px" type="text" id="tlf" name="tlf"><br>
+
+       <label for="email">Email</label><br>
+       <input style="width: 450px" type="email" id="email" name="email">
+
+       <p class="text2">
+           Evt. bemærkninger<br>
+           * Hvis du f.eks. har valgt en carport med målene 240x360 cm kan redskabsrummet maksimalt måle 210x330 cm.</p>
+   </div>
     </div>
 <br>
-</div>
+<button class="btn btn-sm btn-primary mt-2 btn-block" type="submit">Send forespørgsel</button>
+</form>
 </body>
 

@@ -32,10 +32,26 @@ p.uppercase {
 float: right;
 }
 
-
-.drop {
-    width: 300px;
+.sub-row-wrapper {
+    background: #f00;
+    text-align: left;
+    width: auto;
+    position: relative;
+    padding: 12px;
+    margin-bottom: 12px;
+    border-bottom: 1px;
+    border-style: solid;
+    border-color: #ccc;
+    display: flex;/*set display to flex*/
 }
-label, input {
-    display: block;
+.sub-row-left-col {
+    background: #ff0;
+    display: inline-block;
+    width: 25%;
+    text-align: left;
+}
+.sub-row-right-col {
+    background: #f0f;
+    display: inline-block;
+    width: 100%;/*set width to 100%*/
 }

@@ -50,5 +50,4 @@
         </div>
     </div>
 </div>
-<img src="images/fladt%20tag.jpg" class="icon1"/>
 </body>
