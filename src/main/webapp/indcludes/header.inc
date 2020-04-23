@@ -14,7 +14,8 @@
     <link href="https://fonts.googleapis.com/css?family=Gotu&display=swap" rel="stylesheet">
     <!-- header title -->
     <title>${requestScope.message}</title>
-
+    <!-- JQuery -->
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 </head>
 <body>
 <header>
