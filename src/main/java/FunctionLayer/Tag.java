@@ -2,29 +2,29 @@ package FunctionLayer;
 
 public class Tag {
 
-    String type;
-    String farve;
+    int type;
+    int farve;
     int haeldning;
 
-    public Tag(String type, String farve, int haeldning) {
+    public Tag(int type, int farve, int haeldning) {
         this.type = type;
         this.farve = farve;
         this.haeldning = haeldning;
     }
 
-    public String getType() {
+    public int getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(int type) {
         this.type = type;
     }
 
-    public String getFarve() {
+    public int getFarve() {
         return farve;
     }
 
-    public void setFarve(String farve) {
+    public void setFarve(int farve) {
         this.farve = farve;
     }
 

@@ -2,27 +2,17 @@ package FunctionLayer;
 
 public class Carport {
 
-    public String type;
     public int bredde;
     public int laengde;
-    public String farve;
-    public String traeType;
+    public int farve;
+    public int traeType;
 
 
-    public Carport(String type, int bredde, int laengde, String farve, String traeType) {
-        this.type = type;
+    public Carport(int bredde, int laengde, int farve, int traeType) {
         this.bredde = bredde;
         this.laengde = laengde;
         this.farve = farve;
         this.traeType = traeType;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
     public int getBredde() {
@@ -41,19 +31,19 @@ public class Carport {
         this.laengde = laengde;
     }
 
-    public String getFarve() {
+    public int getFarve() {
         return farve;
     }
 
-    public void setFarve(String farve) {
+    public void setFarve(int farve) {
         this.farve = farve;
     }
 
-    public String getTraeType() {
+    public int getTraeType() {
         return traeType;
     }
 
-    public void setTraeType(String traeType) {
+    public void setTraeType(int traeType) {
         this.traeType = traeType;
     }
 }
