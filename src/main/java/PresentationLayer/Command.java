@@ -11,7 +11,10 @@ abstract class Command {
 
     private static void initCommands() {
         commands = new HashMap<>();
-        commands.put("forespørgsel", new Forespoergsel());
+        commands.put("forespørgsel", new Forespørgsel());
+        commands.put("Carport_Rejsning", new Carport_Rejsning());
+        commands.put("Carport_Fladt", new Carport_Fladt());
+        commands.put( "redirect", new Redirect() );
 
     }
 
