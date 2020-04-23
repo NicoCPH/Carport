@@ -42,9 +42,10 @@ $('#autoUpdate').fadeOut('slow');
     <br>
     <br>
 </div>
+<form name="cart" action="FrontController" method="GET">
     <div class="container col-lg-5">
    <div class="form-group">
-<form>
+
     <label class="mt-4">Carport Bredde</label>
 <select class="form-control">
     <option value="kg">Kg</option>
@@ -171,8 +172,9 @@ $('#autoUpdate').fadeOut('slow');
        <label for="email">Email</label><br>
        <input style="width: 450px" type="email" id="email" name="email">
 
+       <input type="hidden" name="target" value="forespoergsel">
     <button class="btn btn-sm btn-primary mt-2 btn-block" type="submit">Send forespørgsel</button>
-       </form>
+
        <br>
        <br>
        <p class="text2">
@@ -183,7 +185,7 @@ $('#autoUpdate').fadeOut('slow');
         <br>
     </div>
 
-
+</form>
 
 <script type="text/javascript">
     $(document).ready(function() {
