@@ -23,8 +23,8 @@ public static void forespoergselList(int tagType, int tagFarve, int tagHaeldning
     try {
         Connection con = Connector.connection();
 
-        String SQLTag = "INSERT INTO `carportdb`.`tag` (`type`, `farve`, `hældning`) VALUES (?, ?, ?);";
-        String SQLRedskabsrum = "INSERT INTO `carportdb`.`redskabsrum` (`bredde`, `længde`, `beklædningstype`, `gulv`) VALUES (?, ?, ?, ?);";
+        String SQLTag = "INSERT INTO `carportdb`.`tag` (`type`, `farve`, `haeldning`) VALUES (?, ?, ?);";
+        String SQLRedskabsrum = "INSERT INTO `carportdb`.`redskabsrum` (`bredde`, `laengde`, `beklaedningstype`, `gulv`) VALUES (?, ?, ?, ?);";
         String SQLKunde = "INSERT INTO `carportdb`.`kunde` (`navn`, `adresse`, `postnummer`, `by`, `tlf`, `email`) VALUES (?, ?, ?, ?, ?, ?);";
         String SQLCarport = "INSERT INTO `carportdb`.`carport` (`laengde`, `bredde`, `farve`, `traetype`) VALUES (?, ?, ?, ?);";
 
@@ -57,8 +57,6 @@ public static void forespoergselList(int tagType, int tagFarve, int tagHaeldning
         psC.setInt(3, carportFarve);
         psC.setInt(4, traeType);
         psC.executeUpdate();
-
-        // Her skal laves noget som tager id'erne fra tag. redskabsrum og kunde og herefter inserter de id'er ind i carport !!
 
     } catch (SQLException | ClassNotFoundException ex) {
         throw new ExceptionHandler(ex.getMessage());
