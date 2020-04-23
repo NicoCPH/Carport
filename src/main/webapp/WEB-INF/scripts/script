@@ -1,0 +1,7 @@
+$('#checkbox1').change(function(){
+    if($(this).is(":checked"))
+        $('#autoUpdate').fadeIn('slow');
+    else
+        $('#autoUpdate').fadeOut('slow');
+
+});

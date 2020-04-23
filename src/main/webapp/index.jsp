@@ -1,42 +1,12 @@
-<!DOCTYPE html>
-<html>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@include file="indcludes/header.inc" %>
 
-<head>
-    <!-- UTF8 -->
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Responsive -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <!-- External CSS -->
-    <link rel="stylesheet" href="styles/styles.css" type="text/css">
-    <!-- Google font -->
-    <link href="https://fonts.googleapis.com/css?family=Gotu&display=swap" rel="stylesheet">
-    <!-- header title -->
-
-</head>
-<body>
-<header>
-    <div class="container">
-        <div class="row">
-            <div class="col-4">
-                <div class="text-center">
-                    <img src="images/fggf.JPG">
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-<div class="m-md-5 ">
-<div class="text1">Quickbyg</div>
-<nav class="navi">
-    <a class="nav-link " href="FrontController?target=redirect&destination=customerpage">Carport med rejsning</a>
-    <a class="nav-link" href="#">Carport med fladt tag</a>
-    <a class="nav-link" href="#">Standard carport</a>
-</nav>
-</div>
-<p class="text2">
+<div>
+<p class="text2 uppercase">
     QUICK-BYG TILBUD<br>
+</p>
+<p class="text2">
     Med et specialudviklet computerprogram kan vi lynhurtigt beregne prisen og udskrive en skitsetegning på en carport indenfor vores standardprogram, der tilpasses dine specifikke ønsker.
 <br>
     <br>
@@ -47,6 +17,37 @@
     <br>
     Rekvirér tilbud - start med at vælge type:
 </p>
+</div>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+        <div class="col-11">
+            <div class="text-center">
+                <p class="font-weight-bold">
+                    Carport med fladt tag.
+                </p>
+                <a href="FrontController?target=redirect&destination=Carport_Fladt">
+                <img alt="Fladt tag" src="images/fladt%20tag.jpg">
+                </a>
+            </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<div class="container">
 
-
+    <div class="col-11">
+        <div class="text-center">
+            <p class="font-weight-bold">
+            Carport med rejsning
+            </p>
+            <a href="FrontController?target=redirect&destination=Carport_Rejsning">
+                <img alt="Rejsning" src="images/Rejsning.jpg">
+            </a>
+        </div>
+    </div>
+</div>
 </body>
