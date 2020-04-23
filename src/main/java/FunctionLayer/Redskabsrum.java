@@ -4,15 +4,13 @@ public class Redskabsrum {
 
     int redskabsLaengde;
     int redskabsBredde;
-    String beklaedningsType;
-    String placering;
-    String gulvType;
+    int beklaedningsType;
+    int gulvType;
 
-    public Redskabsrum(int redskabsLaengde, int redskabsBredde, String beklaedningsType, String placering, String gulvType) {
+    public Redskabsrum(int redskabsLaengde, int redskabsBredde, int beklaedningsType,int gulvType) {
         this.redskabsLaengde = redskabsLaengde;
         this.redskabsBredde = redskabsBredde;
         this.beklaedningsType = beklaedningsType;
-        this.placering = placering;
         this.gulvType = gulvType;
     }
 
@@ -32,27 +30,19 @@ public class Redskabsrum {
         this.redskabsBredde = redskabsBredde;
     }
 
-    public String getBeklaedningsType() {
+    public int getBeklaedningsType() {
         return beklaedningsType;
     }
 
-    public void setBeklaedningsType(String beklaedningsType) {
+    public void setBeklaedningsType(int beklaedningsType) {
         this.beklaedningsType = beklaedningsType;
     }
 
-    public String getPlacering() {
-        return placering;
-    }
-
-    public void setPlacering(String placering) {
-        this.placering = placering;
-    }
-
-    public String getGulvType() {
+    public int getGulvType() {
         return gulvType;
     }
 
-    public void setGulvType(String gulvType) {
+    public void setGulvType(int gulvType) {
         this.gulvType = gulvType;
     }
 }

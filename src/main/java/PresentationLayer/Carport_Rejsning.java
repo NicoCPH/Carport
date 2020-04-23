@@ -5,9 +5,9 @@ import FunctionLayer.ExceptionHandler;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class Forespørgsel extends Command {
+public class Carport_Rejsning extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws ExceptionHandler {
-        return null;
+        return "Carport_Rejsning";
     }
 }
