@@ -2,7 +2,6 @@ package DBAccess;
 
 
 import FunctionLayer.ExceptionHandler;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -14,51 +13,42 @@ import java.sql.SQLException;
  */
 public class CarportMapper {
 
-public static void forespoergselList(int tagType, int tagFarve, int tagHaeldning, int redskabsrumsbredde,
+public static void forespoergselList(int carportLaengde, int carportBredde, int carportFarve,
+                                     int carportTraeType, int tagMateriale, int tagFarve, int tagHaeldning, int redskabsrumsbredde,
                                      int redskabsrumslaengde, int redskabsrumBeklaedningstype, int redskabsrumGulv,
                                      String navn, String adresse, int postNummer, String by, int tlf,
-                                     String email, int carportLaengde, int carportBredde, int carportFarve,
-                                     int traeType) throws ExceptionHandler {
+                                     String email) throws ExceptionHandler {
 
     try {
         Connection con = Connector.connection();
 
-        String SQLTag = "INSERT INTO `carportdb`.`tag` (`type`, `farve`, `hældning`) VALUES (?, ?, ?);";
-        String SQLRedskabsrum = "INSERT INTO `carportdb`.`redskabsrum` (`bredde`, `længde`, `beklædningstype`, `gulv`) VALUES (?, ?, ?, ?);";
-        String SQLKunde = "INSERT INTO `carportdb`.`kunde` (`navn`, `adresse`, `postnummer`, `by`, `tlf`, `email`) VALUES (?, ?, ?, ?, ?, ?);";
-        String SQLCarport = "INSERT INTO `carportdb`.`carport` (`laengde`, `bredde`, `farve`, `traetype`) VALUES (?, ?, ?, ?);";
+        String SQL = "INSERT INTO `carportdb`.`forespoergsel` (`carportlaengde`, `carportbredde`, `carportfarve`," +
+                " `carporttraetype`, `tagmateriale`, `tagfarve`, `taghaeldning`, `redskabsrumbredde`," +
+                " `redskabsrumlaengde`, `redskabsrumbeklaedningstype`, `redskabsrumgulv`, `kundenavn`, `kundeadresse`," +
+                " `kundepostnummer`, `kundeby`, `kundetlf`, `kundeemail`)" +
+                " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
-        PreparedStatement psT = con.prepareStatement(SQLTag);
-        PreparedStatement psR = con.prepareStatement(SQLRedskabsrum);
-        PreparedStatement psK = con.prepareStatement(SQLKunde);
-        PreparedStatement psC = con.prepareStatement(SQLCarport);
+        PreparedStatement ps = con.prepareStatement(SQL);
 
-        psT.setInt(1, tagType);
-        psT.setInt(2, tagFarve);
-        psT.setInt(3, tagHaeldning);
-        psT.executeUpdate();
+        ps.setInt(1, carportLaengde);
+        ps.setInt(2, carportBredde);
+        ps.setInt(3, carportFarve);
+        ps.setInt(4, carportTraeType);
+        ps.setInt(5, tagMateriale);
+        ps.setInt(6, tagFarve);
+        ps.setInt(7, tagHaeldning);
+        ps.setInt(8, redskabsrumsbredde);
+        ps.setInt(9, redskabsrumslaengde);
+        ps.setInt(10, redskabsrumBeklaedningstype);
+        ps.setInt(11, redskabsrumGulv);
+        ps.setString(12, navn);
+        ps.setString(13, adresse);
+        ps.setInt(14, postNummer);
+        ps.setString(15, by);
+        ps.setInt(16, tlf);
+        ps.setString(17, email);
+        ps.executeUpdate();
 
-        psR.setInt(1, redskabsrumsbredde);
-        psR.setInt(2, redskabsrumslaengde);
-        psR.setInt(3, redskabsrumBeklaedningstype);
-        psR.setInt(4, redskabsrumGulv);
-        psR.executeUpdate();
-
-        psK.setString(1, navn);
-        psK.setString(2, adresse);
-        psK.setInt(3, postNummer);
-        psK.setString(4, by);
-        psK.setInt(5, tlf);
-        psK.setString(6, email);
-        psK.executeUpdate();
-
-        psC.setInt(1, carportLaengde);
-        psC.setInt(2, carportBredde);
-        psC.setInt(3, carportFarve);
-        psC.setInt(4, traeType);
-        psC.executeUpdate();
-
-        // Her skal laves noget som tager id'erne fra tag. redskabsrum og kunde og herefter inserter de id'er ind i carport !!
 
     } catch (SQLException | ClassNotFoundException ex) {
         throw new ExceptionHandler(ex.getMessage());
