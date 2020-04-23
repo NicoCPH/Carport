@@ -13,7 +13,12 @@ public class Forespoergsel extends Command {
 
         HttpSession session = request.getSession();
 
-        int tagType = (int) session.getAttribute("tagtype");
+        int carportLaengde = (int) session.getAttribute("carportlaengde");
+        int carportBredde = (int) session.getAttribute("carportbredde");
+        int carportFarve = (int) session.getAttribute("carportfarve");
+        int carportTraeType = (int) session.getAttribute("carporttraetype");
+
+        int tagMateriale = (int) session.getAttribute("tagMateriale");
         int tagFarve = (int) session.getAttribute("tagfarve");
         int tagHaeldning = (int) session.getAttribute("tagHaeldning");
 
@@ -29,14 +34,9 @@ public class Forespoergsel extends Command {
         int tlf = (int) session.getAttribute("tlf");
         String email = (String) session.getAttribute("email");
 
-        int carportLaengde = (int) session.getAttribute("carportlaengde");
-        int carportBredde = (int) session.getAttribute("carportbredde");
-        int carportFarve = (int) session.getAttribute("carportfarve");
-        int traeType = (int) session.getAttribute("traetype");
-
-        LogicFacade.lavForespoergsel(tagType, tagFarve, tagHaeldning, redskabsrumsbredde, redskabsrumslaengde,
-                redskabsrumBeklaedningstype, redskabsrumGulv, navn, adresse, postNummer, by, tlf, email,
-                carportLaengde, carportBredde, carportFarve, traeType);
+        LogicFacade.lavForespoergsel(carportLaengde, carportBredde, carportFarve, carportTraeType, tagMateriale, tagFarve, tagHaeldning,
+                redskabsrumsbredde, redskabsrumslaengde, redskabsrumBeklaedningstype, redskabsrumGulv, navn, adresse,
+                postNummer, by, tlf, email);
 
         return null;
     }
