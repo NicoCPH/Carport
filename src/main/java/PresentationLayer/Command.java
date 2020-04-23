@@ -11,7 +11,7 @@ abstract class Command {
 
     private static void initCommands() {
         commands = new HashMap<>();
-        commands.put("forespørgsel", new Forespørgsel());
+        commands.put("forespørgsel", new Forespoergsel());
 
     }
 

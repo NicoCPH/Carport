@@ -1,12 +1,13 @@
 package PresentationLayer;
 
 import FunctionLayer.ExceptionHandler;
+import FunctionLayer.LogicFacade;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class Forespørgsel extends Command {
+public class Forespoergsel extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws ExceptionHandler {
 
@@ -32,6 +33,10 @@ public class Forespørgsel extends Command {
         int carportBredde = (int) session.getAttribute("carportbredde");
         int carportFarve = (int) session.getAttribute("carportfarve");
         int traeType = (int) session.getAttribute("traetype");
+
+        LogicFacade.lavForespoergsel(tagType, tagFarve, tagHaeldning, redskabsrumsbredde, redskabsrumslaengde,
+                redskabsrumBeklaedningstype, redskabsrumGulv, navn, adresse, postNummer, by, tlf, email,
+                carportLaengde, carportBredde, carportFarve, traeType);
 
         return null;
     }
