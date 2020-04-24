@@ -1,4 +1,5 @@
-<%--
+<%@ page import="DBAccess.CarportMapper" %>
+<%@ page import="FunctionLayer.ExceptionHandler" %><%--
   Created by IntelliJ IDEA.
   User: Lange
   Date: 20/04/2020
@@ -8,15 +9,26 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="../indcludes/header.inc" %>
-<script>
-$('#checkbox1').change(function(){
-if($(this).is(":checked"))
-$('#autoUpdate').fadeIn('slow');
-else
-$('#autoUpdate').fadeOut('slow');
+<%!
+    @Override
+    public void jspInit() {
+        try {
+         CarportMapper.dropdownBredde();
+         CarportMapper.dropdownLaengde();
+         CarportMapper.dropdownFarve();
+        } catch (ExceptionHandler e) {
+            e.printStackTrace();
+        }
+    }
+%>
 
-});
-</script>
+<%
+    request.setAttribute("bredde", CarportMapper.getDropdownBreddeList());
+    request.setAttribute("laengde", CarportMapper.getDropdownLaengdeList());
+    request.setAttribute("farve", CarportMapper.getDropdownFarveList());
+    request.setAttribute("traetype", CarportMapper.getDropdownTraetypeList());
+
+%>
     <div class="icon1">
     <img src="images/fladt%20tag.jpg">
 </div>
@@ -42,48 +54,37 @@ $('#autoUpdate').fadeOut('slow');
     <br>
     <br>
 </div>
+<form name="cart" action="FrontController" method="GET">
     <div class="container col-lg-5">
    <div class="form-group">
-<form>
+
     <label class="mt-4">Carport Bredde</label>
 <select class="form-control">
-    <option value="kg">Kg</option>
-    <option value="gm">Gm</option>
-    <option value="pound">Pound</option>
-    <option value="MetricTon">Metric ton</option>
-    <option value="litre">Litre</option>
-    <option value="ounce">Ounce</option>
+    <c:forEach var="bredde" items="${bredde}">
+        <option value="${bredde.carportBreddeid}">${bredde.carportBredde}
+        </option>
+    </c:forEach>
 </select>
 
 
     <label class="mt-4">Carport Længde</label>
     <select class="form-control">
-        <option value="kg">Kg</option>
-        <option value="gm">Gm</option>
-        <option value="pound">Pound</option>
-        <option value="MetricTon">Metric ton</option>
-        <option value="litre">Litre</option>
-        <option value="ounce">Ounce</option>
+        <c:forEach var="laengde" items="${laengde}">
+            <option value="${laengde.haeldningid}">${laengde.haeldning}
+            </option>
+        </c:forEach>
     </select>
 
     <label class="mt-4">Tag type og farve</label>
     <select class="form-control">
-        <option value="kg">Kg</option>
-        <option value="gm">Gm</option>
-        <option value="pound">Pound</option>
-        <option value="MetricTon">Metric ton</option>
-        <option value="litre">Litre</option>
-        <option value="ounce">Ounce</option>
     </select>
 
        <label class="mt-4">Carport farve</label>
        <select class="form-control">
-           <option value="kg">Kg</option>
-           <option value="gm">Gm</option>
-           <option value="pound">Pound</option>
-           <option value="MetricTon">Metric ton</option>
-           <option value="litre">Litre</option>
-           <option value="ounce">Ounce</option>
+           <c:forEach var="farve" items="${farve}">
+               <option value="${farve.carportFarveid}">${farve.carportFarve}
+               </option>
+           </c:forEach>
        </select>
        <br>
        <br>
@@ -171,8 +172,9 @@ $('#autoUpdate').fadeOut('slow');
        <label for="email">Email</label><br>
        <input style="width: 450px" type="email" id="email" name="email">
 
+       <input type="hidden" name="target" value="forespoergsel">
     <button class="btn btn-sm btn-primary mt-2 btn-block" type="submit">Send forespørgsel</button>
-       </form>
+
        <br>
        <br>
        <p class="text2">
@@ -183,7 +185,7 @@ $('#autoUpdate').fadeOut('slow');
         <br>
     </div>
 
-
+</form>
 
 <script type="text/javascript">
     $(document).ready(function() {
