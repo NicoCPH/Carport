@@ -10,6 +10,10 @@ public class Tag {
     int farveid;
     int haeldningid;
 
+    public Tag(int haeldning, int haeldningid) {
+        this.haeldning = haeldning;
+        this.haeldningid = haeldningid;
+    }
 
     public Tag(String type, String farve, int haeldning, int typeid, int farveid, int haeldningid) {
         this.tagmateriale = type;

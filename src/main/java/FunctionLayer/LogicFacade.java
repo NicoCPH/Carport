@@ -5,6 +5,7 @@ import DBAccess.CarportMapper;
 
 import java.util.List;
 
+
 /**
  * Her sætter vi alt ind der har noget at gøre med database, som skal bruges i vores kode.
  * @author Nicolas
@@ -22,5 +23,6 @@ public class LogicFacade {
         navn, adresse, postNummer, by, tlf, email);
 
     }
+
 
 }
