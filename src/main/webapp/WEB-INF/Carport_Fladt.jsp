@@ -1,5 +1,6 @@
 <%@ page import="DBAccess.CarportMapper" %>
-<%@ page import="FunctionLayer.ExceptionHandler" %><%--
+<%@ page import="FunctionLayer.ExceptionHandler" %>
+<%@ page import="FunctionLayer.Carport" %><%--
   Created by IntelliJ IDEA.
   User: Lange
   Date: 20/04/2020
@@ -16,6 +17,9 @@
          CarportMapper.dropdownBredde();
          CarportMapper.dropdownLaengde();
          CarportMapper.dropdownFarve();
+         CarportMapper.dropdownHaeldning();
+         CarportMapper.dropdownTagmatriale();
+         CarportMapper.dropdownTraetype();
         } catch (ExceptionHandler e) {
             e.printStackTrace();
         }
@@ -27,6 +31,8 @@
     request.setAttribute("laengde", CarportMapper.getDropdownLaengdeList());
     request.setAttribute("farve", CarportMapper.getDropdownFarveList());
     request.setAttribute("traetype", CarportMapper.getDropdownTraetypeList());
+    request.setAttribute("tagmatriale", CarportMapper.getDropdownTagmatrialeList());
+
 
 %>
     <div class="icon1">
@@ -70,13 +76,17 @@
     <label class="mt-4">Carport Længde</label>
     <select class="form-control">
         <c:forEach var="laengde" items="${laengde}">
-            <option value="${laengde.haeldningid}">${laengde.haeldning}
+            <option value="${laengde.carportLaengdeid}">${laengde.carportLaengde}
             </option>
         </c:forEach>
     </select>
 
     <label class="mt-4">Tag type og farve</label>
     <select class="form-control">
+        <c:forEach var="tagmatriale" items="${tagmatriale}">
+            <option value="${tagmatriale.typeid}">${tagmatriale.type}
+            </option>
+        </c:forEach>
     </select>
 
        <label class="mt-4">Carport farve</label>
@@ -102,32 +112,23 @@
        </p>
        <label class="mt-4">Redskabsrum bredde</label>
        <select class="form-control" >
-           <option value="kg">Kg</option>
-           <option value="gm">Gm</option>
-           <option value="pound">Pound</option>
-           <option value="MetricTon">Metric ton</option>
-           <option value="litre">Litre</option>
-           <option value="ounce">Ounce</option>
+           <c:forEach var="bredde" items="${bredde}">
+               <option value="${bredde.carportBreddeid}">${bredde.carportBredde}
+               </option>
+           </c:forEach>
        </select>
 
        <label class="mt-4">Redskabsrum Længde</label>
        <select class="form-control">
-           <option value="kg">Kg</option>
-           <option value="gm">Gm</option>
-           <option value="pound">Pound</option>
-           <option value="MetricTon">Metric ton</option>
-           <option value="litre">Litre</option>
-           <option value="ounce">Ounce</option>
+           <c:forEach var="laengde" items="${laengde}">
+               <option value="${laengde.carportLaengdeid}">${laengde.carportLaengde}
+               </option>
+           </c:forEach>
        </select>
 
        <label class="mt-4">Redskabsrum beklædnings type</label>
        <select class="form-control">
-           <option value="kg">Kg</option>
-           <option value="gm">Gm</option>
-           <option value="pound">Pound</option>
-           <option value="MetricTon">Metric ton</option>
-           <option value="litre">Litre</option>
-           <option value="ounce">Ounce</option>
+
        </select>
 
        <label class="mt-4">Redskabsrum gulv</label>
@@ -142,12 +143,10 @@
 
        <label class="mt-4">Redskabsrum position</label>
        <select class="form-control">
-           <option value="kg">Kg</option>
-           <option value="gm">Gm</option>
-           <option value="pound">Pound</option>
-           <option value="MetricTon">Metric ton</option>
-           <option value="litre">Litre</option>
-           <option value="ounce">Ounce</option>
+           <option value="kg">Højre oppe</option>
+           <option value="gm">Ventre oppe</option>
+           <option value="pound">Højre nede</option>
+           <option value="MetricTon">Ventre nede</option>
        </select>
     </div>
        <br>

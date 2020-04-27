@@ -1,10 +1,7 @@
 package DBAccess;
 
 
-import FunctionLayer.Carport;
-import FunctionLayer.ExceptionHandler;
-import FunctionLayer.Redskabsrum;
-import FunctionLayer.Tag;
+import FunctionLayer.*;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -17,33 +14,37 @@ import java.util.List;
  */
 public class CarportMapper {
 
-    private static List<Carport> dropdownBreddeList = new ArrayList<Carport>();
-    private static List<Tag> dropdownLaengdeList = new ArrayList<>();
-    private static List<Carport> dropdownFarveList = new ArrayList<>();
-    private static List<Carport> dropdownTraetypeList = new ArrayList<>();
+    private static List<Bredde> dropdownBreddeList = new ArrayList<>();
+    private static List<Laengde> dropdownLaengdeList = new ArrayList<>();
+    private static List<Farve> dropdownFarveList = new ArrayList<>();
+    private static List<Traetype> dropdownTraetypeList = new ArrayList<>();
     private static List<Tag> dropdownHaeldningList = new ArrayList<>();
-    private static List<Tag> dropdown = new ArrayList<>();
+    private static List<Tag> dropdownTagmatrialeList = new ArrayList<>();
     //private static List<Kunde> dropdownKundeList = new ArrayList<>();
 
 
-    public static List<Carport> getDropdownBreddeList() {
+    public static List<Bredde> getDropdownBreddeList() {
         return dropdownBreddeList;
     }
 
-    public static List<Tag> getDropdownLaengdeList() {
+    public static List<Laengde> getDropdownLaengdeList() {
         return dropdownLaengdeList;
     }
 
-    public static List<Carport> getDropdownFarveList() {
+    public static List<Farve> getDropdownFarveList() {
         return dropdownFarveList;
     }
 
-    public static List<Carport> getDropdownTraetypeList() {
+    public static List<Traetype> getDropdownTraetypeList() {
         return dropdownTraetypeList;
     }
 
     public static List<Tag> getDropdownHaeldningList() {
         return dropdownHaeldningList;
+    }
+
+    public static List<Tag> getDropdownTagmatrialeList() {
+        return dropdownTagmatrialeList;
     }
 
     public static void forespoergselList(int carportLaengde, int carportBredde, int carportFarve,
@@ -89,7 +90,7 @@ public class CarportMapper {
 
 }
 
-    public static void dropdownTag ()  throws ExceptionHandler{
+    public static void dropdownHaeldning ()  throws ExceptionHandler{
             if(dropdownHaeldningList == null) {
                 dropdownHaeldningList = new ArrayList<>();
                 }
@@ -109,11 +110,30 @@ public class CarportMapper {
         }
 
     }
+    public static void dropdownTagmatriale()  throws ExceptionHandler{
+        if(dropdownTagmatrialeList == null) {
+            dropdownTagmatrialeList = new ArrayList<>();
+        }
+        try {
+            Connection con = Connector.connection();
+            Statement st = con.createStatement();
+            String SQL = "SELECT * FROM carportdb.tagmateriale;";
+            ResultSet rs = st.executeQuery(SQL);
+            while (rs.next()) {
+                int idmatriale = rs.getInt("idtagmateriale");
+                String typer = rs.getString("typer");
+                dropdownTagmatrialeList.add(new Tag(typer, idmatriale));
+            }
 
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new ExceptionHandler(ex.getMessage());
+        }
+
+    }
 
 public static void dropdownBredde() throws ExceptionHandler {
     if(dropdownBreddeList == null) {
-        dropdownBreddeList = new ArrayList<Carport>();
+        dropdownBreddeList = new ArrayList<>();
     }
     try {
         Connection con = Connector.connection();
@@ -126,7 +146,7 @@ public static void dropdownBredde() throws ExceptionHandler {
 
             int carportBredde = rs3.getInt("bredde");
             int carportBreddeid = rs3.getInt("idbredder");
-            dropdownBreddeList.add(new Carport(carportBredde,
+            dropdownBreddeList.add(new Bredde(carportBredde,
                     carportBreddeid));
         }
 
@@ -139,7 +159,7 @@ public static void dropdownBredde() throws ExceptionHandler {
 
     public static void dropdownLaengde() throws ExceptionHandler {
         if(dropdownLaengdeList == null) {
-            dropdownLaengdeList = new ArrayList<Tag>();
+            dropdownLaengdeList = new ArrayList<>();
         }
         try {
             Connection con = Connector.connection();
@@ -151,7 +171,7 @@ public static void dropdownBredde() throws ExceptionHandler {
             while (rs.next()) {
                 int carportLaengde = rs.getInt("laengde");
                 int carportLaengdeid = rs.getInt("idlaengder");
-                dropdownLaengdeList.add(new Tag(carportLaengde, carportLaengdeid));
+                dropdownLaengdeList.add(new Laengde(carportLaengdeid,carportLaengde));
             }
 
         } catch (SQLException | ClassNotFoundException ex) {
@@ -163,7 +183,7 @@ public static void dropdownBredde() throws ExceptionHandler {
 
     public static void dropdownFarve() throws ExceptionHandler {
         if(dropdownFarveList == null) {
-            dropdownFarveList = new ArrayList<Carport>();
+            dropdownFarveList = new ArrayList<>();
         }
         try {
             Connection con = Connector.connection();
@@ -176,7 +196,7 @@ public static void dropdownBredde() throws ExceptionHandler {
 
                 int carportFarveid = rs.getInt("idfarver");
                 String carportFarve = rs.getString("farve");
-                dropdownFarveList.add(new Carport(carportFarve, carportFarveid));
+                dropdownFarveList.add(new Farve(carportFarve, carportFarveid));
             }
 
         } catch (SQLException | ClassNotFoundException ex) {
@@ -187,7 +207,7 @@ public static void dropdownBredde() throws ExceptionHandler {
     }
     public static void dropdownTraetype() throws ExceptionHandler {
         if(dropdownTraetypeList == null) {
-            dropdownTraetypeList = new ArrayList<Carport>();
+            dropdownTraetypeList = new ArrayList<>();
         }
         try {
             Connection con = Connector.connection();
@@ -200,7 +220,7 @@ public static void dropdownBredde() throws ExceptionHandler {
 
                 int carporttraeTypeid = rs.getInt("idtraetyper");
                 String carporttraeType = rs.getString("traetype");
-                dropdownTraetypeList.add(new Carport(carporttraeType, carporttraeTypeid));
+                dropdownTraetypeList.add(new Traetype(carporttraeTypeid, carporttraeType));
             }
 
         } catch (SQLException | ClassNotFoundException ex) {
