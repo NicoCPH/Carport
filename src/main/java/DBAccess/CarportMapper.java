@@ -52,8 +52,9 @@ public class CarportMapper {
                                          int redskabsrumslaengde, int redskabsrumBeklaedningstype, int redskabsrumGulv,
                                          String navn, String adresse, int postNummer, String by, int tlf,
                                          String email) throws ExceptionHandler {
-
+        System.out.println("ff");
     try {
+        System.out.println("Insert");
         Connection con = Connector.connection();
 
         String SQL = "INSERT INTO `carportdb`.`forespoergsel` (`carportlaengde`, `carportbredde`, `carportfarve`," +
@@ -85,7 +86,7 @@ public class CarportMapper {
 
 
     } catch (SQLException | ClassNotFoundException ex) {
-        throw new ExceptionHandler(ex.getMessage());
+      ex.getMessage();
     }
 
 }

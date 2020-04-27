@@ -17,7 +17,7 @@ public class LogicFacade {
                                          int redskabsrumslaengde, int redskabsrumBeklaedningstype, int redskabsrumGulv,
                                         String navn, String adresse, int postNummer, String by, int tlf,
                                         String email) throws ExceptionHandler {
-
+        System.out.println("ll");
         CarportMapper.forespoergselList(carportLaengde, carportBredde, carportFarve, carportTraeType, tagMateriale, tagFarve,
                 tagHaeldning, redskabsrumsbredde, redskabsrumslaengde, redskabsrumBeklaedningstype, redskabsrumGulv,
         navn, adresse, postNummer, by, tlf, email);
