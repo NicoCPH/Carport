@@ -2,47 +2,51 @@ package FunctionLayer;
 
 public class Redskabsrum {
 
-    int redskabsLaengde;
-    int redskabsBredde;
-    int beklaedningsType;
-    int gulvType;
 
-    public Redskabsrum(int redskabsLaengde, int redskabsBredde, int beklaedningsType,int gulvType) {
-        this.redskabsLaengde = redskabsLaengde;
-        this.redskabsBredde = redskabsBredde;
+    String beklaedningsType;
+    String reskabsrumGulv;
+    int beklaedningsTypeid;
+    int redskabsrumGulvid;
+
+
+    public Redskabsrum(String beklaedningsType, int beklaedningsTypeid) {
         this.beklaedningsType = beklaedningsType;
-        this.gulvType = gulvType;
+        this.beklaedningsTypeid = beklaedningsTypeid;
     }
 
-    public int getRedskabsLaengde() {
-        return redskabsLaengde;
+    public Redskabsrum(int redskabsrumGulvid, String reskabsrumGulv) {
+        this.redskabsrumGulvid = redskabsrumGulvid;
+        this.reskabsrumGulv = reskabsrumGulv;
     }
-
-    public void setRedskabsLaengde(int redskabsLaengde) {
-        this.redskabsLaengde = redskabsLaengde;
-    }
-
-    public int getRedskabsBredde() {
-        return redskabsBredde;
-    }
-
-    public void setRedskabsBredde(int redskabsBredde) {
-        this.redskabsBredde = redskabsBredde;
-    }
-
-    public int getBeklaedningsType() {
+    public String getBeklaedningsType() {
         return beklaedningsType;
     }
 
-    public void setBeklaedningsType(int beklaedningsType) {
+    public void setBeklaedningsType(String beklaedningsType) {
         this.beklaedningsType = beklaedningsType;
     }
 
-    public int getGulvType() {
-        return gulvType;
+    public String getGulvType() {
+        return reskabsrumGulv;
     }
 
-    public void setGulvType(int gulvType) {
-        this.gulvType = gulvType;
+    public void setGulvType(String gulvType) {
+        this.reskabsrumGulv = gulvType;
+    }
+
+    public int getBeklaedningsTypeid() {
+        return beklaedningsTypeid;
+    }
+
+    public void setBeklaedningsTypeid(int beklaedningsTypeid) {
+        this.beklaedningsTypeid = beklaedningsTypeid;
+    }
+
+    public int getGulvTypeid() {
+        return redskabsrumGulvid;
+    }
+
+    public void setGulvTypeid(int gulvTypeid) {
+        this.redskabsrumGulvid = gulvTypeid;
     }
 }

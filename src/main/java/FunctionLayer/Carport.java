@@ -2,48 +2,95 @@ package FunctionLayer;
 
 public class Carport {
 
-    public int bredde;
-    public int laengde;
-    public int farve;
-    public int traeType;
+    int carportBredde;
+    int carportLaengde;
+    String carportFarve;
+    String carporttraeType;
+    int carportBreddeid;
+    int carportLaengdeid;
+    int carportFarveid;
+    int carporttraeTypeid;
 
 
-    public Carport(int bredde, int laengde, int farve, int traeType) {
-        this.bredde = bredde;
-        this.laengde = laengde;
-        this.farve = farve;
-        this.traeType = traeType;
+
+    public Carport(int carportBredde, int carportLaengde, String carportFarve, String carporttraeType,
+                   int carportBreddeid, int carportLaengdeid, int carportFarveid, int carporttraeTypeid) {
+        this.carportBredde = carportBredde;
+        this.carportLaengde = carportLaengde;
+        this.carportFarve = carportFarve;
+        this.carporttraeType = carporttraeType;
+        this.carportBreddeid = carportBreddeid;
+        this.carportLaengdeid = carportLaengdeid;
+        this.carportFarveid = carportFarveid;
+        this.carporttraeTypeid = carporttraeTypeid;
     }
 
-    public int getBredde() {
-        return bredde;
+
+
+
+
+
+    public int getCarportBredde() {
+        return carportBredde;
     }
 
-    public void setBredde(int bredde) {
-        this.bredde = bredde;
+    public void setCarportBredde(int carportBredde) {
+        this.carportBredde = carportBredde;
     }
 
-    public int getLaengde() {
-        return laengde;
+    public int getCarportLaengde() {
+        return carportLaengde;
     }
 
-    public void setLaengde(int laengde) {
-        this.laengde = laengde;
+    public void setCarportLaengde(int carportLaengde) {
+        this.carportLaengde = carportLaengde;
     }
 
-    public int getFarve() {
-        return farve;
+    public String getCarportFarve() {
+        return carportFarve;
     }
 
-    public void setFarve(int farve) {
-        this.farve = farve;
+    public void setCarportFarve(String carportFarve) {
+        this.carportFarve = carportFarve;
     }
 
-    public int getTraeType() {
-        return traeType;
+    public String getCarporttraeType() {
+        return carporttraeType;
     }
 
-    public void setTraeType(int traeType) {
-        this.traeType = traeType;
+    public void setCarporttraeType(String carporttraeType) {
+        this.carporttraeType = carporttraeType;
+    }
+
+    public int getCarportBreddeid() {
+        return carportBreddeid;
+    }
+
+    public void setCarportBreddeid(int carportBreddeid) {
+        this.carportBreddeid = carportBreddeid;
+    }
+
+    public int getCarportLaengdeid() {
+        return carportLaengdeid;
+    }
+
+    public void setCarportLaengdeid(int carportLaengdeid) {
+        this.carportLaengdeid = carportLaengdeid;
+    }
+
+    public int getCarportFarveid() {
+        return carportFarveid;
+    }
+
+    public void setCarportFarveid(int carportFarveid) {
+        this.carportFarveid = carportFarveid;
+    }
+
+    public int getCarporttraeTypeid() {
+        return carporttraeTypeid;
+    }
+
+    public void setCarporttraeTypeid(int carporttraeTypeid) {
+        this.carporttraeTypeid = carporttraeTypeid;
     }
 }

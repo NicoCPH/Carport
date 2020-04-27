@@ -2,30 +2,56 @@ package FunctionLayer;
 
 public class Tag {
 
-    int type;
-    int farve;
+    String tagmateriale;
     int haeldning;
+    int tagmaterialeid;
+    int haeldningid;
 
-    public Tag(int type, int farve, int haeldning) {
-        this.type = type;
-        this.farve = farve;
+    public Tag(int haeldning, int haeldningid) {
         this.haeldning = haeldning;
+        this.haeldningid = haeldningid;
     }
 
-    public int getType() {
-        return type;
+    public Tag(String tagmateriale, int tagmaterialeid) {
+        this.tagmateriale = tagmateriale;
+        this.tagmaterialeid = tagmaterialeid;
     }
 
-    public void setType(int type) {
-        this.type = type;
+    public Tag(String type,  int haeldning, int typeid, int farveid, int haeldningid) {
+        this.tagmateriale = type;
+
+        this.haeldning = haeldning;
+        this.tagmaterialeid = typeid;
+
+        this.haeldningid = haeldningid;
     }
 
-    public int getFarve() {
-        return farve;
+
+
+
+
+    public int getHaeldningid() {
+        return haeldningid;
     }
 
-    public void setFarve(int farve) {
-        this.farve = farve;
+    public void setHaeldningid(int haeldningid) {
+        this.haeldningid = haeldningid;
+    }
+
+    public int getTypeid() {
+        return tagmaterialeid;
+    }
+
+    public void setTypeid(int typeid) {
+        this.tagmaterialeid = typeid;
+    }
+
+    public String getType() {
+        return tagmateriale;
+    }
+
+    public void setType(String type) {
+        this.tagmateriale = type;
     }
 
     public int getHaeldning() {
