@@ -119,10 +119,10 @@
     </select>
     <br>
     <br>
-    <div class="mt-4">
-    <label><input type="checkbox" name="colorCheckbox" value="check">Fravælg redskabsrum</label>
-    </div>
-    <div class="check box">
+        <div class="mt-4">
+        <label><input type ="checkbox" class="myCheckbox"  >Fravælg redskabsrum</label>
+        </div>
+        <div id="select_div">
 
     <p class="text2">
     Redskabsrum:<br>
@@ -130,21 +130,21 @@
     <br>
     <br>
     </p>
-    <label class="mt-4">Redskabsrum bredde</label>
-    <select class="form-control" name="redskabsrumsbredde">
-    <c:forEach var="bredde" items="${bredde}">
-    <option value="${bredde.carportBreddeid}">${bredde.carportBredde}
-    </option>
-    </c:forEach>
-    </select>
+        <label class="mt-4">Redskabsrum bredde</label>
+        <select class="form-control"  name="redskabsrumsbredde">
+            <c:forEach var="bredde" begin="0" end="17" items="${bredde}">
+                <option value="${bredde.carportBreddeid}">${bredde.carportBredde}
+                </option>
+            </c:forEach>
+        </select>
 
-    <label class="mt-4">Redskabsrum Længde</label>
-    <select class="form-control" name="redskabsrumslaengde">
-    <c:forEach var="laengde" items="${laengde}">
-    <option value="${laengde.carportLaengdeid}">${laengde.carportLaengde}
-    </option>
-    </c:forEach>
-    </select>
+        <label class="mt-4">Redskabsrum Længde</label>
+        <select class="form-control" name="redskabsrumslaengde">
+            <c:forEach var="laengde" begin="0" end="19" items="${laengde}">
+                <option value="${laengde.carportLaengdeid}">${laengde.carportLaengde}
+                </option>
+            </c:forEach>
+        </select>
 
     <label class="mt-4">Redskabsrum beklædnings type</label>
     <select class="form-control" name="redskabsrumbeklaedningstype">
@@ -206,12 +206,17 @@
 
 
     <script type="text/javascript">
-    $(document).ready(function() {
-    $('input[type="checkbox"]').click(function() {
-    var inputValue = $(this).attr("value");
-    $("." + inputValue).toggle();
-    });
-    });
+        $(function () {
+            $('.myCheckbox').change(function () {
+                if ($(this).is(':checked')) {
+                    $("div#select_div").hide();
+                    $("div#select_div").children().prop('disabled', true);
+                } else {
+                    $("div#select_div").show();
+                    $("div#select_div").children().prop('disabled', false);
+                }
+            });
+        });
     </script>
     </body>
     </html>

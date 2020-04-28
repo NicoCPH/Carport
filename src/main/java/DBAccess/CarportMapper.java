@@ -52,9 +52,8 @@ public class CarportMapper {
                                          int redskabsrumslaengde, int redskabsrumBeklaedningstype, int redskabsrumGulv,
                                          String navn, String adresse, int postNummer, String by, int tlf,
                                          String email) throws ExceptionHandler {
-        System.out.println("ff");
+
     try {
-        System.out.println("Insert");
         Connection con = Connector.connection();
 
         String SQL = "INSERT INTO `carportdb`.`forespoergsel` (`carportlaengde`, `carportbredde`, `carportfarve`," +
@@ -90,6 +89,42 @@ public class CarportMapper {
     }
 
 }
+    public static void forespoergselListUdenRedskabrum(int carportLaengde, int carportBredde, int carportFarve,
+                                         int carportTraeType, int tagMateriale, int tagFarve, int tagHaeldning,
+                                         String navn, String adresse, int postNummer, String by, int tlf,
+                                         String email) throws ExceptionHandler {
+
+        try {
+            Connection con = Connector.connection();
+
+            String SQL = "INSERT INTO `carportdb`.`forespoergsel` (`carportlaengde`, `carportbredde`, `carportfarve`," +
+                    " `carporttraetype`, `tagmateriale`, `tagfarve`, `taghaeldning`, `kundenavn`, `kundeadresse`," +
+                    " `kundepostnummer`, `kundeby`, `kundetlf`, `kundeemail`)" +
+                    " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+
+            PreparedStatement ps = con.prepareStatement(SQL);
+
+            ps.setInt(1, carportLaengde);
+            ps.setInt(2, carportBredde);
+            ps.setInt(3, carportFarve);
+            ps.setInt(4, carportTraeType);
+            ps.setInt(5, tagMateriale);
+            ps.setInt(6, tagFarve);
+            ps.setInt(7, tagHaeldning);
+            ps.setString(8, navn);
+            ps.setString(9, adresse);
+            ps.setInt(10, postNummer);
+            ps.setString(11, by);
+            ps.setInt(12, tlf);
+            ps.setString(13, email);
+            ps.executeUpdate();
+
+
+        } catch (SQLException | ClassNotFoundException ex) {
+            ex.getMessage();
+        }
+
+    }
 
     public static void dropdownHaeldning ()  throws ExceptionHandler{
             if(dropdownHaeldningList == null) {
