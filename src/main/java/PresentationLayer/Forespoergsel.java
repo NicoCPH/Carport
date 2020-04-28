@@ -1,8 +1,10 @@
 package PresentationLayer;
 
+import DBAccess.CarportMapper;
 import FunctionLayer.ExceptionHandler;
 import FunctionLayer.LogicFacade;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -10,34 +12,76 @@ import javax.servlet.http.HttpSession;
 public class Forespoergsel extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws ExceptionHandler {
+        try {
 
-        HttpSession session = request.getSession();
+            int carportBredde = Integer.parseInt(request.getParameter("bredde"));
 
-        int carportLaengde = (int) session.getAttribute("carportlaengde");
-        int carportBredde = (int) session.getAttribute("carportbredde");
-        int carportFarve = (int) session.getAttribute("carportfarve");
-        int carportTraeType = (int) session.getAttribute("carporttraetype");
+            int carportlaengde = Integer.parseInt(request.getParameter("carportlaengde"));
 
-        int tagMateriale = (int) session.getAttribute("tagMateriale");
-        int tagFarve = (int) session.getAttribute("tagfarve");
-        int tagHaeldning = (int) session.getAttribute("tagHaeldning");
+            int tagMatriale = Integer.parseInt(request.getParameter("tagMateriale"));
 
-        int redskabsrumsbredde = (int) session.getAttribute("redskabsrumsbredde");
-        int redskabsrumslaengde = (int) session.getAttribute("redskabsrumslaengde");
-        int redskabsrumBeklaedningstype = (int) session.getAttribute("redskabsrumbeklaedningstype");
-        int redskabsrumGulv = (int) session.getAttribute("redskabsrumGulv");
+            int carportFarve = Integer.parseInt(request.getParameter("carportfarve"));
 
-        String navn = (String) session.getAttribute("navn");
-        String adresse = (String) session.getAttribute("adresse");
-        int postNummer = (int) session.getAttribute("postNummer");
-        String by = (String) session.getAttribute("by");
-        int tlf = (int) session.getAttribute("tlf");
-        String email = (String) session.getAttribute("email");
+            int tagFarve = Integer.parseInt(request.getParameter("tagfarve"));
 
-        LogicFacade.lavForespoergsel(carportLaengde, carportBredde, carportFarve, carportTraeType, tagMateriale, tagFarve, tagHaeldning,
-                redskabsrumsbredde, redskabsrumslaengde, redskabsrumBeklaedningstype, redskabsrumGulv, navn, adresse,
-                postNummer, by, tlf, email);
+            int carportTraetype = Integer.parseInt(request.getParameter("carporttraetype"));
+            String tagHaeldning = request.getParameter("tagHaeldning");
+            String tagHaeldning1 = request.getParameter("tagHaeldning");
+            String redskabsrumBredde = request.getParameter("redskabsrumsbredde");
+            System.out.println(redskabsrumBredde);
+            String redskabsrumLaengde = request.getParameter("redskabsrumslaengde");
+            System.out.println(redskabsrumLaengde);
+            String redskabsrumbeklaedningstype = request.getParameter("redskabsrumbeklaedningstype");
+            System.out.println(redskabsrumbeklaedningstype);
+            String redskabsrumGulv = request.getParameter("redskabsrumGulv");
+            System.out.println(redskabsrumGulv);
+            String navn = request.getParameter("navn");
+            String adresse = request.getParameter("adresse");
+            int postNummer = Integer.parseInt(request.getParameter("postNummer"));
+            String by = request.getParameter("by");
+            int tlf = Integer.parseInt(request.getParameter("tlf"));
+            String email = request.getParameter("email");
 
-        return null;
+            if (redskabsrumbeklaedningstype == null && tagHaeldning == null ) {
+                LogicFacade.lavForespoergselUdenRedskabsrum(carportlaengde, carportBredde, carportFarve, carportTraetype, tagMatriale, tagFarve,
+                        8, navn, adresse, postNummer, by, tlf, email);
+                System.out.println("uden RB og TH");
+            } else if(redskabsrumbeklaedningstype == null) {
+                int TH = Integer.parseInt(tagHaeldning);
+                LogicFacade.lavForespoergselUdenRedskabsrum(carportlaengde, carportBredde, carportFarve, carportTraetype, tagMatriale, tagFarve,
+                        TH, navn, adresse, postNummer, by, tlf, email);
+                System.out.println("uden RB med TH");
+            }else if (tagHaeldning == null){
+                int RB = Integer.parseInt(redskabsrumBredde);
+                int RL = Integer.parseInt(redskabsrumLaengde);
+                int RBT = Integer.parseInt(redskabsrumbeklaedningstype);
+                int RG = Integer.parseInt(redskabsrumGulv);
+                LogicFacade.lavForespoergsel(carportlaengde, carportBredde, carportFarve, carportTraetype, tagMatriale, tagFarve,
+                        8, RB, RL, RBT, RG,
+                        navn, adresse, postNummer, by, tlf, email);
+                System.out.println("med RB og uden TH");
+            }else {
+                int RB = Integer.parseInt(redskabsrumBredde);
+                int RL = Integer.parseInt(redskabsrumLaengde);
+                int RBT = Integer.parseInt(redskabsrumbeklaedningstype);
+                int RG = Integer.parseInt(redskabsrumGulv);
+                int TH = Integer.parseInt(tagHaeldning1);
+                System.out.println("med RB og TH");
+                LogicFacade.lavForespoergsel(carportlaengde, carportBredde, carportFarve, carportTraetype, tagMatriale, tagFarve,
+                        TH, RB, RL, RBT, RG,
+                        navn, adresse, postNummer, by, tlf, email);
+            }
+
+
+
+
+    HttpSession session = request.getSession();
+    session.setAttribute("navn", navn);
+
+
+}catch (Exception ex){
+    ex.getMessage();
+}
+        return "Forespoergsel_Succes";
     }
 }

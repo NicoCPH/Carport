@@ -11,15 +11,7 @@ public class Carport {
     int carportFarveid;
     int carporttraeTypeid;
 
-    public Carport(int carportBredde, int carportBreddeid) {
-        this.carportBredde = carportBredde;
-        this.carportBreddeid = carportBreddeid;
-    }
 
-    public Carport(String carportFarve, int carportFarveid) {
-        this.carportFarve = carportFarve;
-        this.carportFarveid = carportFarveid;
-    }
 
     public Carport(int carportBredde, int carportLaengde, String carportFarve, String carporttraeType,
                    int carportBreddeid, int carportLaengdeid, int carportFarveid, int carporttraeTypeid) {
@@ -33,12 +25,7 @@ public class Carport {
         this.carporttraeTypeid = carporttraeTypeid;
     }
 
-    public Carport(int carportBreddeid, int carportLaengdeid, int carportFarveid, int carporttraeTypeid) {
-        this.carportBreddeid = carportBreddeid;
-        this.carportLaengdeid = carportLaengdeid;
-        this.carportFarveid = carportFarveid;
-        this.carporttraeTypeid = carporttraeTypeid;
-    }
+
 
 
 

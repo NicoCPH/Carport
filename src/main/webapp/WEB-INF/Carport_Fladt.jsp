@@ -1,199 +1,216 @@
-<%@ page import="DBAccess.CarportMapper" %>
-<%@ page import="FunctionLayer.ExceptionHandler" %><%--
-  Created by IntelliJ IDEA.
-  User: Lange
-  Date: 20/04/2020
-  Time: 12.31
-  To change this template use File | Settings | File Templates.
---%>
-<%@page contentType="text/html" pageEncoding="UTF-8" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@include file="../indcludes/header.inc" %>
-<%!
+    <%@ page import="DBAccess.CarportMapper" %>
+    <%@ page import="FunctionLayer.ExceptionHandler" %>
+    <%@ page import="FunctionLayer.Carport" %><%--
+    Created by IntelliJ IDEA.
+    User: Lange
+    Date: 20/04/2020
+    Time: 12.31
+    To change this template use File | Settings | File Templates.
+    --%>
+    <%@page contentType="text/html" pageEncoding="UTF-8" %>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@include file="../indcludes/header.inc" %>
+    <%!
     @Override
     public void jspInit() {
-        try {
-         CarportMapper.dropdownBredde();
-         CarportMapper.dropdownLaengde();
-         CarportMapper.dropdownFarve();
-        } catch (ExceptionHandler e) {
-            e.printStackTrace();
-        }
+    try {
+     CarportMapper.dropdownBredde();
+     CarportMapper.dropdownLaengde();
+     CarportMapper.dropdownFarve();
+     CarportMapper.dropdownTagmatriale();
+     CarportMapper.dropdownTraetype();
+    } catch (ExceptionHandler e) {
+        e.printStackTrace();
     }
-%>
+    }
+    %>
 
-<%
+    <%
     request.setAttribute("bredde", CarportMapper.getDropdownBreddeList());
     request.setAttribute("laengde", CarportMapper.getDropdownLaengdeList());
     request.setAttribute("farve", CarportMapper.getDropdownFarveList());
     request.setAttribute("traetype", CarportMapper.getDropdownTraetypeList());
+    request.setAttribute("tagmatriale", CarportMapper.getDropdownTagmatrialeList());
 
-%>
+
+    %>
     <div class="icon1">
     <img src="images/fladt%20tag.jpg">
-</div>
-<div>
+    </div>
+    <div>
     <p class="text2 uppercase">
-        QUICK-BYG TILBUD - CARPORT MED FLADT TAG<br>
+    QUICK-BYG TILBUD - CARPORT MED FLADT TAG<br>
     </p>
     <p class="text2">
-        <br>
-        Med et specialudviklet computerprogram kan vi lynhurtigt beregne prisen og udskrive en skitsetegning på en carport indenfor vores standardprogram, der tilpasses dine specifikke ønsker.
-        <br><br>
-        Tilbud og skitsetegning fremsendes med post hurtigst muligt.
-        Ved bestilling medfølger standardbyggevejledning.
-        <br><br>
-        Udfyld nedenstående omhyggeligt og klik på "Bestil tilbud"
-        Felter markeret * SKAL udfyldes!
-        <br>
-        <br>
-        <br>
-        Ønsket carport mål:
+    <br>
+    Med et specialudviklet computerprogram kan vi lynhurtigt beregne prisen og udskrive en skitsetegning på en carport indenfor vores standardprogram, der tilpasses dine specifikke ønsker.
+    <br><br>
+    Tilbud og skitsetegning fremsendes med post hurtigst muligt.
+    Ved bestilling medfølger standardbyggevejledning.
+    <br><br>
+    Udfyld nedenstående omhyggeligt og klik på "Bestil tilbud"
+    Felter markeret * SKAL udfyldes!
+    <br>
+    <br>
+    <br>
+    Ønsket carport mål:
     </p>
     <br>
     <br>
     <br>
-</div>
-<form name="cart" action="FrontController" method="GET">
+    </div>
+
+
     <div class="container col-lg-5">
-   <div class="form-group">
-
-    <label class="mt-4">Carport Bredde</label>
-<select class="form-control">
-    <c:forEach var="bredde" items="${bredde}">
-        <option value="${bredde.carportBreddeid}">${bredde.carportBredde}
-        </option>
-    </c:forEach>
-</select>
-
+    <div>
+    <form name="forespoergsel" action="FrontController" method="POST">
+       <label class="mt-4">Carport Bredde</label>
+       <select class="form-control" name="bredde">
+           <c:forEach var="bredde" items="${bredde}">
+               <option value="${bredde.carportBreddeid}">${bredde.carportBredde}
+               </option>
+           </c:forEach>
+       </select>
 
     <label class="mt-4">Carport Længde</label>
-    <select class="form-control">
-        <c:forEach var="laengde" items="${laengde}">
-            <option value="${laengde.haeldningid}">${laengde.haeldning}
-            </option>
-        </c:forEach>
+    <select class="form-control" name="carportlaengde">
+    <c:forEach var="laengde" items="${laengde}">
+        <option value="${laengde.carportLaengdeid}">${laengde.carportLaengde}
+        </option>
+    </c:forEach>
     </select>
 
-    <label class="mt-4">Tag type og farve</label>
-    <select class="form-control">
+    <label class="mt-4">Tag Type</label>
+    <select class="form-control" name="tagMateriale">
+    <c:forEach var="tagmatriale" items="${tagmatriale}">
+        <option value="${tagmatriale.typeid}">${tagmatriale.type}
+        </option>
+    </c:forEach>
     </select>
-
-       <label class="mt-4">Carport farve</label>
-       <select class="form-control">
+       <label class="mt-4">Tag Farve</label>
+       <select class="form-control" name="tagfarve">
            <c:forEach var="farve" items="${farve}">
                <option value="${farve.carportFarveid}">${farve.carportFarve}
                </option>
            </c:forEach>
        </select>
-       <br>
-       <br>
+
+    <label class="mt-4">Carport Farve</label>
+    <select class="form-control" name="carportfarve">
+       <c:forEach var="farve" items="${farve}">
+           <option value="${farve.carportFarveid}">${farve.carportFarve}
+           </option>
+       </c:forEach>
+    </select>
+         <label class="mt-4">Carport Trætype</label>
+        <select class="form-control" name="carporttraetype">
+            <c:forEach var="traetype" items="${traetype}">
+                <option value="${traetype.carporttraeTypeid}">${traetype.carporttraeType}
+                </option>
+            </c:forEach>
+        </select>
+    <br>
+    <br>
+
 
     <div class="mt-4">
-        <label><input type="checkbox" name="colorCheckbox" value="check">Fravælg redskabsrum</label>
+    <label><input type ="checkbox" class="myCheckbox"  >Fravælg redskabsrum</label>
     </div>
-    <div class="check box">
+    <div id="select_div">
 
-       <p class="text2">
-           Redskabsrum:<br>
-           NB! Der skal beregnes 15 cm tagudhæng på hver side af redskabsrummet*
-           <br>
-           <br>
-       </p>
-       <label class="mt-4">Redskabsrum bredde</label>
-       <select class="form-control" >
-           <option value="kg">Kg</option>
-           <option value="gm">Gm</option>
-           <option value="pound">Pound</option>
-           <option value="MetricTon">Metric ton</option>
-           <option value="litre">Litre</option>
-           <option value="ounce">Ounce</option>
-       </select>
+    <p class="text2">
+       Redskabsrum:<br>
+       NB! Der skal beregnes 15 cm tagudhæng på hver side af redskabsrummet*
+       <br>
+       <br>
+    </p>
+    <label class="mt-4">Redskabsrum bredde</label>
+    <select class="form-control"  name="redskabsrumsbredde">
+       <c:forEach var="bredde" begin="0" end="17" items="${bredde}">
+           <option value="${bredde.carportBreddeid}">${bredde.carportBredde}
+           </option>
+       </c:forEach>
+    </select>
 
-       <label class="mt-4">Redskabsrum Længde</label>
-       <select class="form-control">
-           <option value="kg">Kg</option>
-           <option value="gm">Gm</option>
-           <option value="pound">Pound</option>
-           <option value="MetricTon">Metric ton</option>
-           <option value="litre">Litre</option>
-           <option value="ounce">Ounce</option>
-       </select>
+    <label class="mt-4">Redskabsrum Længde</label>
+    <select class="form-control" name="redskabsrumslaengde">
+       <c:forEach var="laengde" begin="0" end="19" items="${laengde}">
+           <option value="${laengde.carportLaengdeid}">${laengde.carportLaengde}
+           </option>
+       </c:forEach>
+    </select>
 
-       <label class="mt-4">Redskabsrum beklædnings type</label>
-       <select class="form-control">
-           <option value="kg">Kg</option>
-           <option value="gm">Gm</option>
-           <option value="pound">Pound</option>
-           <option value="MetricTon">Metric ton</option>
-           <option value="litre">Litre</option>
-           <option value="ounce">Ounce</option>
-       </select>
+    <label class="mt-4">Redskabsrum beklædnings type</label>
+    <select class="form-control" name="redskabsrumbeklaedningstype">
+       <c:forEach var="traetype" items="${traetype}">
+           <option value="${traetype.carporttraeTypeid}">${traetype.carporttraeType}
+           </option>
+       </c:forEach>
+    </select>
 
-       <label class="mt-4">Redskabsrum gulv</label>
-       <select class="form-control">
-           <option value="kg">Kg</option>
-           <option value="gm">Gm</option>
-           <option value="pound">Pound</option>
-           <option value="MetricTon">Metric ton</option>
-           <option value="litre">Litre</option>
-           <option value="ounce">Ounce</option>
-       </select>
+    <label class="mt-4">Redskabsrum gulv</label>
+    <select class="form-control" name="redskabsrumGulv">
+       <c:forEach var="traetype" items="${traetype}">
+           <option value="${traetype.carporttraeTypeid}">${traetype.carporttraeType}
+           </option>
+       </c:forEach>
+    </select>
 
-       <label class="mt-4">Redskabsrum position</label>
-       <select class="form-control">
-           <option value="kg">Kg</option>
-           <option value="gm">Gm</option>
-           <option value="pound">Pound</option>
-           <option value="MetricTon">Metric ton</option>
-           <option value="litre">Litre</option>
-           <option value="ounce">Ounce</option>
-       </select>
+    <label class="mt-4">Redskabsrum position</label>
+    <select class="form-control">
+       <option value="kg">Højre oppe</option>
+       <option value="gm">Ventre oppe</option>
+       <option value="pound">Højre nede</option>
+       <option value="MetricTon">Ventre nede</option>
+    </select>
     </div>
-       <br>
-       <br>
-       <br>
-       <br>
-       <label for="navn">Navn:</label><br>
-       <input style="width: 450px" type="text" id="navn" name="fname"><br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <label for="navn">Navn:</label><br>
+    <input style="width: 450px" type="text" id="navn" name="navn"><br>
 
-       <label for="adresse">Adresse:</label><br>
-       <input style="width: 450px" type="text" id="adresse" name="adresse"><br>
+    <label for="adresse">Adresse:</label><br>
+    <input style="width: 450px" type="text" id="adresse" name="adresse"><br>
 
-       <label for="pnr">Postnummer:</label><br>
-       <input style="width: 450px" type="text" id="pnr" name="pnr"><br>
+    <label for="pnr">Postnummer:</label><br>
+    <input style="width: 450px" type="text" id="pnr" name="postNummer"><br>
 
-       <label for="by">By:</label><br>
-       <input style="width: 450px" type="text" id="by" name="by"><br>
+    <label for="by">By:</label><br>
+    <input style="width: 450px" type="text" id="by" name="by"><br>
 
-       <label for="tlf">Telefon</label><br>
-       <input style="width: 450px" type="text" id="tlf" name="tlf"><br>
+    <label for="tlf">Telefon</label><br>
+    <input style="width: 450px" type="text" id="tlf" name="tlf"><br>
 
-       <label for="email">Email</label><br>
-       <input style="width: 450px" type="email" id="email" name="email">
-
+    <label for="email">Email</label><br>
+    <input style="width: 450px" type="email" id="email" name="email">
        <input type="hidden" name="target" value="forespoergsel">
-    <button class="btn btn-sm btn-primary mt-2 btn-block" type="submit">Send forespørgsel</button>
+        <button class="btn btn-sm btn-primary mt-2 btn-block" type="submit">Send forespørgsel</button>
+    </form>
+    <br>
+    <br>
+    <p class="text2">
+       Evt. bemærkninger<br>
+       * Hvis du f.eks. har valgt en carport med målene 240x360 cm kan redskabsrummet maksimalt måle 210x330 cm.</p>
 
-       <br>
-       <br>
-       <p class="text2">
-           Evt. bemærkninger<br>
-           * Hvis du f.eks. har valgt en carport med målene 240x360 cm kan redskabsrummet maksimalt måle 210x330 cm.</p>
-
-   </div>
-        <br>
+    </div>
+    <br>
     </div>
 
-</form>
 
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('input[type="checkbox"]').click(function() {
-            var inputValue = $(this).attr("value");
-            $("." + inputValue).toggle();
+    <script type="text/javascript">
+        $(function () {
+            $('.myCheckbox').change(function () {
+                if ($(this).is(':checked')) {
+                    $("div#select_div").hide();
+                    $("div#select_div").children().prop('disabled', true);
+                } else {
+                    $("div#select_div").show();
+                    $("div#select_div").children().prop('disabled', false);
+                }
+            });
         });
-    });
-</script>
-</body>
-</html>
+    </script>
+    </body>
+    </html>

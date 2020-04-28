@@ -2,50 +2,22 @@ package FunctionLayer;
 
 public class Redskabsrum {
 
-    int redskabsrumLaengde;
-    int redskabsrumBredde;
+
     String beklaedningsType;
     String reskabsrumGulv;
-    int redskabsrumLaengdeid;
-    int reskabsrumsBreddeid;
     int beklaedningsTypeid;
     int redskabsrumGulvid;
 
-    public Redskabsrum(int redskabsrumLaengde, int redskabsrumBredde, String beklaedningsType, String gulvType,
-                       int redskabsrumLaengdeid, int reskabsrumsBreddeid, int beklaedningsTypeid, int gulvTypeid) {
-        this.redskabsrumLaengde = redskabsrumLaengde;
-        this.redskabsrumBredde = redskabsrumBredde;
+
+    public Redskabsrum(String beklaedningsType, int beklaedningsTypeid) {
         this.beklaedningsType = beklaedningsType;
-        this.reskabsrumGulv = gulvType;
-        this.redskabsrumLaengdeid = redskabsrumLaengdeid;
-        this.reskabsrumsBreddeid = reskabsrumsBreddeid;
         this.beklaedningsTypeid = beklaedningsTypeid;
-        this.redskabsrumGulvid = gulvTypeid;
     }
 
-    public Redskabsrum(int redskabsrumLaengdeid, int reskabsrumsBreddeid, int beklaedningsTypeid, int gulvTypeid) {
-        this.redskabsrumLaengdeid = redskabsrumLaengdeid;
-        this.reskabsrumsBreddeid = reskabsrumsBreddeid;
-        this.beklaedningsTypeid = beklaedningsTypeid;
-        this.redskabsrumGulvid = gulvTypeid;
+    public Redskabsrum(int redskabsrumGulvid, String reskabsrumGulv) {
+        this.redskabsrumGulvid = redskabsrumGulvid;
+        this.reskabsrumGulv = reskabsrumGulv;
     }
-
-    public int getRedskabsrumLaengde() {
-        return redskabsrumLaengde;
-    }
-
-    public void setRedskabsrumLaengde(int redskabsrumLaengde) {
-        this.redskabsrumLaengde = redskabsrumLaengde;
-    }
-
-    public int getRedskabsrumBredde() {
-        return redskabsrumBredde;
-    }
-
-    public void setRedskabsrumBredde(int redskabsrumBredde) {
-        this.redskabsrumBredde = redskabsrumBredde;
-    }
-
     public String getBeklaedningsType() {
         return beklaedningsType;
     }
@@ -60,22 +32,6 @@ public class Redskabsrum {
 
     public void setGulvType(String gulvType) {
         this.reskabsrumGulv = gulvType;
-    }
-
-    public int getRedskabsrumLaengdeid() {
-        return redskabsrumLaengdeid;
-    }
-
-    public void setRedskabsrumLaengdeid(int redskabsrumLaengdeid) {
-        this.redskabsrumLaengdeid = redskabsrumLaengdeid;
-    }
-
-    public int getReskabsrumsBreddeid() {
-        return reskabsrumsBreddeid;
-    }
-
-    public void setReskabsrumsBreddeid(int reskabsrumsBreddeid) {
-        this.reskabsrumsBreddeid = reskabsrumsBreddeid;
     }
 
     public int getBeklaedningsTypeid() {
