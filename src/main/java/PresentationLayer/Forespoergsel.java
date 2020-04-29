@@ -1,10 +1,10 @@
 package PresentationLayer;
 
 import DBAccess.CarportMapper;
+import FunctionLayer.Carport_Udregner;
 import FunctionLayer.ExceptionHandler;
 import FunctionLayer.LogicFacade;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -15,20 +15,22 @@ public class Forespoergsel extends Command {
         try {
             System.out.println("hhh");
             int carportBredde = Integer.parseInt(request.getParameter("bredde"));
-            System.out.println(carportBredde);
+            int bredde_cm = CarportMapper.getDropdownBreddeList().get(carportBredde).getCarportBredde();
             int carportlaengde = Integer.parseInt(request.getParameter("carportlaengde"));
-            System.out.println(carportlaengde);
+            int langde_cm = CarportMapper.getDropdownLaengdeList().get(carportlaengde).getCarportLaengde();
+
             int tagMatriale = Integer.parseInt(request.getParameter("tagMateriale"));
-            System.out.println(tagMatriale);
+            System.out.println(Carport_Udregner.udregning_Pris_UdenRedskab_Fladtag(langde_cm,bredde_cm));
             int carportFarve = Integer.parseInt(request.getParameter("carportfarve"));
-            System.out.println(carportFarve);
+
             int carportTraetype = Integer.parseInt(request.getParameter("carporttraetype"));
             String tagHaeldning = request.getParameter("tagHaeldning");
             String tagHaeldning1 = request.getParameter("tagHaeldning");
             String redskabsrumBredde = request.getParameter("redskabsrumsbredde");
-            System.out.println(redskabsrumBredde);
+            int Rbredde_cm = CarportMapper.getDropdownBreddeList().get(Integer.parseInt(redskabsrumBredde)).getCarportBredde();
             String redskabsrumLaengde = request.getParameter("redskabsrumslaengde");
-            System.out.println(redskabsrumLaengde);
+            int Rlangde_cm = CarportMapper.getDropdownLaengdeList().get(Integer.parseInt(redskabsrumLaengde)).getCarportLaengde();
+            System.out.println(Carport_Udregner.udregning_Pris_MedRedskab_Fladtag(langde_cm, bredde_cm ,Rlangde_cm, Rbredde_cm));
             String redskabsrumbeklaedningstype = request.getParameter("redskabsrumbeklaedningstype");
             System.out.println(redskabsrumbeklaedningstype);
             String redskabsrumGulv = request.getParameter("redskabsrumGulv");
@@ -40,6 +42,8 @@ public class Forespoergsel extends Command {
             String by = request.getParameter("by");
             int tlf = Integer.parseInt(request.getParameter("tlf"));
             String email = request.getParameter("email");
+
+
 
             if (redskabsrumbeklaedningstype == null && tagHaeldning == null ) {
                 LogicFacade.lavForespoergselUdenRedskabsrum(carportlaengde, carportBredde, carportFarve, carportTraetype, tagMatriale,
@@ -70,6 +74,7 @@ public class Forespoergsel extends Command {
                         TH, RB, RL, RBT, RG,
                         navn, adresse, postNummer, by, tlf, email);
             }
+
 
 
 
