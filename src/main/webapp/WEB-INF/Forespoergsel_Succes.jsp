@@ -7,6 +7,8 @@ Tak for din forespørgsel ${sessionScope.navn}, vi vil vende tilbage snarest!
     Der er sendt en email til: ${sessionScope.email}
     <br>
     Tilbud ${sessionScope.pris}
+    <br>
+    <a href="FrontController?target=Carport_Tegning">Se tegning af carport</a>
 
 </p>
 </body>
