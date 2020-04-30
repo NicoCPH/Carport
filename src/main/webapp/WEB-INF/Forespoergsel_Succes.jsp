@@ -5,6 +5,9 @@
 Tak for din forespørgsel ${sessionScope.navn}, vi vil vende tilbage snarest!
     <br>
     Der er sendt en email til: ${sessionScope.email}
+    <br>
+    Tilbud ${sessionScope.pris}
+
 </p>
 </body>
 </html>
