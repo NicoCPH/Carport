@@ -1,6 +1,6 @@
     <%@ page import="DBAccess.CarportMapper" %>
     <%@ page import="FunctionLayer.ExceptionHandler" %>
-    <%@ page import="FunctionLayer.Carport" %><%--
+    <%@ page import="FunctionLayer.Objekter.Carport" %><%--
     Created by IntelliJ IDEA.
     User: Lange
     Date: 20/04/2020
@@ -19,21 +19,24 @@
      CarportMapper.dropdownFarve();
      CarportMapper.dropdownTagmatriale();
      CarportMapper.dropdownTraetype();
+     CarportMapper.dropdownGulv();
     } catch (ExceptionHandler e) {
         e.printStackTrace();
     }
     }
     %>
 
-    <%
-    request.setAttribute("bredde", CarportMapper.getDropdownBreddeList());
-    request.setAttribute("laengde", CarportMapper.getDropdownLaengdeList());
-    request.setAttribute("farve", CarportMapper.getDropdownFarveList());
-    request.setAttribute("traetype", CarportMapper.getDropdownTraetypeList());
-    request.setAttribute("tagmatriale", CarportMapper.getDropdownTagmatrialeList());
+        <%
+
+        request.setAttribute("gulv", CarportMapper.getDropdownGulvList());
+        request.setAttribute("bredde", CarportMapper.getDropdownBreddeList());
+        request.setAttribute("laengde", CarportMapper.getDropdownLaengdeList());
+        request.setAttribute("farve", CarportMapper.getDropdownFarveList());
+        request.setAttribute("traetype", CarportMapper.getDropdownTraetypeList());
+        request.setAttribute("tagmatriale", CarportMapper.getDropdownTagmatrialeList());
 
 
-    %>
+        %>
     <div class="icon1">
     <img src="images/fladt%20tag.jpg">
     </div>
@@ -64,48 +67,41 @@
     <div class="container col-lg-5">
     <div>
     <form name="forespoergsel" action="FrontController" method="POST">
-       <label class="mt-4">Carport Bredde</label>
+       <label class="mt-4" style="background-color: white;color: #5f5f5f; font-weight: bold">Carport Bredde</label>
        <select class="form-control" name="bredde">
            <c:forEach var="bredde" items="${bredde}">
-               <option value="${bredde.carportBreddeid}">${bredde.carportBredde}
+               <option value="${bredde.value.carportBreddeid}">${bredde.value.carportBredde}
                </option>
            </c:forEach>
        </select>
 
-    <label class="mt-4">Carport Længde</label>
+    <label class="mt-4" style="background-color: white;color: #5f5f5f; font-weight: bold">Carport Længde</label>
     <select class="form-control" name="carportlaengde">
     <c:forEach var="laengde" items="${laengde}">
-        <option value="${laengde.carportLaengdeid}">${laengde.carportLaengde}
+        <option value="${laengde.value.carportLaengdeid}">${laengde.value.carportLaengde}
         </option>
     </c:forEach>
     </select>
 
-    <label class="mt-4">Tag Type</label>
+    <label class="mt-4" style="background-color: white;color: #5f5f5f; font-weight: bold">Tag Type</label>
     <select class="form-control" name="tagMateriale">
-    <c:forEach var="tagmatriale" items="${tagmatriale}">
-        <option value="${tagmatriale.typeid}">${tagmatriale.type}
+    <c:forEach var="tagmatriale" begin="15" end="15" items="${tagmatriale}">
+        <option value="${tagmatriale.value.typeid}">${tagmatriale.value.type}
         </option>
     </c:forEach>
     </select>
-       <label class="mt-4">Tag Farve</label>
-       <select class="form-control" name="tagfarve">
-           <c:forEach var="farve" items="${farve}">
-               <option value="${farve.carportFarveid}">${farve.carportFarve}
-               </option>
-           </c:forEach>
-       </select>
 
-    <label class="mt-4">Carport Farve</label>
+    <label class="mt-4" style="background-color: white;color: #5f5f5f; font-weight: bold">Carport Farve</label>
     <select class="form-control" name="carportfarve">
        <c:forEach var="farve" items="${farve}">
-           <option value="${farve.carportFarveid}">${farve.carportFarve}
+           <option value="${farve.value.carportFarveid}">${farve.value.carportFarve}
            </option>
        </c:forEach>
     </select>
-         <label class="mt-4">Carport Trætype</label>
+         <label class="mt-4" style="background-color: white;color: #5f5f5f; font-weight: bold">Carport Trætype</label>
         <select class="form-control" name="carporttraetype">
             <c:forEach var="traetype" items="${traetype}">
-                <option value="${traetype.carporttraeTypeid}">${traetype.carporttraeType}
+                <option value="${traetype.value.carporttraeTypeid}">${traetype.value.carporttraeType}
                 </option>
             </c:forEach>
         </select>
@@ -124,39 +120,39 @@
        <br>
        <br>
     </p>
-    <label class="mt-4">Redskabsrum bredde</label>
-    <select class="form-control"  name="redskabsrumsbredde">
-       <c:forEach var="bredde" begin="0" end="17" items="${bredde}">
-           <option value="${bredde.carportBreddeid}">${bredde.carportBredde}
-           </option>
-       </c:forEach>
-    </select>
+        <label class="mt-4" style="background-color: white;color: #5f5f5f; font-weight: bold">Redskabsrum bredde</label>
+        <select class="form-control"  name="redskabsrumsbredde">
+            <c:forEach var="bredde" begin="0" end="17" items="${bredde}">
+                <option value="${bredde.value.carportBreddeid}">${bredde.value.carportBredde}
+                </option>
+            </c:forEach>
+        </select>
 
-    <label class="mt-4">Redskabsrum Længde</label>
-    <select class="form-control" name="redskabsrumslaengde">
-       <c:forEach var="laengde" begin="0" end="19" items="${laengde}">
-           <option value="${laengde.carportLaengdeid}">${laengde.carportLaengde}
-           </option>
-       </c:forEach>
-    </select>
+        <label class="mt-4" style="background-color: white;color: #5f5f5f; font-weight: bold">Redskabsrum Længde</label>
+        <select class="form-control" name="redskabsrumslaengde">
+            <c:forEach var="laengde" begin="0" end="17" items="${laengde}">
+                <option value="${laengde.value.carportLaengdeid}">${laengde.value.carportLaengde}
+                </option>
+            </c:forEach>
+        </select>
 
-    <label class="mt-4">Redskabsrum beklædnings type</label>
-    <select class="form-control" name="redskabsrumbeklaedningstype">
-       <c:forEach var="traetype" items="${traetype}">
-           <option value="${traetype.carporttraeTypeid}">${traetype.carporttraeType}
-           </option>
-       </c:forEach>
-    </select>
+        <label class="mt-4" style="background-color: white;color: #5f5f5f; font-weight: bold">Redskabsrum beklædnings type</label>
+        <select class="form-control" name="redskabsrumbeklaedningstype">
+            <c:forEach var="traetype" items="${traetype}">
+                <option value="${traetype.value.carporttraeTypeid}">${traetype.value.carporttraeType}
+                </option>
+            </c:forEach>
+        </select>
 
-    <label class="mt-4">Redskabsrum gulv</label>
-    <select class="form-control" name="redskabsrumGulv">
-       <c:forEach var="traetype" items="${traetype}">
-           <option value="${traetype.carporttraeTypeid}">${traetype.carporttraeType}
-           </option>
-       </c:forEach>
-    </select>
+        <label class="mt-4" style="background-color: white;color: #5f5f5f; font-weight: bold">Redskabsrum gulv</label>
+        <select class="form-control" name="redskabsrumGulv">
+            <c:forEach var="gulv" items="${gulv}">
+                <option value="${gulv.value.idGulv}">${gulv.value.gulv}
+                </option>
+            </c:forEach>
+        </select>
 
-    <label class="mt-4">Redskabsrum position</label>
+    <label class="mt-4" style="background-color: white;color: #5f5f5f; font-weight: bold">Redskabsrum position</label>
     <select class="form-control">
        <option value="kg">Højre oppe</option>
        <option value="gm">Ventre oppe</option>
