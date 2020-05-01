@@ -1,4 +1,4 @@
-package MetodeBehandler;
+package FunctionLayer.MetodeBehandler;
 
 import DBAccess.CarportMapper;
 import FunctionLayer.ExceptionHandler;

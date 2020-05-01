@@ -2,7 +2,7 @@ package PresentationLayer;
 
 import DBAccess.CarportMapper;
 import FunctionLayer.ExceptionHandler;
-import MetodeBehandler.Carport_Behandler;
+import FunctionLayer.MetodeBehandler.Carport_Behandler;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -39,7 +39,7 @@ public class Forespoergsel extends Command {
             Carport_Behandler.carportBehandler(carportBredde, carportlaengde, redskabsrumBredde, redskabsrumLaengde, tagHaeldning,
                     redskabsrumbeklaedningstype,
                     redskabsrumGulv, carportFarve, carportTraetype, tagMatriale, tlf, postNummer, by, navn, adresse, email);
-                Carport_Behandler.konstruktion_beskrivelse(bredde_cm, langde_cm, redskabsrumBredde, redskabsrumLaengde,
+            Carport_Behandler.konstruktion_beskrivelse(bredde_cm, langde_cm, redskabsrumBredde, redskabsrumLaengde,
                         tagHaeldning, request, tagMatriale, redskabsrumbeklaedningstype, redskabsrumGulv);
 
 
