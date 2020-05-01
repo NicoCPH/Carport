@@ -21,6 +21,6 @@ LOCK TABLES `users` WRITE;
 INSERT INTO `users` VALUES 
 (1,'jens@somewhere.com','jensen','customer'),
 (2,'ken@somewhere.com','kensen','customer'),
-(3,'robin@somewhere.com','batman','employee');
+(3,'robin@somewhere.com','batman','medarbejder');
 UNLOCK TABLES;
 
