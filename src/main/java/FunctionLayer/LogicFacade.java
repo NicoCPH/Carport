@@ -2,8 +2,7 @@ package FunctionLayer;
 
 
 import DBAccess.CarportMapper;
-
-import java.util.List;
+import DBAccess.MedarbejderMapper;
 
 
 /**
@@ -32,5 +31,15 @@ public class LogicFacade {
         CarportMapper.forespoergselListUdenRedskabrum(carportLaengde, carportBredde, carportFarve, carportTraeType, tagMateriale,
                 tagHaeldning, navn, adresse, postNummer, by, tlf, email);
 
+    }
+
+    public static Medarbejder login(String email, String password ) throws ExceptionHandler {
+        return MedarbejderMapper.login( email, password );
+    }
+
+    public static Medarbejder createEmployee(String navn, String password, String email) throws ExceptionHandler {
+        Medarbejder user = new Medarbejder(navn, password, email);
+        MedarbejderMapper.createEmployee( user );
+        return user;
     }
 }
