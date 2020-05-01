@@ -18,9 +18,9 @@ public class Carport_Tegning extends Command {
         svg.addRect(150,32,10,10); // stolpe
         svg.addRect(400,32,10,10); // stolpe
         svg.addRect(650,32,10,10); // stolpe
-        svg.addRect(150,560,10,10); // stolpe
-        svg.addRect(400,560,10,10); // stolpe
-        svg.addRect(650,560,10,10); // stolpe
+        svg.addRect(150,562,10,10); // stolpe
+        svg.addRect(400,562,10,10); // stolpe
+        svg.addRect(650,562,10,10); // stolpe
 
         svg.addRect(0,0,0,0); // spær
         svg.addRect(0,0,0,0); // spær
