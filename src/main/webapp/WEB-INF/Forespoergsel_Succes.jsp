@@ -6,9 +6,17 @@ Tak for din forespørgsel ${sessionScope.navn}, vi vil vende tilbage snarest!
     <br>
     Der er sendt en email til: ${sessionScope.email}
     <br>
-    Tilbud ${sessionScope.pris}
     <br>
     <a href="FrontController?target=Carport_Tegning">Se tegning af carport</a>
+
+    <br>
+    <br>
+    <br>
+<div class="container col-lg-5" style="border: 1px solid black; background-color: lightgray;color: black; font-weight: bold; font-size: 15px">
+    Konstruktions Beskrivelse:<br>
+        ${sessionScope.beskrivelse}<br><br>
+    Dit Tilbud er: ${sessionScope.pris}
+</div>
 
 </p>
 </body>
