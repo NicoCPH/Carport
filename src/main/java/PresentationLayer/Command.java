@@ -16,6 +16,8 @@ abstract class Command {
         commands.put("Carport_Fladt", new Carport_Fladt());
         commands.put( "redirect", new Redirect() );
         commands.put( "Forespoergsel_Succes", new Succes() );
+        commands.put( "Forside_Kunde", new Forside_Kunde() );
+        commands.put("Forside_Saelger", new Forside_Saelger() );
     }
 
     static Command from( HttpServletRequest request ) {

@@ -1,6 +1,6 @@
     <%@ page import="DBAccess.CarportMapper" %>
     <%@ page import="FunctionLayer.ExceptionHandler" %>
-    <%@ page import="FunctionLayer.Carport" %><%--
+    <%@ page import="FunctionLayer.Objekter.Carport" %><%--
     Created by IntelliJ IDEA.
     User: Lange
     Date: 20/04/2020

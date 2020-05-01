@@ -2,11 +2,10 @@ package DBAccess;
 
 
 import FunctionLayer.*;
+import FunctionLayer.Objekter.*;
 
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
