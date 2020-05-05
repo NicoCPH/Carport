@@ -36,6 +36,7 @@ public class Carport_Tegning extends Command {
         svg.addKryds(39,39 ,745, 565); // kryds linje
         svg.addKryds(745,39 ,39, 565); // kryds linje
 
+
         request.setAttribute("carporttegning", svg.toString());
         return "Carport_Tegning";
     }

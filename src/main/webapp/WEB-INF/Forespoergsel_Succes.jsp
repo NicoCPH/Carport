@@ -9,6 +9,7 @@ Tak for din forespørgsel ${sessionScope.navn}, vi vil vende tilbage snarest!
     <br>
     <a href="FrontController?target=Carport_Tegning">Se tegning af carport</a>
 
+    ${requestScope.carporttegning}
     <br>
     <br>
     <br>

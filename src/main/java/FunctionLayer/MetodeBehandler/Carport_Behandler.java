@@ -2,7 +2,7 @@ package FunctionLayer.MetodeBehandler;
 
 import DBAccess.CarportMapper;
 import FunctionLayer.ExceptionHandler;
-import FunctionLayer.LogicFacade;
+import FunctionLayer.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 public class Carport_Behandler {
 
     public static void carportBehandler(int bredde_cm, int laengde_cm, String rBredde, String rLaengde, String tagHaeldning,
-                                        String redskabsrumbeklaedningstype, String redskabsrumGulv, int carportFarve, int carportTraetype, int  tagMatriale,
+                                        String redskabsrumbeklaedningstype, String redskabsrumGulv, int carportFarve, int carportTraetype, int tagMatriale,
                                         int tlf, int postNummer, String by, String navn, String adresse, String email) throws ExceptionHandler {
 
         if (redskabsrumbeklaedningstype == null && tagHaeldning == null ) {

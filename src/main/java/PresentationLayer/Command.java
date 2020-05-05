@@ -1,9 +1,10 @@
 package PresentationLayer;
 
 import FunctionLayer.ExceptionHandler;
-import java.util.HashMap;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
 
 abstract class Command {
 
@@ -16,11 +17,10 @@ abstract class Command {
         commands.put("Carport_Fladt", new Carport_Fladt());
         commands.put( "redirect", new Redirect() );
         commands.put( "Forespoergsel_Succes", new Succes() );
-
         commands.put( "Carport_Tegning", new Carport_Tegning() );
-
         commands.put( "Forside_Kunde", new Forside_Kunde() );
         commands.put("Forside_Saelger", new Forside_Saelger() );
+        commands.put("Vis_forespoergsel", new Vis_forespoergsel() );
 
     }
 

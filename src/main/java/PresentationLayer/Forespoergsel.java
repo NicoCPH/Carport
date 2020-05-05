@@ -3,6 +3,8 @@ package PresentationLayer;
 import DBAccess.CarportMapper;
 import FunctionLayer.ExceptionHandler;
 import FunctionLayer.MetodeBehandler.Carport_Behandler;
+import FunctionLayer.MetodeBehandler.Tegning_Behandler;
+import FunctionLayer.Svg;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -28,13 +30,13 @@ public class Forespoergsel extends Command {
             String redskabsrumGulv = request.getParameter("redskabsrumGulv");
 
 
+
             String navn = request.getParameter("navn");
             String adresse = request.getParameter("adresse");
             int postNummer = Integer.parseInt(request.getParameter("postNummer"));
             String by = request.getParameter("by");
             int tlf = Integer.parseInt(request.getParameter("tlf"));
             String email = request.getParameter("email");
-
             Carport_Behandler.PrisBehandler(bredde_cm, langde_cm, redskabsrumBredde, redskabsrumLaengde, tagHaeldning, request);
             Carport_Behandler.carportBehandler(carportBredde, carportlaengde, redskabsrumBredde, redskabsrumLaengde, tagHaeldning,
                     redskabsrumbeklaedningstype,
@@ -42,9 +44,39 @@ public class Forespoergsel extends Command {
             Carport_Behandler.konstruktion_beskrivelse(bredde_cm, langde_cm, redskabsrumBredde, redskabsrumLaengde,
                         tagHaeldning, request, tagMatriale, redskabsrumbeklaedningstype, redskabsrumGulv);
 
+            Svg svg = new Svg(800, 600, "0,0,800,600",0,0); // (ramme)
+            svg.addRect(0,0,600,780); // øverste boks linje
+
+            svg.addRect(0,35,4,780); // rem
+            svg.addRect(0,565,4,780); // rem
+
+            svg.addRect(150,32,10,10); // stolpe
+            svg.addRect(400,32,10,10); // stolpe
+            svg.addRect(650,32,10,10); // stolpe
+            svg.addRect(150,562,10,10); // stolpe
+            svg.addRect(400,562,10,10); // stolpe
+            svg.addRect(650,562,10,10); // stolpe
+
+            svg.addRect(0,0,0,0); // spær
+            svg.addRect(0,0,0,0); // spær
+            svg.addRect(0,0,0,0); // spær
+            svg.addRect(0,0,0,0); // spær
+            svg.addRect(0,0,0,0); // spær
+            svg.addRect(0,0,0,0); // spær
+            svg.addRect(0,0,0,0); // spær
+            svg.addRect(0,0,0,0); // spær
+            svg.addRect(0,0,0,0); // spær
+            svg.addRect(0,0,0,0); // spær
+
+            svg.addKryds(39,39 ,745, 565); // kryds linje
+            svg.addKryds(745,39 ,39, 565); // kryds linje
+
+
+            request.setAttribute("carporttegning", svg.toString());
 
             session.setAttribute("navn", navn);
             session.setAttribute("email", email);
+
 
         } catch (Exception ex) {
            ex.printStackTrace();
