@@ -1,3 +1,5 @@
+<%@ page import="DBAccess.CarportMapper" %>
+<%@ page import="PresentationLayer.Carport_Tegning" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 
 <html>

@@ -1,9 +1,8 @@
 package DBAccess;
 
 
-import FunctionLayer.*;
+import FunctionLayer.ExceptionHandler;
 import FunctionLayer.Objekter.*;
-
 import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -15,13 +14,13 @@ import java.util.Map;
  */
 public class CarportMapper {
 
-    private static Map<Integer, Bredde> dropdownBreddeList = new HashMap<>();
-    private static Map<Integer, Laengde> dropdownLaengdeList = new HashMap<>();
-    private static Map<Integer, Farve> dropdownFarveList = new HashMap<>();
-    private static Map<Integer, Traetype> dropdownTraetypeList = new HashMap<>();
-    private static Map<Integer, Tag> dropdownHaeldningList = new HashMap<>();
-    private static Map<Integer, Tag> dropdownTagmatrialeList = new HashMap<>();
-    private static Map<Integer, Gulv> dropdownGulvList = new HashMap<>();
+    protected static Map<Integer, Bredde> dropdownBreddeList = new HashMap<>();
+    protected static Map<Integer, Laengde> dropdownLaengdeList = new HashMap<>();
+    protected static Map<Integer, Farve> dropdownFarveList = new HashMap<>();
+    protected static Map<Integer, Traetype> dropdownTraetypeList = new HashMap<>();
+    protected static Map<Integer, Tag> dropdownHaeldningList = new HashMap<>();
+    protected static Map<Integer, Tag> dropdownTagmatrialeList = new HashMap<>();
+    protected static Map<Integer, Gulv> dropdownGulvList = new HashMap<>();
     //private static List<Kunde> dropdownKundeList = new ArrayList<>();
 
 
@@ -130,7 +129,7 @@ public class CarportMapper {
 
     }
 
-    public static void dropdownHaeldning ()  throws ExceptionHandler{
+    public static void dropdownHaeldning ()  throws ExceptionHandler {
             if(dropdownHaeldningList == null) {
                 dropdownHaeldningList = new HashMap<>();
                 }
@@ -140,6 +139,7 @@ public class CarportMapper {
             String SQL = "SELECT * FROM carportdb.haeldning;";
             ResultSet rs = st.executeQuery(SQL);
             while (rs.next()) {
+
                 int taghaeldning = rs.getInt("haeldninger");
                 int idtaghaeldning = rs.getInt("idhaeldning");
                 dropdownHaeldningList.put(idtaghaeldning, new Tag(taghaeldning, idtaghaeldning));
@@ -161,6 +161,7 @@ public class CarportMapper {
             String SQL = "SELECT * FROM carportdb.gulv;";
             ResultSet rs = st.executeQuery(SQL);
             while (rs.next()) {
+
                 int idGulv = rs.getInt("idGulv");
                 String gulv = rs.getString("gulv");
                 dropdownGulvList.put(idGulv, new Gulv(idGulv, gulv));
@@ -181,6 +182,7 @@ public class CarportMapper {
             String SQL = "SELECT * FROM carportdb.tagmateriale;";
             ResultSet rs = st.executeQuery(SQL);
             while (rs.next()) {
+
                 int idmatriale = rs.getInt("idtagmateriale");
                 String typer = rs.getString("typer");
                 dropdownTagmatrialeList.put(idmatriale, new Tag(typer, idmatriale));

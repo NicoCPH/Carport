@@ -23,7 +23,7 @@
         <div class="row">
             <div class="col-4">
                 <div class="text-center">
-                    <img src="images/fggf.JPG">
+                    <img src="images/tilbud.png">
                 </div>
             </div>
         </div>
