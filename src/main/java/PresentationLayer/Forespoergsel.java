@@ -3,6 +3,7 @@ package PresentationLayer;
 import DBAccess.CarportMapper;
 import FunctionLayer.ExceptionHandler;
 import FunctionLayer.MetodeBehandler.Carport_Behandler;
+import FunctionLayer.Svg;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,6 +12,11 @@ import javax.servlet.http.HttpSession;
 public class Forespoergsel extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws ExceptionHandler {
+
+        Svg svg = new Svg(800, 600, "0,0,800,600",0,0); // (ramme)
+        svg.addRect(0,0,600,780); // øverste boks linje
+        FunctionLayer.TegningAlgoritme.tegning(720,600, request);
+
         try {
             HttpSession session = request.getSession();
 
@@ -42,7 +48,6 @@ public class Forespoergsel extends Command {
             Carport_Behandler.konstruktion_beskrivelse(bredde_cm, langde_cm, redskabsrumBredde, redskabsrumLaengde,
                         tagHaeldning, request, tagMatriale, redskabsrumbeklaedningstype, redskabsrumGulv);
 
-
             session.setAttribute("navn", navn);
             session.setAttribute("email", email);
 
@@ -52,4 +57,5 @@ public class Forespoergsel extends Command {
         return "Forespoergsel_Succes";
 
     }
+
 }
