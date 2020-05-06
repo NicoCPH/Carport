@@ -1,7 +1,7 @@
 package DBAccess;
 
 import FunctionLayer.ExceptionHandler;
-import FunctionLayer.Objekter.Forespoergsel;
+import FunctionLayer.Objekter.Forespoergseler;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,8 +12,8 @@ import java.util.List;
 
 public class ForespoegselsMapper {
 
-    private static List<Forespoergsel> UR = new ArrayList<>();
-    private static List<Forespoergsel> MR = new ArrayList<>();
+    private static List<Forespoergseler> UR = new ArrayList<>();
+    private static List<Forespoergseler> MR = new ArrayList<>();
 private static final String Select_All_From_Forespoegsel = "SELECT CL.laengde, CLB.bredde, farve, TC.traetype, typer, haeldninger, RL.laengde," +
     "RLB.bredde, gulv, TC2.traetype, kundenavn, kundeadresse, kundeby, kundepostnummer, kundeemail, kundetlf FROM carportdb.forespoergsel \n" +
     "inner join laengder CL on carportlaengde = CL.idlaengder\n" +
@@ -39,7 +39,7 @@ private static final String Select_All_from_Forespoegsel_udenRedskab = "SELECT C
 
 
 
-public static List<Forespoergsel> Alle_Forespoerelser(String email) throws ExceptionHandler {
+public static List<Forespoergseler> Alle_Forespoerelser(String email) throws ExceptionHandler {
     if(MR == null) {
         MR = new ArrayList<>();
     }
@@ -67,7 +67,7 @@ public static List<Forespoergsel> Alle_Forespoerelser(String email) throws Excep
             int kundetlf = rs.getInt("kundetlf");
 
 
-            MR.add(new Forespoergsel(laengde,bredde,farve,carport_traeType,Tag,haeldning,redskabs_traeType,gulv,
+            MR.add(new Forespoergseler(laengde,bredde,farve,carport_traeType,Tag,haeldning,redskabs_traeType,gulv,
                     redskab_laengde,redskabs_bredde,navn,adresse,kundeby,kundepostnummer,kundeemail,kundetlf));
 
 
@@ -80,7 +80,7 @@ public static List<Forespoergsel> Alle_Forespoerelser(String email) throws Excep
     }
     return MR;
 }
-    public static List<Forespoergsel> Alle_Forespoerelser_UdenRedskab(String email) throws ExceptionHandler {
+    public static List<Forespoergseler> Alle_Forespoerelser_UdenRedskab(String email) throws ExceptionHandler {
         if(MR == null) {
             MR = new ArrayList<>();
         }
@@ -102,7 +102,7 @@ public static List<Forespoergsel> Alle_Forespoerelser(String email) throws Excep
                 int kundepostnummer = rs.getInt("kundepostnummer");
                 String kundeemail = rs.getString("kundeemail");
                 int kundetlf = rs.getInt("kundetlf");
-                MR.add(new Forespoergsel(laengde,bredde,farve,carport_traeType,Tag,haeldning,
+                MR.add(new Forespoergseler(laengde,bredde,farve,carport_traeType,Tag,haeldning,
                         navn,adresse,kundeby,kundepostnummer,kundeemail,kundetlf));
             }
 

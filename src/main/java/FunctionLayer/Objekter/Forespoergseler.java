@@ -1,6 +1,6 @@
 package FunctionLayer.Objekter;
 
-public class Forespoergsel {
+public class Forespoergseler {
     int laengde;
     int bredde;
     String farve;
@@ -19,8 +19,8 @@ public class Forespoergsel {
     int kundetlf;
 
 
-    public Forespoergsel(int laengde, int bredde, String farve, String carport_traeType, String tag, int haeldning,
-                         String navn, String adresse, String kundeby, int kundepostnummer, String kundeemail, int kundetlf) {
+    public Forespoergseler(int laengde, int bredde, String farve, String carport_traeType, String tag, int haeldning,
+                           String navn, String adresse, String kundeby, int kundepostnummer, String kundeemail, int kundetlf) {
         this.laengde = laengde;
         this.bredde = bredde;
         this.farve = farve;
@@ -35,10 +35,10 @@ public class Forespoergsel {
         this.kundetlf = kundetlf;
     }
 
-    public Forespoergsel(int laengde, int bredde, String farve, String carport_traeType,
-                         String tag, int haeldning, String redskabs_traeType, String gulv, int redskab_laengde,
-                         int redskabs_bredde, String navn, String adresse, String kundeby, int kundepostnummer, String kundeemail,
-                         int kundetlf) {
+    public Forespoergseler(int laengde, int bredde, String farve, String carport_traeType,
+                           String tag, int haeldning, String redskabs_traeType, String gulv, int redskab_laengde,
+                           int redskabs_bredde, String navn, String adresse, String kundeby, int kundepostnummer, String kundeemail,
+                           int kundetlf) {
         this.laengde = laengde;
         this.bredde = bredde;
         this.farve = farve;
