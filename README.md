@@ -1,6 +1,9 @@
-# Skabelon til Java webprojekter
+# Gruppe 555
 
-Denne skabelon anvendes på 2. semester på datamatikeruddannelsen i Lyngby og på Bornholm. Den er baseret på et command pattern.
+Lavet af:
+Nicolas Allesøe
+Mark Sørensen
+Henrik Thomasen
 
 ## Dokumentation
 
