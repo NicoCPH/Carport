@@ -1,6 +1,13 @@
+<%@ page import="DBAccess.StyklisteMapper" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="../indcludes/header.inc" %>
+<%
+
+    request.setAttribute("stykliste", StyklisteMapper.getMaterialeMap());
+
+
+%>
 <p class="text2">
 Tak for din forespørgsel ${sessionScope.navn}, vi vil vende tilbage snarest!
     <br>

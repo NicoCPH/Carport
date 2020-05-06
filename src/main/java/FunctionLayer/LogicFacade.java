@@ -3,6 +3,8 @@ package FunctionLayer;
 
 import DBAccess.CarportMapper;
 import DBAccess.MedarbejderMapper;
+import DBAccess.StyklisteMapper;
+import FunctionLayer.Objekter.Materiale;
 
 
 /**
@@ -42,4 +44,6 @@ public class LogicFacade {
         MedarbejderMapper.createEmployee( user );
         return user;
     }
+
+
 }
