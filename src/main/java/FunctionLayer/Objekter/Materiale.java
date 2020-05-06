@@ -7,23 +7,8 @@ package FunctionLayer.Objekter;
 public class Materiale {
 
     private int id;
-    private String beskrivelse;
-    private double hoajde, bredde, laengde;
-    private double buyprice, sellprice;
-    private int type_id, measure_id;
-
-    public Materiale(int id, String beskrivelse, double hoajde, double bredde, double laengde, double buyprice, double sellprice,
-                     int type_id, int measure_id) {
-        this.id = id;
-        this.beskrivelse = beskrivelse;
-        this.hoajde = hoajde;
-        this.bredde = bredde;
-        this.laengde = laengde;
-        this.buyprice = buyprice;
-        this.sellprice = sellprice;
-        this.type_id = type_id;
-        this.measure_id = measure_id;
-    }
+    private String beskrivelse, navn;
+    private int laengde;
 
     public int getId() {
         return id;
@@ -41,59 +26,39 @@ public class Materiale {
         this.beskrivelse = beskrivelse;
     }
 
-    public double getHoajde() {
-        return hoajde;
+    public String getNavn() {
+        return navn;
     }
 
-    public void setHoajde(double hoajde) {
-        this.hoajde = hoajde;
+    public void setNavn(String navn) {
+        this.navn = navn;
     }
 
-    public double getBredde() {
-        return bredde;
-    }
-
-    public void setBredde(double bredde) {
-        this.bredde = bredde;
-    }
-
-    public double getLaengde() {
+    public int getLaengde() {
         return laengde;
     }
 
-    public void setLaengde(double laengde) {
+    public void setLaengde(int laengde) {
         this.laengde = laengde;
     }
 
-    public double getBuyprice() {
-        return buyprice;
+    public Materiale(int id, String beskrivelse, String navn, int laengde) {
+        this.id = id;
+        this.beskrivelse = beskrivelse;
+        this.navn = navn;
+        this.laengde = laengde;
     }
 
-    public void setBuyprice(double buyprice) {
-        this.buyprice = buyprice;
+    public Materiale(String beskrivelse, String navn, int laengde) {
+        this.beskrivelse = beskrivelse;
+        this.navn = navn;
+        this.laengde = laengde;
     }
 
-    public double getSellprice() {
-        return sellprice;
+    public Materiale(int laengde, String beskrivelse, String navn) {
+        this.beskrivelse = beskrivelse;
+        this.navn = navn;
+        this.laengde = laengde;
     }
 
-    public void setSellprice(double sellprice) {
-        this.sellprice = sellprice;
-    }
-
-    public int getType_id() {
-        return type_id;
-    }
-
-    public void setType_id(int type_id) {
-        this.type_id = type_id;
-    }
-
-    public int getMeasure_id() {
-        return measure_id;
-    }
-
-    public void setMeasure_id(int measure_id) {
-        this.measure_id = measure_id;
-    }
 }
