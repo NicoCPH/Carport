@@ -84,7 +84,6 @@ public class TegningAlgoritme {
                     spaerTaeller(laengde, bredde);
                     kryds(laengde, bredde);
                     stolperUden_carport(laengde, laengde, laengde, bredde);
-                    System.out.println(svg.toString());
                     request.setAttribute("carporttegning", svg.toString());
                 } catch (Exception ex) {
                     ex.printStackTrace();
