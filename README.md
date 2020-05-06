@@ -1,8 +1,8 @@
 # Gruppe 555
 
 Lavet af:
-Nicolas Allesøe
-Mark Sørensen
+Nicolas Allesøe, 
+Mark Sørensen, 
 Henrik Thomasen
 
 ## Dokumentation
