@@ -15,7 +15,7 @@ public class Forespoergsel extends Command {
 
         Svg svg = new Svg(800, 600, "0,0,800,600",0,0); // (ramme)
         svg.addRect(0,0,600,780); // øverste boks linje
-        FunctionLayer.TegningAlgoritme.tegning(720,600, request);
+        FunctionLayer.TegningAlgoritme.tegning(780,600, request);
 
         try {
             HttpSession session = request.getSession();

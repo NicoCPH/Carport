@@ -7,19 +7,18 @@ public class TegningAlgoritme {
     private static Svg svg = new Svg(800, 600, "0,0,800,600",0,0); // (ramme)
 
             public static int spaer_Omregner(int laengde) {
-                int spaer = laengde / 55;
-                int rundetOp = Math.round(spaer);
+                int rundetOp = Math.round(laengde / 55);
                 return rundetOp;
             }
 
-            public static void spaerTaeller(int rundetOp, int bredde) {
-                spaer_Omregner(rundetOp);
+            public static void spaerTaeller(int laengde, int bredde) {
+                svg.addRect(0,0,bredde,2);
                 int count = 0;
-                for (int i = 0; i > rundetOp; i++) {
+                for (int i = 0; i < spaer_Omregner(laengde); i++) {
                     count +=55;
                     svg.addRect(count,0,bredde,2);
+                    System.out.println(count);
                 }
-                // find ud af matematiken her!!!!!!!!!!!!!!!!!!!// find ud af matematiken her!!!!!!!!!!!!!!!!!!!
             }
 
             public static int remBredde_Omregner(int bredde) {
@@ -53,19 +52,19 @@ public class TegningAlgoritme {
             }
 
             public static int stolperLaengde1(int laengde) {
-                double laengdeOmregnet = laengde / 0.40; // find ud af matematiken her!!!!!!!!!!!!!!!!!!!
+                double laengdeOmregnet = laengde / 5;
                 int finalLaengdeOmregnet = Math.toIntExact(Math.round(laengdeOmregnet));
                 return finalLaengdeOmregnet;
             }
 
             public static int stolperLaengde2(int laengde) {
-                double laengdeOmregnet = laengde / 0.60; // find ud af matematiken her!!!!!!!!!!!!!!!!!!!
+                double laengdeOmregnet = laengde / 2;
                 int finalLaengdeOmregnet = Math.toIntExact(Math.round(laengdeOmregnet));
                 return finalLaengdeOmregnet;
             }
 
             public static int stolperLaengde3(int laengde) {
-                double laengdeOmregnet = laengde / 0.80; // find ud af matematiken her!!!!!!!!!!!!!!!!!!!
+                double laengdeOmregnet = laengde / 1.25;
                 int finalLaengdeOmregnet = Math.toIntExact(Math.round(laengdeOmregnet));
                 return finalLaengdeOmregnet;
             }
