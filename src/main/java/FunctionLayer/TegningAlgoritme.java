@@ -1,5 +1,7 @@
 package FunctionLayer;
 
+import DBAccess.CarportMapper;
+
 import javax.servlet.http.HttpServletRequest;
 
 public class TegningAlgoritme {
@@ -17,7 +19,6 @@ public class TegningAlgoritme {
                 for (int i = 0; i < spaer_Omregner(laengde); i++) {
                     count +=55;
                     svg.addRect(count,0,bredde,2);
-                    System.out.println(count);
                 }
             }
 
@@ -69,24 +70,55 @@ public class TegningAlgoritme {
                 return finalLaengdeOmregnet;
             }
 
-            public static void stolperUden_carport(int laengde1, int laengde2, int laengde3, int bredde) {
+            public static void stolperUden_redskabsrum(int laengde1, int laengde2, int laengde3, int bredde) {
                 svg.addRect(stolperLaengde1(laengde1),32,10,10); // stolpe
                 svg.addRect(stolperLaengde2(laengde2),32,10,10); // stolpe
                 svg.addRect(stolperLaengde3(laengde3),32,10,10); // stolpe
-                svg.addRect(stolperLaengde1(laengde1),stolpeBredde_Omregner(bredde),10,10); // stolpe
-                svg.addRect(stolperLaengde2(laengde2),stolpeBredde_Omregner(bredde),10,10); // stolpe
-                svg.addRect(stolperLaengde3(laengde3),stolpeBredde_Omregner(bredde),10,10); // stolpe
+                svg.addRect(stolperLaengde1(laengde1), stolpeBredde_Omregner(bredde),10,10); // stolpe
+                svg.addRect(stolperLaengde2(laengde2), stolpeBredde_Omregner(bredde),10,10); // stolpe
+                svg.addRect(stolperLaengde3(laengde3), stolpeBredde_Omregner(bredde),10,10); // stolpe
             }
 
-            public static void tegning(int laengde, int bredde, HttpServletRequest request) {
+            public static void stolperMed_redskabsrum(int laengde1, int laengde2, int laengde3, int redLaengde, int bredde, int redBredde) {
+                svg.addRect(stolperLaengde1(laengde1),32,10,10); // stolpe
+                svg.addRect(stolperLaengde2(laengde2),32,10,10); // stolpe
+                svg.addRect(stolperLaengde3(laengde3),32,10,10); // stolpe
+                svg.addRect(stolperLaengde1(laengde1), stolpeBredde_Omregner(bredde),10,10); // stolpe
+                svg.addRect(stolperLaengde2(laengde2), stolpeBredde_Omregner(bredde),10,10); // stolpe
+                svg.addRect(stolperLaengde3(laengde3), stolpeBredde_Omregner(bredde),10,10); // stolpe
+
+                svg.addRect(0, redBredde-38,10,10); // redskabsrum stolpe
+                svg.addRect(0, 32,10,10); // redskabsrum stolpe
+                svg.addRect(redLaengde,32,10,10); // redskabsrum stolpe
+                svg.addRect(redLaengde, redBredde-38,10,10); // redskabsrum stolpe
+            }
+
+            public static void tegning(int laengde, int bredde, HttpServletRequest request, String redskabsrum, String redLaengde, String redBredde) {
                 try {
-                    remme(laengde, bredde);
-                    spaerTaeller(laengde, bredde);
-                    kryds(laengde, bredde);
-                    stolperUden_carport(laengde, laengde, laengde, bredde);
-                    request.setAttribute("carporttegning", svg.toString());
+                    svg.addRect(0,0,bredde,laengde); // boks linjerne
+                    if (redskabsrum == null) {
+                        remme(laengde, bredde);
+                        spaerTaeller(laengde, bredde);
+                        kryds(laengde, bredde);
+                        stolperUden_redskabsrum(laengde, laengde, laengde, bredde);
+                        request.setAttribute("carporttegning", svg.toString());
+                    } else {
+                        int bredde_cm = CarportMapper.getDropdownBreddeList().get(Integer.parseInt(redBredde)).getCarportBredde();
+                        int laengde_cm = CarportMapper.getDropdownLaengdeList().get(Integer.parseInt(redLaengde)).getCarportLaengde();
+                        tegningMedRedskabsrum(laengde, bredde, request, laengde_cm, bredde_cm);
+                    }
+
                 } catch (Exception ex) {
                     ex.printStackTrace();
-                     }
                 }
             }
+
+            public static void tegningMedRedskabsrum(int laengde, int bredde, HttpServletRequest request, int redLaengde, int redBredde) {
+                remme(laengde, bredde);
+                spaerTaeller(laengde, bredde);
+                kryds(laengde, bredde);
+                stolperMed_redskabsrum(laengde, laengde, laengde, redLaengde, bredde, redBredde);
+                request.setAttribute("carporttegning", svg.toString());
+            }
+
+}

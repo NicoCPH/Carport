@@ -15,7 +15,6 @@ public class Forespoergsel extends Command {
     String execute(HttpServletRequest request, HttpServletResponse response) throws ExceptionHandler {
 
         Svg svg = new Svg(800, 600, "0,0,800,600",0,0); // (ramme)
-        svg.addRect(0,0,600,780); // øverste boks linje
 
         try {
             HttpSession session = request.getSession();
@@ -48,7 +47,8 @@ public class Forespoergsel extends Command {
             Carport_Behandler.konstruktion_beskrivelse(bredde_cm, langde_cm, redskabsrumBredde, redskabsrumLaengde,
                         tagHaeldning, request, tagMatriale, redskabsrumbeklaedningstype, redskabsrumGulv);
 
-            FunctionLayer.TegningAlgoritme.tegning(langde_cm,bredde_cm, request);
+            FunctionLayer.TegningAlgoritme.tegning(langde_cm, bredde_cm, request, redskabsrumbeklaedningstype, redskabsrumLaengde, redskabsrumBredde);
+
             session.setAttribute("navn", navn);
             session.setAttribute("email", email);
 
