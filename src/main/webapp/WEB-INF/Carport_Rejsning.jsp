@@ -122,13 +122,15 @@
 
     <p class="text2">
     Redskabsrum:<br>
-    NB! Der skal beregnes 15 cm tagudhæng på hver side af redskabsrummet*
+        NB! Der skal beregnes 15 cm tagudhæng på hver side af redskabsrummet*
+        <br>
+        NB! Redskabsrummet må max være halvt så langt som carporten*
     <br>
     <br>
     </p>
         <label class="mt-4" style="background-color: white;color: #5f5f5f; font-weight: bold">Redskabsrum bredde</label>
         <select class="form-control"  name="redskabsrumsbredde">
-            <c:forEach var="bredde" begin="0" end="17" items="${bredde}">
+            <c:forEach var="bredde" begin="0" end="20" items="${bredde}">
                 <option value="${bredde.value.carportBreddeid}">${bredde.value.carportBredde}
                 </option>
             </c:forEach>
@@ -136,7 +138,7 @@
 
         <label class="mt-4" style="background-color: white;color: #5f5f5f; font-weight: bold">Redskabsrum Længde</label>
         <select class="form-control" name="redskabsrumslaengde">
-            <c:forEach var="laengde" begin="0" end="17" items="${laengde}">
+            <c:forEach var="laengde" begin="0" end="8" items="${laengde}">
                 <option value="${laengde.value.carportLaengdeid}">${laengde.value.carportLaengde}
                 </option>
             </c:forEach>
@@ -157,13 +159,6 @@
                     </option>
                 </c:forEach>
             </select>
-    <label class="mt-4">Redskabsrum position</label>
-    <select class="form-control">
-    <option value="kg">Højre oppe</option>
-    <option value="gm">Ventre oppe</option>
-    <option value="pound">Højre nede</option>
-    <option value="MetricTon">Ventre nede</option>
-    </select>
     </div>
     <br>
     <br>

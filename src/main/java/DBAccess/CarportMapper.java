@@ -290,6 +290,5 @@ public static void dropdownBredde() throws ExceptionHandler {
             throw new ExceptionHandler(ex.getMessage());
         }
 
-
     }
 }

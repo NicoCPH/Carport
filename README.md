@@ -1,4 +1,10 @@
-# Skabelon til Java webprojekter
+Gruppe 555 
+
+Nicolas Allesøe, Mark Sørensen og Henrik Lønquist Thomasen.
+
+-----------------------------------------------------------
+
+# Skabelon til Java webprojekter 
 
 Denne skabelon anvendes på 2. semester på datamatikeruddannelsen i Lyngby og på Bornholm. Den er baseret på et command pattern.
 
