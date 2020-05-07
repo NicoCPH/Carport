@@ -94,20 +94,20 @@ public class TegningAlgoritme {
             }
 
             public static void tegning(int laengde, int bredde, HttpServletRequest request, String redskabsrum, String redLaengde, String redBredde) {
-                try {
-                    svg.addRect(0,0,bredde,laengde); // boks linjerne
-                    if (redskabsrum == null) {
-                        remme(laengde, bredde);
-                        spaerTaeller(laengde, bredde);
-                        kryds(laengde, bredde);
-                        stolperUden_redskabsrum(laengde, laengde, laengde, bredde);
-                        request.setAttribute("carporttegning", svg.toString());
-                    } else {
-                        int bredde_cm = CarportMapper.getDropdownBreddeList().get(Integer.parseInt(redBredde)).getCarportBredde();
-                        int laengde_cm = CarportMapper.getDropdownLaengdeList().get(Integer.parseInt(redLaengde)).getCarportLaengde();
-                        tegningMedRedskabsrum(laengde, bredde, request, laengde_cm, bredde_cm);
-                    }
 
+                try {
+                        svg.addRect(0, 0, bredde, laengde); // boks linjerne
+                        if (redskabsrum == null) {
+                            remme(laengde, bredde);
+                            spaerTaeller(laengde, bredde);
+                            kryds(laengde, bredde);
+                            stolperUden_redskabsrum(laengde, laengde, laengde, bredde);
+                            request.setAttribute("carporttegning", svg.toString());
+                        } else {
+                            int bredde_cm = CarportMapper.getDropdownBreddeList().get(Integer.parseInt(redBredde)).getCarportBredde();
+                            int laengde_cm = CarportMapper.getDropdownLaengdeList().get(Integer.parseInt(redLaengde)).getCarportLaengde();
+                            tegningMedRedskabsrum(laengde, bredde, request, laengde_cm, bredde_cm);
+                        }
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }

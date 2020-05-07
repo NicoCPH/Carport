@@ -122,7 +122,9 @@
 
     <p class="text2">
     Redskabsrum:<br>
-    NB! Der skal beregnes 15 cm tagudhæng på hver side af redskabsrummet*
+        NB! Der skal beregnes 15 cm tagudhæng på hver side af redskabsrummet*
+        <br>
+        NB! Redskabsrummet må max være halvt så langt som carporten*
     <br>
     <br>
     </p>
@@ -157,13 +159,6 @@
                     </option>
                 </c:forEach>
             </select>
-    <label class="mt-4">Redskabsrum position</label>
-    <select class="form-control">
-    <option value="kg">Højre oppe</option>
-    <option value="gm">Ventre oppe</option>
-    <option value="pound">Højre nede</option>
-    <option value="MetricTon">Ventre nede</option>
-    </select>
     </div>
     <br>
     <br>
