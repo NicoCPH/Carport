@@ -1,5 +1,5 @@
-<%@ page import="DBAccess.ForespoegselsMapper" %>
-<%@ page import="FunctionLayer.ExceptionHandler" %>
+<%@ page import="DBAccess.Forespoergsels_Mapper" %>
+<%@ page import="FunctionLayer.Fejl_haendtering" %>
 <%@ page import="java.sql.SQLException" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -9,8 +9,8 @@
 
     try {
         String email = request.getParameter("email");
-        request.setAttribute("showorders", ForespoegselsMapper.Alle_Forespoerelser(email));
-        } catch (ExceptionHandler exceptionHandler) {
+        request.setAttribute("showorders", Forespoergsels_Mapper.Alle_Forespoerelser(email));
+        } catch (Fejl_haendtering exceptionHandler) {
             exceptionHandler.printStackTrace();
         }
 

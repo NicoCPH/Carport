@@ -2,7 +2,7 @@ package PresentationLayer;
 /**
  @author Mark, Nicolas, Henrik, Jean-Poul
  */
-import FunctionLayer.ExceptionHandler;
+import FunctionLayer.Fejl_haendtering;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class Redirect extends Command {
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response) throws ExceptionHandler {
+    String execute(HttpServletRequest request, HttpServletResponse response) throws Fejl_haendtering {
 
         String destination = request.getParameter("destination");
 

@@ -1,7 +1,7 @@
 package FunctionLayer.MetodeBehandler;
 
-import DBAccess.CarportMapper;
-import FunctionLayer.ExceptionHandler;
+import DBAccess.Carport_Mapper;
+import FunctionLayer.Fejl_haendtering;
 import FunctionLayer.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,15 +11,15 @@ public class Carport_Behandler {
 
     public static void carportBehandler(int bredde_cm, int laengde_cm, String rBredde, String rLaengde, String tagHaeldning,
                                         String redskabsrumbeklaedningstype, String redskabsrumGulv, int carportFarve, int carportTraetype, int tagMatriale,
-                                        int tlf, int postNummer, String by, String navn, String adresse, String email) throws ExceptionHandler {
+                                        int tlf, int postNummer, String by, String navn, String adresse, String email) throws Fejl_haendtering {
 
         if (redskabsrumbeklaedningstype == null && tagHaeldning == null ) {
-            LogicFacade.lavForespoergselUdenRedskabsrum(laengde_cm, bredde_cm, carportFarve, carportTraetype, tagMatriale,
+            LogicFacade.lavForespoergsel_UdenRedskabsrum(laengde_cm, bredde_cm, carportFarve, carportTraetype, tagMatriale,
                     8, navn, adresse, postNummer, by, tlf, email);
 
         } else if(redskabsrumbeklaedningstype == null) {
             int TH = Integer.parseInt(tagHaeldning);
-            LogicFacade.lavForespoergselUdenRedskabsrum(laengde_cm, bredde_cm, carportFarve, carportTraetype, tagMatriale,
+            LogicFacade.lavForespoergsel_UdenRedskabsrum(laengde_cm, bredde_cm, carportFarve, carportTraetype, tagMatriale,
                     TH, navn, adresse, postNummer, by, tlf, email);
 
         }else if (tagHaeldning == null){
@@ -27,7 +27,7 @@ public class Carport_Behandler {
             int RL = Integer.parseInt(rLaengde);
             int RBT = Integer.parseInt(redskabsrumbeklaedningstype);
             int RG = Integer.parseInt(redskabsrumGulv);
-            LogicFacade.lavForespoergsel(laengde_cm, bredde_cm, carportFarve, carportTraetype, tagMatriale,
+            LogicFacade.lav_Forespoergsel(laengde_cm, bredde_cm, carportFarve, carportTraetype, tagMatriale,
                     8, RB, RL, RBT, RG,
                     navn, adresse, postNummer, by, tlf, email);
 
@@ -37,7 +37,7 @@ public class Carport_Behandler {
             int RBT = Integer.parseInt(redskabsrumbeklaedningstype);
             int RG = Integer.parseInt(redskabsrumGulv);
             int TH = Integer.parseInt(tagHaeldning);
-            LogicFacade.lavForespoergsel(laengde_cm, bredde_cm, carportFarve, carportTraetype, tagMatriale,
+            LogicFacade.lav_Forespoergsel(laengde_cm, bredde_cm, carportFarve, carportTraetype, tagMatriale,
                     TH, RB, RL, RBT, RG,
                     navn, adresse, postNummer, by, tlf, email);
         }
@@ -52,21 +52,21 @@ public class Carport_Behandler {
 
         } else if(rBredde == null) {
             int TH = Integer.parseInt(tagHaeldning);
-            int TH_final = CarportMapper.getDropdownHaeldningList().get(TH).getHaeldning();
+            int TH_final = Carport_Mapper.getDropdown_Haeldning_List().get(TH).getHaeldning();
             double MRTH = Carport_Udregner.udregning_Pris_UdenRedskab_Rejsning(laengde_cm, bredde_cm, TH_final);
             session.setAttribute("pris", MRTH);
 
         }else if (tagHaeldning == null){
-            int Rlangde_cm = CarportMapper.getDropdownLaengdeList().get(Integer.parseInt(rLaengde)).getCarportLaengde();
-            int Rbredde_cm = CarportMapper.getDropdownBreddeList().get(Integer.parseInt(rBredde)).getCarportBredde();
+            int Rlangde_cm = Carport_Mapper.get_Dropdown_Laengde_List().get(Integer.parseInt(rLaengde)).getCarportLaengde();
+            int Rbredde_cm = Carport_Mapper.get_Dropdown_Bredde_List().get(Integer.parseInt(rBredde)).getCarportBredde();
             double MRFLT = Carport_Udregner.udregning_Pris_MedRedskab_Fladtag(laengde_cm, bredde_cm, Rlangde_cm, Rbredde_cm);
             session.setAttribute("pris", MRFLT);
 
         }else {
-            int Rlangde_cm = CarportMapper.getDropdownLaengdeList().get(Integer.parseInt(rLaengde)).getCarportLaengde();
-            int Rbredde_cm = CarportMapper.getDropdownBreddeList().get(Integer.parseInt(rBredde)).getCarportBredde();
+            int Rlangde_cm = Carport_Mapper.get_Dropdown_Laengde_List().get(Integer.parseInt(rLaengde)).getCarportLaengde();
+            int Rbredde_cm = Carport_Mapper.get_Dropdown_Bredde_List().get(Integer.parseInt(rBredde)).getCarportBredde();
             int TH = Integer.parseInt(tagHaeldning);
-            int TH_final = CarportMapper.getDropdownHaeldningList().get(TH).getHaeldning();
+            int TH_final = Carport_Mapper.getDropdown_Haeldning_List().get(TH).getHaeldning();
             double MRTH = Carport_Udregner.udregning_Pris_MedRedskab_Rejsning(laengde_cm, bredde_cm, Rlangde_cm, Rbredde_cm, TH_final);
             session.setAttribute("pris", MRTH);
 
@@ -79,7 +79,7 @@ public class Carport_Behandler {
         if (rBredde == null && tagHaeldning == null ) {
            double langde_m = (double) laengde_cm/100;
            double bredde_m = (double) bredde_cm/100;
-           String tag = CarportMapper.getDropdownTagmatrialeList().get(tagmatriale).getType();
+           String tag = Carport_Mapper.getDropdown_Tagmatriale_List().get(tagmatriale).getType();
 
            String beskrivelse = "Carport mål: L:" + langde_m + "m B:"+ bredde_m + "m<br> <br> " + "Tag: <br>" + "Spærtype: Spær uden rejsning <br>" +
                     "Tagmatriale: " + tag;
@@ -88,7 +88,7 @@ public class Carport_Behandler {
         } else if(rBredde == null) {
             double langde_m = (double) laengde_cm/100;
             double bredde_m = (double) bredde_cm/100;
-            String tag = CarportMapper.getDropdownTagmatrialeList().get(tagmatriale).getType();
+            String tag = Carport_Mapper.getDropdown_Tagmatriale_List().get(tagmatriale).getType();
 
 
             String beskrivelse = "Carport mål: L:" + langde_m + "m B:"+ bredde_m + "m<br> <br> " + "Tag: <br>" + "Spærtype: Spær med rejsning <br>" +
@@ -98,13 +98,13 @@ public class Carport_Behandler {
         }else if (tagHaeldning == null){
             double langde_m = (double) laengde_cm/100;
             double bredde_m = (double) bredde_cm/100;
-            double rlangde_1 = CarportMapper.getDropdownLaengdeList().get(Integer.parseInt(rLaengde)).getCarportLaengde();
+            double rlangde_1 = Carport_Mapper.get_Dropdown_Laengde_List().get(Integer.parseInt(rLaengde)).getCarportLaengde();
             double rlangde_m = rlangde_1/100;
-            double rbredde_1 = CarportMapper.getDropdownBreddeList().get(Integer.parseInt(rBredde)).getCarportBredde();
+            double rbredde_1 = Carport_Mapper.get_Dropdown_Bredde_List().get(Integer.parseInt(rBredde)).getCarportBredde();
             double rbredde_m = rbredde_1/100;
-            String tag = CarportMapper.getDropdownTagmatrialeList().get(tagmatriale).getType();
-            String RBT = CarportMapper.getDropdownTraetypeList().get(Integer.parseInt(redskabsrumbeklaedningstype)).getCarporttraeType();
-            String RG = CarportMapper.getDropdownGulvList().get(Integer.parseInt(redskabsrumGulv)).getGulv();
+            String tag = Carport_Mapper.getDropdown_Tagmatriale_List().get(tagmatriale).getType();
+            String RBT = Carport_Mapper.get_Dropdown_Traetype_List().get(Integer.parseInt(redskabsrumbeklaedningstype)).getCarporttraeType();
+            String RG = Carport_Mapper.getDropdown_Gulv_List().get(Integer.parseInt(redskabsrumGulv)).getGulv();
 
             String beskrivelse = "Carport mål: L: " + langde_m + "m B: "+ bredde_m + "m<br> <br> " + "Redskabsrum: "
                     + "L: " + rlangde_m + " B: " + rbredde_m+ "<br> BeklædningsType: " + RBT + "<br> Redskabsrum Gulv: " + RG + "<br><br> Tag: <br>" + "Spærtype: Spær uden rejsning<br>" +
@@ -114,13 +114,13 @@ public class Carport_Behandler {
         }else {
             double langde_m = (double) laengde_cm/100;
             double bredde_m = (double) bredde_cm/100;
-            double rlangde_1 = CarportMapper.getDropdownLaengdeList().get(Integer.parseInt(rLaengde)).getCarportLaengde();
+            double rlangde_1 = Carport_Mapper.get_Dropdown_Laengde_List().get(Integer.parseInt(rLaengde)).getCarportLaengde();
             double rlangde_m = rlangde_1/100;
-            double rbredde_1 = CarportMapper.getDropdownBreddeList().get(Integer.parseInt(rBredde)).getCarportBredde();
+            double rbredde_1 = Carport_Mapper.get_Dropdown_Bredde_List().get(Integer.parseInt(rBredde)).getCarportBredde();
             double rbredde_m = rbredde_1/100;
-            String tag = CarportMapper.getDropdownTagmatrialeList().get(tagmatriale).getType();
-            String RBT = CarportMapper.getDropdownTraetypeList().get(Integer.parseInt(redskabsrumbeklaedningstype)).getCarporttraeType();
-            String RG = CarportMapper.getDropdownGulvList().get(Integer.parseInt(redskabsrumGulv)).getGulv();
+            String tag = Carport_Mapper.getDropdown_Tagmatriale_List().get(tagmatriale).getType();
+            String RBT = Carport_Mapper.get_Dropdown_Traetype_List().get(Integer.parseInt(redskabsrumbeklaedningstype)).getCarporttraeType();
+            String RG = Carport_Mapper.getDropdown_Gulv_List().get(Integer.parseInt(redskabsrumGulv)).getGulv();
 
             String beskrivelse = "Carport mål: L: " + langde_m + "m B: "+ bredde_m + "m<br> <br> <br>" + "Redskabsrum: "
                     + "L: " + rlangde_m + " B: "+ rbredde_m+ "<br> BeklædningsType: " + RBT + "<br> Redskabsrum Gulv: " + RG + "<br><br> Tag: <br>" + "Spærtype: Spær med rejsning<br>" +

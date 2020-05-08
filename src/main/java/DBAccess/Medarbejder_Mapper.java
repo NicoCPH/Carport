@@ -1,14 +1,14 @@
 package DBAccess;
 
-import FunctionLayer.ExceptionHandler;
+import FunctionLayer.Fejl_haendtering;
 import FunctionLayer.Medarbejder;
 
 import java.sql.*;
 
 
-public class MedarbejderMapper {
+public class Medarbejder_Mapper {
 
-    public static Medarbejder login(String email, String password) throws ExceptionHandler {
+    public static Medarbejder login(String email, String password) throws Fejl_haendtering {
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT users_id, name FROM users "
@@ -24,14 +24,14 @@ public class MedarbejderMapper {
                 user.setId(id);
                 return user;
             } else {
-                throw new ExceptionHandler("Could not validate user");
+                throw new Fejl_haendtering("Could not validate user");
             }
         } catch (ClassNotFoundException | SQLException ex) {
-            throw new ExceptionHandler(ex.getMessage());
+            throw new Fejl_haendtering(ex.getMessage());
         }
     }
 
-    public static void createEmployee(Medarbejder medarbejder) throws ExceptionHandler {
+    public static void createEmployee(Medarbejder medarbejder) throws Fejl_haendtering {
         try {
             Connection con = Connector.connection();
             String SQL = "INSERT INTO users (navn, password, email) VALUES (?, ?, ?)";
@@ -45,7 +45,7 @@ public class MedarbejderMapper {
             int id = ids.getInt(1);
             medarbejder.setId(id);
         } catch (SQLException | ClassNotFoundException ex) {
-            throw new ExceptionHandler(ex.getMessage());
+            throw new Fejl_haendtering(ex.getMessage());
         }
     }
 

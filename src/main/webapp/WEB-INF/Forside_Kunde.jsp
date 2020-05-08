@@ -1,5 +1,5 @@
-<%@ page import="DBAccess.CarportMapper" %>
-<%@ page import="FunctionLayer.ExceptionHandler" %>
+<%@ page import="DBAccess.Carport_Mapper" %>
+<%@ page import="FunctionLayer.Fejl_haendtering" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="../indcludes/header.inc" %>
