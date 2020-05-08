@@ -21,6 +21,7 @@ abstract class Command {
         commands.put( "Forside_Kunde", new Forside_Kunde());
         commands.put("Forside_Saelger", new Forside_Saelger());
         commands.put("Fejl", new Fejl() );
+        commands.put("Tilbud_Accept", new Tilbud_Accept());
 
 
     }

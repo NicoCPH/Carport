@@ -11,11 +11,23 @@ public class Stykliste {
 
     private static ArrayList<Materiale> materialeArrayList = new ArrayList<>();
 
-    public static double spaer_Omregner(int laegnde) {
+    public static ArrayList<Materiale> styklisten(int laengde, int bredde,
+                                                  String redskabsrumbeklaedningstype, String tagHaeldning, String tagMaterialeType) throws ExceptionHandler {
+        if(materialeArrayList == null){
+            materialeArrayList = new ArrayList<>();
+        }
+        materialeArrayList.add(new Materiale(spaer_Omregner_beskrivelse(),  "Spær", laengde, spaer_Omregner(laengde)));
+        materialeArrayList.add(new Materiale(rem_Omregner_beskrivelse(), "Rem", bredde, 4));
+        materialeArrayList.add(new Materiale(stolpe_Omregner_beskrivlese(), "Stolpe", 200, stolpe_Omregner(redskabsrumbeklaedningstype,tagHaeldning) ));
+        materialeArrayList.add(new Materiale(tag_Omregner_beskrivelse(tagMaterialeType), "Tag", tag_laengde(tagHaeldning) ,tag_Omregner(laengde,bredde,tagHaeldning) ));
+        return materialeArrayList;
+    }
+
+    public static int spaer_Omregner(int laegnde) {
 
         double spaer = laegnde / 55.0;
 
-        return (double) Math.round(spaer);
+        return (int) Math.round(spaer);
     }
 
     public static int stolpe_Omregner(String redskabsrumbeklaedningstype, String tagHaeldning) {
@@ -41,6 +53,21 @@ public class Stykliste {
 
     }
 
+    public static int tag_laengde(String taghaeldning){
+        if(taghaeldning == null){
+            return 100;
+        }else {
+            return 30;
+        }
+    }
+    public static int tag_Omregner(int laengde, int bredde, String taghaeldning) {
+        if (taghaeldning == null) {
+            return fladtTag_omregner(laengde, bredde);
+        } else{
+            return rejsningTag_omregner(laengde, bredde);
+    }
+    }
+
     public static int fladtTag_omregner(int laengde, int bredde) {
         int totalLB = laengde * bredde;
         int LBdivideret = totalLB / 10000;
@@ -56,7 +83,7 @@ public class Stykliste {
         return totalPlader;
     }
 
-    public static Materiale rem_Omregner(int bredde) throws ExceptionHandler {
+    /*public static Materiale rem_Omregner(int bredde) throws ExceptionHandler {
         Map<String, List<Materiale>> materialeMap = StyklisteMapper.findStykListe();
         List<Materiale> alleRem = materialeMap.get("Rem");
         for (Materiale rem : alleRem) {
@@ -67,7 +94,7 @@ public class Stykliste {
         return null;
     }
 
-    public static Materiale spaer_Omregener(int laengde) throws ExceptionHandler {
+   /* public static Materiale spaer_Omregener(int laengde) throws ExceptionHandler {
         Map<String, List<Materiale>> materialeMap = StyklisteMapper.findStykListe();
         List<Materiale> alleSpær = materialeMap.get("Spær");
         for (Materiale spær : alleSpær) {
@@ -77,7 +104,7 @@ public class Stykliste {
         }
         return null;
     }
-
+*/
 
     public static String rem_Omregner_beskrivelse() throws ExceptionHandler {
         Map<String, List<Materiale>> materialeMap = StyklisteMapper.findStykListe();
