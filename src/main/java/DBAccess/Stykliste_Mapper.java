@@ -1,6 +1,6 @@
 package DBAccess;
 
-import FunctionLayer.ExceptionHandler;
+import FunctionLayer.Fejl_haendtering;
 import FunctionLayer.Objekter.Materiale;
 
 import java.sql.Connection;
@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class StyklisteMapper {
+public class Stykliste_Mapper {
 
     protected static Map<String, List<Materiale>> materialeMap = new HashMap<>();
 
@@ -20,7 +20,7 @@ public class StyklisteMapper {
         return materialeMap;
     }
 
-    public static Map<String, List<Materiale>> findStykListe() throws ExceptionHandler {
+    public static Map<String, List<Materiale>> findStykListe() throws Fejl_haendtering {
 
         List<Materiale> alleMaterialer = stykListe();
 
@@ -60,7 +60,7 @@ public class StyklisteMapper {
         return materialeMap;
     }
 
-    public static List<Materiale> stykListe() throws ExceptionHandler {
+    public static List<Materiale> stykListe() throws Fejl_haendtering {
 
         List<Materiale> alleMaterialer = new ArrayList<>();
 

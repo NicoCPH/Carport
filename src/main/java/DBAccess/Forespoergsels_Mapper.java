@@ -1,6 +1,6 @@
 package DBAccess;
 
-import FunctionLayer.ExceptionHandler;
+import FunctionLayer.Fejl_haendtering;
 import FunctionLayer.Objekter.Forespoergseler;
 
 import java.sql.Connection;
@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ForespoegselsMapper {
+public class Forespoergsels_Mapper {
 
     private static List<Forespoergseler> UR = new ArrayList<>();
     private static List<Forespoergseler> MR = new ArrayList<>();
@@ -39,7 +39,7 @@ private static final String Select_All_from_Forespoegsel_udenRedskab = "SELECT C
 
 
 
-public static List<Forespoergseler> Alle_Forespoerelser(String email) throws ExceptionHandler {
+public static List<Forespoergseler> Alle_Forespoerelser(String email) throws Fejl_haendtering {
     if(MR == null) {
         MR = new ArrayList<>();
     }
@@ -80,7 +80,7 @@ public static List<Forespoergseler> Alle_Forespoerelser(String email) throws Exc
     }
     return MR;
 }
-    public static List<Forespoergseler> Alle_Forespoerelser_UdenRedskab(String email) throws ExceptionHandler {
+    public static List<Forespoergseler> Alle_Forespoerelser_UdenRedskab(String email) throws Fejl_haendtering {
         if(MR == null) {
             MR = new ArrayList<>();
         }

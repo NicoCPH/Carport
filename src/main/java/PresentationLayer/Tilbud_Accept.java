@@ -5,11 +5,9 @@ import FunctionLayer.ExceptionHandler;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class Vis_forespoergsel extends Command {
+public class Tilbud_Accept extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws ExceptionHandler {
-
-
-        return "Forside_Saelger";
+        return "Tilbud_Accept";
     }
 }
