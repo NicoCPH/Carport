@@ -41,27 +41,30 @@ public class Forespoergsel extends Command {
                 int tlf = Integer.parseInt(request.getParameter("tlf"));
                 String email = request.getParameter("email");
 
-                if (carportlaengde / 2 >= Integer.parseInt(redskabsrumLaengde) && carportBredde >= Integer.parseInt(redskabsrumBredde)) {
+                if (redskabsrumBredde == null) {
+                    Tegning_Algoritme.tegning_Uden_Redskabsrum(langde_cm, bredde_cm, request);
 
-                Carport_Behandler.PrisBehandler(bredde_cm, langde_cm, redskabsrumBredde, redskabsrumLaengde, tagHaeldning, request);
-                Carport_Behandler.carportBehandler(carportBredde, carportlaengde, redskabsrumBredde, redskabsrumLaengde, tagHaeldning,
-                        redskabsrumbeklaedningstype,
-                        redskabsrumGulv, carportFarve, carportTraetype, tagMatriale, tlf, postNummer, by, navn, adresse, email);
-                Carport_Behandler.konstruktion_beskrivelse(bredde_cm, langde_cm, redskabsrumBredde, redskabsrumLaengde,
+            } else if (carportlaengde / 2 >= Integer.parseInt(redskabsrumLaengde) && carportBredde >= Integer.parseInt(redskabsrumBredde)) {
+                    Carport_Behandler.PrisBehandler(bredde_cm, langde_cm, redskabsrumBredde, redskabsrumLaengde, tagHaeldning, request);
+                    Carport_Behandler.carportBehandler(carportBredde, carportlaengde, redskabsrumBredde, redskabsrumLaengde, tagHaeldning,
+                            redskabsrumbeklaedningstype,
+                            redskabsrumGulv, carportFarve, carportTraetype, tagMatriale, tlf, postNummer, by, navn, adresse, email);
+                    Carport_Behandler.konstruktion_beskrivelse(bredde_cm, langde_cm, redskabsrumBredde, redskabsrumLaengde,
 
-                        tagHaeldning, request, tagMatriale, redskabsrumbeklaedningstype, redskabsrumGulv);
+                            tagHaeldning, request, tagMatriale, redskabsrumbeklaedningstype, redskabsrumGulv);
 
-                Tegning_Algoritme.tegning(langde_cm, bredde_cm, request, redskabsrumbeklaedningstype, redskabsrumLaengde, redskabsrumBredde);
-
-                session.setAttribute("navn", navn);
-                session.setAttribute("email", email);
-
+                    Tegning_Algoritme.tegning_Med_Redskabsrum(langde_cm, bredde_cm, request, redskabsrumLaengde, redskabsrumBredde);
             } else {
                     return "Fejl";
                 }
+
+            session.setAttribute("navn", navn);
+            session.setAttribute("email", email);
+
         } catch (Exception ex) {
            ex.printStackTrace();
         }
+
         return "Forespoergsel_Succes";
 
     }
