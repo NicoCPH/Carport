@@ -17,7 +17,7 @@ abstract class Command {
         commands.put("Carport_Fladt", new Carport_Fladt());
         commands.put("Vis_forespoergsel", new Vis_Forespoergsel() );
         commands.put( "redirect", new Redirect());
-        commands.put( "Forespoergsel_Succes", new Succes());
+        commands.put( "Forespoergsel_Succes", new Forespoergsel_Succes());
         commands.put( "Forside_Kunde", new Forside_Kunde());
         commands.put("Forside_Saelger", new Forside_Saelger());
         commands.put("Fejl", new Fejl() );

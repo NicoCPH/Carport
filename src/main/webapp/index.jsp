@@ -1,4 +1,4 @@
-<%@ page import="DBAccess.Carport_Mapper" %>
+<%@ page import="DBAccess.CarportMapper" %>
 <%@ page import="FunctionLayer.Fejl_haendtering" %>
 <%@ page import="DBAccess.Stykliste_Mapper" %>
 <%@include file="indcludes/header1.inc" %>

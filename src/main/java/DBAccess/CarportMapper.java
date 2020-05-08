@@ -12,7 +12,7 @@ import java.util.Map;
 
  @author Nicolas
  */
-public class Carport_Mapper {
+public class CarportMapper {
 
     protected static Map<Integer, Bredde> dropdown_Bredde_List = new HashMap<>();
     protected static Map<Integer, Laengde> dropdown_Laengde_List = new HashMap<>();

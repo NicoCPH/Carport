@@ -1,4 +1,4 @@
-    <%@ page import="DBAccess.Carport_Mapper" %>
+    <%@ page import="DBAccess.CarportMapper" %>
     <%@ page import="FunctionLayer.Fejl_haendtering" %><%--
     Created by IntelliJ IDEA.
     User: Lange
@@ -13,13 +13,13 @@
     @Override
     public void jspInit() {
     try {
-    Carport_Mapper.dropdownBredde();
-    Carport_Mapper.dropdownLaengde();
-    Carport_Mapper.dropdownFarve();
-    Carport_Mapper.dropdownTagmatriale();
-    Carport_Mapper.dropdownTraetype();
-    Carport_Mapper.dropdownHaeldning();
-    Carport_Mapper.dropdownGulv();
+    CarportMapper.dropdownBredde();
+    CarportMapper.dropdownLaengde();
+    CarportMapper.dropdownFarve();
+    CarportMapper.dropdownTagmatriale();
+    CarportMapper.dropdownTraetype();
+    CarportMapper.dropdownHaeldning();
+    CarportMapper.dropdownGulv();
     } catch (Fejl_haendtering e) {
     e.printStackTrace();
     }
@@ -27,13 +27,13 @@
     %>
 
     <%
-    request.setAttribute("gulv", Carport_Mapper.getDropdown_Gulv_List());
-    request.setAttribute("bredde", Carport_Mapper.get_Dropdown_Bredde_List());
-    request.setAttribute("laengde", Carport_Mapper.get_Dropdown_Laengde_List());
-    request.setAttribute("farve", Carport_Mapper.get_Dropdown_Farve_List());
-    request.setAttribute("traetype", Carport_Mapper.get_Dropdown_Traetype_List());
-    request.setAttribute("tagmatriale", Carport_Mapper.getDropdown_Tagmatriale_List());
-    request.setAttribute("haeldning", Carport_Mapper.getDropdown_Haeldning_List());
+    request.setAttribute("gulv", CarportMapper.getDropdown_Gulv_List());
+    request.setAttribute("bredde", CarportMapper.get_Dropdown_Bredde_List());
+    request.setAttribute("laengde", CarportMapper.get_Dropdown_Laengde_List());
+    request.setAttribute("farve", CarportMapper.get_Dropdown_Farve_List());
+    request.setAttribute("traetype", CarportMapper.get_Dropdown_Traetype_List());
+    request.setAttribute("tagmatriale", CarportMapper.getDropdown_Tagmatriale_List());
+    request.setAttribute("haeldning", CarportMapper.getDropdown_Haeldning_List());
 
 
     %>

@@ -12,7 +12,7 @@ public class Stykliste {
     private static ArrayList<Materiale> materialeArrayList = new ArrayList<>();
 
     public static ArrayList<Materiale> styklisten(int laengde, int bredde,
-                                                  String redskabsrumbeklaedningstype, String tagHaeldning, String tagMaterialeType) throws ExceptionHandler {
+                                                  String redskabsrumbeklaedningstype, String tagHaeldning, String tagMaterialeType) throws Fejl_haendtering {
         if(materialeArrayList == null){
             materialeArrayList = new ArrayList<>();
         }
@@ -113,8 +113,8 @@ public class Stykliste {
     }
 */
 
-    public static String rem_Omregner_beskrivelse() throws ExceptionHandler {
-        Map<String, List<Materiale>> materialeMap = StyklisteMapper.findStykListe();
+    public static String rem_Omregner_beskrivelse() throws Fejl_haendtering {
+        Map<String, List<Materiale>> materialeMap = Stykliste_Mapper.findStykListe();
         List<Materiale> alleRem = materialeMap.get("Rem");
         for (Materiale rem : alleRem) {
             return rem.getBeskrivelse();
@@ -123,8 +123,8 @@ public class Stykliste {
     }
 
 
-    public static String spaer_Omregner_beskrivelse() throws ExceptionHandler {
-        Map<String, List<Materiale>> materialeMap = StyklisteMapper.findStykListe();
+    public static String spaer_Omregner_beskrivelse() throws  Fejl_haendtering {
+        Map<String, List<Materiale>> materialeMap = Stykliste_Mapper.findStykListe();
         List<Materiale> alleSpær = materialeMap.get("Spær");
         for (Materiale spær : alleSpær) {
             return spær.getBeskrivelse();
@@ -132,8 +132,8 @@ public class Stykliste {
         return null;
     }
 
-    public static String stolpe_Omregner_beskrivlese() throws ExceptionHandler {
-        Map<String, List<Materiale>> stolpeMap = StyklisteMapper.findStykListe();
+    public static String stolpe_Omregner_beskrivlese() throws Fejl_haendtering {
+        Map<String, List<Materiale>> stolpeMap = Stykliste_Mapper.findStykListe();
         List<Materiale> alleStolper = stolpeMap.get("Stolpe");
         for (Materiale stolpe : alleStolper) {
             return stolpe.getBeskrivelse();
@@ -141,8 +141,8 @@ public class Stykliste {
         return null;
     }
 
-    public static String tag_Omregner_beskrivelse(String tagMaterialeType) throws ExceptionHandler {
-        Map<String, List<Materiale>> tagMap = StyklisteMapper.findStykListe();
+    public static String tag_Omregner_beskrivelse(String tagMaterialeType) throws Fejl_haendtering {
+        Map<String, List<Materiale>> tagMap = Stykliste_Mapper.findStykListe();
         List<Materiale> alleTag = tagMap.get("Tag");
 
 
