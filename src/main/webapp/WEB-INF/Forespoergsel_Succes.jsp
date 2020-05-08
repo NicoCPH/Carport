@@ -26,6 +26,7 @@ Tak for din forespørgsel ${sessionScope.navn}, vi vil vende tilbage snarest!
     Dit Tilbud er: ${sessionScope.pris}
 </div>
 
+
 </p>
 </body>
 </html>

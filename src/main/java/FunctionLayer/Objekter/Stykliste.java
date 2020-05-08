@@ -22,19 +22,38 @@ public class Stykliste {
         int stolper;
 
         if (redskabsrumbeklaedningstype == null && tagHaeldning == null) {
-            stolper = 6;
+            stolper = 8;
+            return  stolper;
 
         } else if (redskabsrumbeklaedningstype == null) {
-            stolper = 6;
+            stolper = 8;
+            return stolper;
 
         } else if (tagHaeldning == null) {
-            stolper = 8;
+            stolper = 10;
+            return stolper;
 
         } else {
-            stolper = 8;
+            stolper = 10;
+            return stolper;
         }
 
-        return stolper;
+
+    }
+
+    public static int fladtTag_omregner(int laengde, int bredde) {
+        int totalLB = laengde * bredde;
+        int LBdivideret = totalLB / 10000;
+
+        return LBdivideret;
+    }
+
+    public static int rejsningTag_omregner(int laengde, int bredde) {
+        int totalLB = laengde * bredde;
+        int LBdivideret = totalLB / 10000;
+        int totalPlader = LBdivideret * 4;
+
+        return totalPlader;
     }
 
     public static Materiale rem_Omregner(int bredde) throws ExceptionHandler {
@@ -48,7 +67,7 @@ public class Stykliste {
         return null;
     }
 
-    public static Materiale spær_Omregener(int laengde) throws ExceptionHandler {
+    public static Materiale spaer_Omregener(int laengde) throws ExceptionHandler {
         Map<String, List<Materiale>> materialeMap = StyklisteMapper.findStykListe();
         List<Materiale> alleSpær = materialeMap.get("Spær");
         for (Materiale spær : alleSpær) {
@@ -60,4 +79,64 @@ public class Stykliste {
     }
 
 
+    public static String rem_Omregner_beskrivelse() throws ExceptionHandler {
+        Map<String, List<Materiale>> materialeMap = StyklisteMapper.findStykListe();
+        List<Materiale> alleRem = materialeMap.get("Rem");
+        for (Materiale rem : alleRem) {
+            return rem.getBeskrivelse();
+        }
+        return null;
+    }
+
+
+    public static String spaer_Omregner_beskrivelse() throws ExceptionHandler {
+        Map<String, List<Materiale>> materialeMap = StyklisteMapper.findStykListe();
+        List<Materiale> alleSpær = materialeMap.get("Spær");
+        for (Materiale spær : alleSpær) {
+            return spær.getBeskrivelse();
+        }
+        return null;
+    }
+
+    public static String stolpe_Omregner_beskrivlese() throws ExceptionHandler {
+        Map<String, List<Materiale>> stolpeMap = StyklisteMapper.findStykListe();
+        List<Materiale> alleStolper = stolpeMap.get("Stolpe");
+        for (Materiale stolpe : alleStolper) {
+            return stolpe.getBeskrivelse();
+        }
+        return null;
+    }
+
+    public static String tag_Omregner_beskrivelse(String tagMaterialeType) throws ExceptionHandler {
+        Map<String, List<Materiale>> tagMap = StyklisteMapper.findStykListe();
+        List<Materiale> alleTag = tagMap.get("Tag");
+
+
+        for (Materiale tag : alleTag) {
+
+
+            if (tagMaterialeType.contains("Plast")) {
+                if (tag.getBeskrivelse().contains("Plast")) {
+                    return tag.getBeskrivelse();
+                }
+            } else {
+
+                if (tagMaterialeType.contains("Beton")) {
+                    if (tag.getBeskrivelse().contains("Beton")) {
+                        return tag.getBeskrivelse();
+                    }
+                }
+                if(tagMaterialeType.contains("Eternitag")) {
+                    if(tag.getBeskrivelse().contains("Eternitag")) {
+                        return tag.getBeskrivelse();
+                    }
+                }
+
+
+            }
+
+
+        }
+        return "Intet tagmaterialer fundet";
+    }
 }

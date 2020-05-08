@@ -27,6 +27,7 @@ public class Forespoergsel extends Command {
             int carportlaengde = Integer.parseInt(request.getParameter("carportlaengde"));
             int langde_cm = CarportMapper.getDropdownLaengdeList().get(carportlaengde).getCarportLaengde();
             int tagMatriale = Integer.parseInt(request.getParameter("tagMateriale"));
+            String tagMaterialetype = CarportMapper.getDropdownTagmatrialeList().get(tagMatriale).getType();
             int carportFarve = Integer.parseInt(request.getParameter("carportfarve"));
             int carportTraetype = Integer.parseInt(request.getParameter("carporttraetype"));
             String tagHaeldning = request.getParameter("tagHaeldning");
@@ -35,10 +36,16 @@ public class Forespoergsel extends Command {
             String redskabsrumbeklaedningstype = request.getParameter("redskabsrumbeklaedningstype");
             String redskabsrumGulv = request.getParameter("redskabsrumGulv");
 
-            System.out.println("MIT LUDER ID ER : " + carportBredde);
+            System.out.println(tagMaterialetype);
+            String result1 = Stykliste.tag_Omregner_beskrivelse(tagMaterialetype);
+            System.out.println(result1);
             Materiale result = Stykliste.rem_Omregner(bredde_cm);
-            System.out.println("I SKAL BARE FUCKING LAVE DEN USER STORY SOM PO SIGER DET!!!!!");
-            System.out.println("RESULT MATERIALE LÆNGDE DIN FUCKING HUND!!!! : " + result.getLaengde());
+            System.out.println(result.getLaengde());
+            String result2 = Stykliste.stolpe_Omregner_beskrivlese();
+            System.out.println(result2);
+            System.out.println(Stykliste.spaer_Omregner(langde_cm));
+            System.out.println(Stykliste.stolpe_Omregner(redskabsrumbeklaedningstype, tagHaeldning));
+
 
             String navn = request.getParameter("navn");
             String adresse = request.getParameter("adresse");
