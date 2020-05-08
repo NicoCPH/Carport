@@ -5,7 +5,7 @@
  */
 package PresentationLayer;
 
-import FunctionLayer.ExceptionHandler;
+import FunctionLayer.Fejl_haendtering;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import javax.servlet.ServletException;
@@ -44,7 +44,7 @@ public class FrontController extends HttpServlet {
             } else {
                 request.getRequestDispatcher("/WEB-INF/" + view + ".jsp").forward(request, response);
             }
-        } catch ( UnsupportedEncodingException | ExceptionHandler ex ) {
+        } catch ( UnsupportedEncodingException | Fejl_haendtering ex ) {
             request.setAttribute( "error", ex.getMessage() );
             request.getRequestDispatcher( "index.jsp" ).forward( request, response );
         }

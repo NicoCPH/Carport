@@ -1,9 +1,9 @@
-<%@ page import="DBAccess.StyklisteMapper" %>
+<%@ page import="DBAccess.Stykliste_Mapper" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@include file="../indcludes/header.inc" %>
 <%
 
-    request.setAttribute("stykliste", StyklisteMapper.getMaterialeMap());
+    request.setAttribute("stykliste", Stykliste_Mapper.getMaterialeMap());
 
 
 %>

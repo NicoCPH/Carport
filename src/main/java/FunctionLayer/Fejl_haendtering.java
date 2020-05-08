@@ -4,9 +4,9 @@ package FunctionLayer;
  * The purpose of LoginSampleException is to...
  * @author kasper
  */
-public class ExceptionHandler extends Exception {
+public class Fejl_haendtering extends Exception {
 
-    public ExceptionHandler(String msg) {
+    public Fejl_haendtering(String msg) {
         super(msg);
     }
     

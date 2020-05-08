@@ -1,6 +1,6 @@
 package PresentationLayer;
 
-import FunctionLayer.ExceptionHandler;
+import FunctionLayer.Fejl_haendtering;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,7 +15,7 @@ abstract class Command {
         commands.put("forespoergsel", new Forespoergsel());
         commands.put("Carport_Rejsning", new Carport_Rejsning());
         commands.put("Carport_Fladt", new Carport_Fladt());
-        commands.put("Vis_forespoergsel", new Vis_forespoergsel() );
+        commands.put("Vis_forespoergsel", new Vis_Forespoergsel() );
         commands.put( "redirect", new Redirect());
         commands.put( "Forespoergsel_Succes", new Succes());
         commands.put( "Forside_Kunde", new Forside_Kunde());
@@ -34,6 +34,6 @@ abstract class Command {
     }
 
     abstract String execute( HttpServletRequest request, HttpServletResponse response ) 
-            throws ExceptionHandler;
+            throws Fejl_haendtering;
 
 }

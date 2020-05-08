@@ -22,11 +22,11 @@ public class Svg {
         svg.append(String.format(headerTemplate, height, width, viewbox));
     }
 
-    public void addRect(int x, int y, int height, int width) {
+    public void add_Rect(int x, int y, int height, int width) {
         svg.append(String.format(rectTemplate, x, y, height, width));
     }
 
-    public void addKryds(int x, int y, int height, int width) {
+    public void add_Kryds(int x, int y, int height, int width) {
         svg.append(String.format(krydsTemplate, x, y, height, width));
     }
 

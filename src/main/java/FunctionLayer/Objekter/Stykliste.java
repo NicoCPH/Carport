@@ -1,7 +1,7 @@
 package FunctionLayer.Objekter;
 
-import DBAccess.StyklisteMapper;
-import FunctionLayer.ExceptionHandler;
+import DBAccess.Stykliste_Mapper;
+import FunctionLayer.Fejl_haendtering;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,8 +37,8 @@ public class Stykliste {
         return stolper;
     }
 
-    public static Materiale rem_Omregner(int bredde) throws ExceptionHandler {
-        Map<String, List<Materiale>> materialeMap = StyklisteMapper.findStykListe();
+    public static Materiale rem_Omregner(int bredde) throws Fejl_haendtering {
+        Map<String, List<Materiale>> materialeMap = Stykliste_Mapper.findStykListe();
         List<Materiale> alleRem = materialeMap.get("Rem");
         for (Materiale rem : alleRem) {
             if (rem.getLaengde() == bredde) {
@@ -48,8 +48,8 @@ public class Stykliste {
         return null;
     }
 
-    public static Materiale spær_Omregener(int laengde) throws ExceptionHandler {
-        Map<String, List<Materiale>> materialeMap = StyklisteMapper.findStykListe();
+    public static Materiale spær_Omregener(int laengde) throws Fejl_haendtering {
+        Map<String, List<Materiale>> materialeMap = Stykliste_Mapper.findStykListe();
         List<Materiale> alleSpær = materialeMap.get("Spær");
         for (Materiale spær : alleSpær) {
             if (spær.getLaengde() == laengde) {

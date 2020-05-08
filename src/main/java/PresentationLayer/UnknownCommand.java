@@ -1,6 +1,6 @@
 package PresentationLayer;
 
-import FunctionLayer.ExceptionHandler;
+import FunctionLayer.Fejl_haendtering;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -12,9 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 public class UnknownCommand extends Command {
 
     @Override
-    String execute( HttpServletRequest request, HttpServletResponse response ) throws ExceptionHandler {
+    String execute( HttpServletRequest request, HttpServletResponse response ) throws Fejl_haendtering {
         String msg = "Unknown command. Contact IT";
-        throw new ExceptionHandler( msg );
+        throw new Fejl_haendtering( msg );
     }
 
 }

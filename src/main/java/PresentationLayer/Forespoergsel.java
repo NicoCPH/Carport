@@ -1,25 +1,19 @@
 package PresentationLayer;
 
-import DBAccess.CarportMapper;
-import DBAccess.StyklisteMapper;
-import FunctionLayer.ExceptionHandler;
+import DBAccess.Carport_Mapper;
+import FunctionLayer.Fejl_haendtering;
 import FunctionLayer.MetodeBehandler.Carport_Behandler;
-import FunctionLayer.MetodeBehandler.Tegning_Behandler;
-import FunctionLayer.Objekter.Materiale;
-import FunctionLayer.Objekter.Stykliste;
 import FunctionLayer.Svg;
+import FunctionLayer.Tegning_Algoritme;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import java.util.Collection;
-
-import java.util.HashMap;
-
 
 public class Forespoergsel extends Command {
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response) throws ExceptionHandler {
+    String execute(HttpServletRequest request, HttpServletResponse response) throws Fejl_haendtering {
 
         Svg svg = new Svg(800, 600, "0,0,800,600",0,0); // (ramme)
 
@@ -27,9 +21,9 @@ public class Forespoergsel extends Command {
             HttpSession session = request.getSession();
 
                 int carportBredde = Integer.parseInt(request.getParameter("bredde"));
-                int bredde_cm = CarportMapper.getDropdownBreddeList().get(carportBredde).getCarportBredde();
+                int bredde_cm = Carport_Mapper.get_Dropdown_Bredde_List().get(carportBredde).getCarportBredde();
                 int carportlaengde = Integer.parseInt(request.getParameter("carportlaengde"));
-                int langde_cm = CarportMapper.getDropdownLaengdeList().get(carportlaengde).getCarportLaengde();
+                int langde_cm = Carport_Mapper.get_Dropdown_Laengde_List().get(carportlaengde).getCarportLaengde();
                 int tagMatriale = Integer.parseInt(request.getParameter("tagMateriale"));
                 int carportFarve = Integer.parseInt(request.getParameter("carportfarve"));
                 int carportTraetype = Integer.parseInt(request.getParameter("carporttraetype"));
@@ -57,7 +51,7 @@ public class Forespoergsel extends Command {
 
                         tagHaeldning, request, tagMatriale, redskabsrumbeklaedningstype, redskabsrumGulv);
 
-                FunctionLayer.TegningAlgoritme.tegning(langde_cm, bredde_cm, request, redskabsrumbeklaedningstype, redskabsrumLaengde, redskabsrumBredde);
+                Tegning_Algoritme.tegning(langde_cm, bredde_cm, request, redskabsrumbeklaedningstype, redskabsrumLaengde, redskabsrumBredde);
 
                 session.setAttribute("navn", navn);
                 session.setAttribute("email", email);

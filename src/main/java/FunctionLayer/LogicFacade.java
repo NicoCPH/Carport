@@ -1,10 +1,8 @@
 package FunctionLayer;
 
 
-import DBAccess.CarportMapper;
-import DBAccess.MedarbejderMapper;
-import DBAccess.StyklisteMapper;
-import FunctionLayer.Objekter.Materiale;
+import DBAccess.Carport_Mapper;
+import DBAccess.Medarbejder_Mapper;
 
 
 /**
@@ -13,35 +11,35 @@ import FunctionLayer.Objekter.Materiale;
  */
 public class LogicFacade {
 
-    public static void lavForespoergsel(int carportLaengde, int carportBredde, int carportFarve,
-                                        int carportTraeType ,int tagMateriale, int tagHaeldning, int redskabsrumsbredde,
+    public static void lav_Forespoergsel(int carportLaengde, int carportBredde, int carportFarve,
+                                         int carportTraeType , int tagMateriale, int tagHaeldning, int redskabsrumsbredde,
                                          int redskabsrumslaengde, int redskabsrumBeklaedningstype, int redskabsrumGulv,
-                                        String navn, String adresse, int postNummer, String by, int tlf,
-                                        String email) throws ExceptionHandler {
+                                         String navn, String adresse, int postNummer, String by, int tlf,
+                                         String email) throws Fejl_haendtering {
 
-        CarportMapper.forespoergselList(carportLaengde, carportBredde, carportFarve, carportTraeType, tagMateriale,
+        Carport_Mapper.forespoergselList(carportLaengde, carportBredde, carportFarve, carportTraeType, tagMateriale,
                 tagHaeldning, redskabsrumsbredde, redskabsrumslaengde, redskabsrumBeklaedningstype, redskabsrumGulv,
         navn, adresse, postNummer, by, tlf, email);
 
     }
 
-    public static void lavForespoergselUdenRedskabsrum(int carportLaengde, int carportBredde, int carportFarve,
-                                        int carportTraeType ,int tagMateriale,  int tagHaeldning,
-                                        String navn, String adresse, int postNummer, String by, int tlf,
-                                        String email) throws ExceptionHandler {
+    public static void lavForespoergsel_UdenRedskabsrum(int carportLaengde, int carportBredde, int carportFarve,
+                                                        int carportTraeType , int tagMateriale, int tagHaeldning,
+                                                        String navn, String adresse, int postNummer, String by, int tlf,
+                                                        String email) throws Fejl_haendtering {
 
-        CarportMapper.forespoergselListUdenRedskabrum(carportLaengde, carportBredde, carportFarve, carportTraeType, tagMateriale,
+        Carport_Mapper.forespoergselListUdenRedskabrum(carportLaengde, carportBredde, carportFarve, carportTraeType, tagMateriale,
                 tagHaeldning, navn, adresse, postNummer, by, tlf, email);
 
     }
 
-    public static Medarbejder login(String email, String password ) throws ExceptionHandler {
-        return MedarbejderMapper.login( email, password );
+    public static Medarbejder login(String email, String password ) throws Fejl_haendtering {
+        return Medarbejder_Mapper.login( email, password );
     }
 
-    public static Medarbejder createEmployee(String navn, String password, String email) throws ExceptionHandler {
+    public static Medarbejder createEmployee(String navn, String password, String email) throws Fejl_haendtering {
         Medarbejder user = new Medarbejder(navn, password, email);
-        MedarbejderMapper.createEmployee( user );
+        Medarbejder_Mapper.createEmployee( user );
         return user;
     }
 
