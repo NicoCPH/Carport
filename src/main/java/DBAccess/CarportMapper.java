@@ -54,18 +54,15 @@ public class CarportMapper {
 
     public static void forespoergselList(int carportLaengde, int carportBredde, int carportFarve,
                                          int carportTraeType, int tagMateriale, int tagHaeldning, int redskabsrumsbredde,
-                                         int redskabsrumslaengde, int redskabsrumBeklaedningstype, int redskabsrumGulv,
-                                         String navn, String adresse, int postNummer, String by, int tlf,
-                                         String email) throws Fejl_haendtering {
+                                         int redskabsrumslaengde, int redskabsrumBeklaedningstype, int redskabsrumGulv, int kundeid) throws Fejl_haendtering {
 
     try {
         Connection con = Connector.connection();
 
         String SQL = "INSERT INTO `carportdb`.`forespoergsel` (`carportlaengde`, `carportbredde`, `carportfarve`," +
                 " `carporttraetype`, `tagmateriale`, `taghaeldning`, `redskabsrumbredde`," +
-                " `redskabsrumlaengde`, `redskabsrumbeklaedningstype`, `redskabsrumgulv`, `kundenavn`, `kundeadresse`," +
-                " `kundepostnummer`, `kundeby`, `kundetlf`, `kundeemail`)" +
-                " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+                " `redskabsrumlaengde`, `redskabsrumbeklaedningstype`, `redskabsrumgulv`, `kundeID`)" +
+                " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
         PreparedStatement ps = con.prepareStatement(SQL);
 
@@ -79,32 +76,24 @@ public class CarportMapper {
         ps.setInt(8, redskabsrumslaengde);
         ps.setInt(9, redskabsrumBeklaedningstype);
         ps.setInt(10, redskabsrumGulv);
-        ps.setString(11, navn);
-        ps.setString(12, adresse);
-        ps.setInt(13, postNummer);
-        ps.setString(14, by);
-        ps.setInt(15, tlf);
-        ps.setString(16, email);
+        ps.setInt(11, kundeid);
         ps.executeUpdate();
 
 
     } catch (SQLException | ClassNotFoundException ex) {
-      ex.getMessage();
+      ex.printStackTrace();
     }
 
 }
     public static void forespoergselListUdenRedskabrum(int carportLaengde, int carportBredde, int carportFarve,
-                                         int carportTraeType, int tagMateriale, int tagHaeldning,
-                                         String navn, String adresse, int postNummer, String by, int tlf,
-                                         String email) throws Fejl_haendtering {
+                                         int carportTraeType, int tagMateriale, int tagHaeldning, int kundeid) throws Fejl_haendtering {
 
         try {
             Connection con = Connector.connection();
 
             String SQL = "INSERT INTO `carportdb`.`forespoergsel` (`carportlaengde`, `carportbredde`, `carportfarve`," +
-                    " `carporttraetype`, `tagmateriale`, `taghaeldning`, `kundenavn`, `kundeadresse`," +
-                    " `kundepostnummer`, `kundeby`, `kundetlf`, `kundeemail`)" +
-                    " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+                    " `carporttraetype`, `tagmateriale`, `taghaeldning`, `kundeID`)" +
+                    " VALUES (?, ?, ?, ?, ?, ?, ?);";
 
             PreparedStatement ps = con.prepareStatement(SQL);
 
@@ -114,17 +103,12 @@ public class CarportMapper {
             ps.setInt(4, carportTraeType);
             ps.setInt(5, tagMateriale);
             ps.setInt(6, tagHaeldning);
-            ps.setString(7, navn);
-            ps.setString(8, adresse);
-            ps.setInt(9, postNummer);
-            ps.setString(10, by);
-            ps.setInt(11, tlf);
-            ps.setString(12, email);
+            ps.setInt(7, kundeid);
             ps.executeUpdate();
 
 
         } catch (SQLException | ClassNotFoundException ex) {
-            ex.getMessage();
+            ex.printStackTrace();
         }
 
     }

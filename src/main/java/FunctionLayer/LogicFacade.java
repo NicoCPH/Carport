@@ -2,6 +2,7 @@ package FunctionLayer;
 
 
 import DBAccess.CarportMapper;
+import DBAccess.KundeMapper;
 import DBAccess.Medarbejder_Mapper;
 
 
@@ -17,9 +18,8 @@ public class LogicFacade {
                                          String navn, String adresse, int postNummer, String by, int tlf,
                                          String email) throws Fejl_haendtering {
 
-        CarportMapper.forespoergselList(carportLaengde, carportBredde, carportFarve, carportTraeType, tagMateriale,
-                tagHaeldning, redskabsrumsbredde, redskabsrumslaengde, redskabsrumBeklaedningstype, redskabsrumGulv,
-        navn, adresse, postNummer, by, tlf, email);
+        KundeMapper.lavKunde_MedRedskabsrum(navn, adresse, postNummer, by, tlf, email, carportLaengde, carportBredde, carportFarve, carportTraeType
+        , tagMateriale, tagHaeldning, redskabsrumsbredde, redskabsrumslaengde, redskabsrumBeklaedningstype, redskabsrumGulv);
 
     }
 
@@ -28,8 +28,8 @@ public class LogicFacade {
                                                         String navn, String adresse, int postNummer, String by, int tlf,
                                                         String email) throws Fejl_haendtering {
 
-        CarportMapper.forespoergselListUdenRedskabrum(carportLaengde, carportBredde, carportFarve, carportTraeType, tagMateriale,
-                tagHaeldning, navn, adresse, postNummer, by, tlf, email);
+        KundeMapper.lavKunde_UdenRedskabsrum(navn, adresse, postNummer, by, tlf, email, carportLaengde, carportBredde,
+                carportFarve, carportTraeType, tagMateriale, tagHaeldning);
 
     }
 
