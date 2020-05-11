@@ -95,12 +95,21 @@ public class Tegning_Algoritme {
             }
 
             public static void stolper_Med_redskabsrum(int laengde1, int laengde2, int laengde3, int redLaengde, int bredde, int red_Bredde) {
-                svg.add_Rect(stolper_Laengde1(laengde1),32,10,10); // stolpe
-                svg.add_Rect(stolper_Laengde2(laengde2),32,10,10); // stolpe
-                svg.add_Rect(stolper_Laengde3(laengde3),32,10,10); // stolpe
-                svg.add_Rect(stolper_Laengde1(laengde1), stolpe_Bredde_Omregner(bredde),10,10); // stolpe
-                svg.add_Rect(stolper_Laengde2(laengde2), stolpe_Bredde_Omregner(bredde),10,10); // stolpe
-                svg.add_Rect(stolper_Laengde3(laengde3), stolpe_Bredde_Omregner(bredde),10,10); // stolpe
+                if (redLaengde <= laengde2 / 3) {
+                    svg.add_Rect(stolper_Laengde2(laengde2), 32, 10, 10); // stolpe
+                }
+
+                svg.add_Rect(stolper_Laengde3(laengde3), 32, 10, 10); // stolpe
+
+                if (red_Bredde != bredde) {
+                    svg.add_Rect(stolper_Laengde1(laengde1), stolpe_Bredde_Omregner(bredde), 10, 10); // stolpe
+                }
+
+                if (red_Bredde != bredde && redLaengde >= laengde2 / 3) {
+                    svg.add_Rect(stolper_Laengde2(laengde2), stolpe_Bredde_Omregner(bredde), 10, 10); // stolpe
+                }
+
+                svg.add_Rect(stolper_Laengde3(laengde3), stolpe_Bredde_Omregner(bredde), 10, 10); // stolpe
 
                 svg.add_Rect(Redskabsrum_Vaeg_X_Omregner(0), 32, Redskabsrum_Vaeg_Bredde_Omregner(red_Bredde),1); // redskabsrumsvæg
                 svg.add_Rect(Redskabsrum_Vaeg_X_Omregner(redLaengde), 32, Redskabsrum_Vaeg_Bredde_Omregner(red_Bredde),1); // redskabsrumsvæg

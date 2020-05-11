@@ -15,6 +15,7 @@ public class Forespoergsel extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws Fejl_haendtering {
 
+        Svg svgPille = new Svg(850, 650, "0,0,800,600",0,0); // (ramme til pillene)
         Svg svg = new Svg(800, 600, "0,0,800,600",0,0); // (ramme)
 
         try {
