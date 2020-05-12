@@ -17,7 +17,7 @@ public class LogicFacade {
                                          String navn, String adresse, int postNummer, String by, int tlf,
                                          String email) throws Fejl_haendtering {
 
-        Carport_Mapper.forespoergselList(carportLaengde, carportBredde, carportFarve, carportTraeType, tagMateriale,
+        Carport_Mapper.forespoergsel_List(carportLaengde, carportBredde, carportFarve, carportTraeType, tagMateriale,
                 tagHaeldning, redskabsrumsbredde, redskabsrumslaengde, redskabsrumBeklaedningstype, redskabsrumGulv,
         navn, adresse, postNummer, by, tlf, email);
 
@@ -28,7 +28,7 @@ public class LogicFacade {
                                                         String navn, String adresse, int postNummer, String by, int tlf,
                                                         String email) throws Fejl_haendtering {
 
-        Carport_Mapper.forespoergselListUdenRedskabrum(carportLaengde, carportBredde, carportFarve, carportTraeType, tagMateriale,
+        Carport_Mapper.forespoergsel_List_Uden_Redskabrum(carportLaengde, carportBredde, carportFarve, carportTraeType, tagMateriale,
                 tagHaeldning, navn, adresse, postNummer, by, tlf, email);
 
     }
@@ -39,7 +39,7 @@ public class LogicFacade {
 
     public static Medarbejder createEmployee(String navn, String password, String email) throws Fejl_haendtering {
         Medarbejder user = new Medarbejder(navn, password, email);
-        Medarbejder_Mapper.createEmployee( user );
+        Medarbejder_Mapper.create_Employee( user );
         return user;
     }
 

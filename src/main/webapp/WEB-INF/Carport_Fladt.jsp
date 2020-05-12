@@ -14,12 +14,12 @@
     @Override
     public void jspInit() {
     try {
-     Carport_Mapper.dropdownBredde();
-     Carport_Mapper.dropdownLaengde();
-     Carport_Mapper.dropdownFarve();
-     Carport_Mapper.dropdownTagmatriale();
-     Carport_Mapper.dropdownTraetype();
-     Carport_Mapper.dropdownGulv();
+     Carport_Mapper.dropdown_Bredde();
+     Carport_Mapper.dropdown_Laengde();
+     Carport_Mapper.dropdown_Farve();
+     Carport_Mapper.dropdown_Tagmatriale();
+     Carport_Mapper.dropdown_Trae_type();
+     Carport_Mapper.dropdown_Gulv();
     } catch (Fejl_haendtering e) {
         e.printStackTrace();
     }

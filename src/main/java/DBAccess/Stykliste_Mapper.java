@@ -14,55 +14,55 @@ import java.util.Map;
 
 public class Stykliste_Mapper {
 
-    protected static Map<String, List<Materiale>> materialeMap = new HashMap<>();
+    protected static Map<String, List<Materiale>> materiale_Map = new HashMap<>();
 
-    public static Map<String, List<Materiale>> getMaterialeMap() {
-        return materialeMap;
+    public static Map<String, List<Materiale>> getMateriale_Map() {
+        return materiale_Map;
     }
 
-    public static Map<String, List<Materiale>> findStykListe() throws Fejl_haendtering {
+    public static Map<String, List<Materiale>> find_StykListe() throws Fejl_haendtering {
 
-        List<Materiale> alleMaterialer = stykListe();
+        List<Materiale> alle_Materialer = stykListe();
 
-        List<Materiale> RemListe = new ArrayList<>();
-        List<Materiale> StolpeListe = new ArrayList<>();
-        List<Materiale> SpaerListe = new ArrayList<>();
-        List<Materiale> TagListe = new ArrayList<>();
+        List<Materiale> Rem_Liste = new ArrayList<>();
+        List<Materiale> Stolpe_Liste = new ArrayList<>();
+        List<Materiale> Spaer_Liste = new ArrayList<>();
+        List<Materiale> Tag_Liste = new ArrayList<>();
 
-        if(materialeMap == null) {
-            materialeMap = new HashMap<>();
+        if(materiale_Map == null) {
+            materiale_Map = new HashMap<>();
         }
 
-        alleMaterialer.forEach(materiale -> {
+        alle_Materialer.forEach(materiale -> {
             switch(materiale.getNavn()){
                 case "Rem":
-                    RemListe.add(materiale);
+                    Rem_Liste.add(materiale);
                     break;
                 case "Spær":
-                    SpaerListe.add(materiale);
+                    Spaer_Liste.add(materiale);
                     break;
                 case "Stolpe":
-                    StolpeListe.add(materiale);
+                    Stolpe_Liste.add(materiale);
                     break;
                 case "Tag":
-                    TagListe.add(materiale);
+                    Tag_Liste.add(materiale);
                     break;
                 default:
                     break;
             }
         });
 
-        materialeMap.put("Rem",RemListe);
-        materialeMap.put("Spær", SpaerListe);
-        materialeMap.put("Stolpe", StolpeListe);
-        materialeMap.put("Tag", TagListe);
+        materiale_Map.put("Rem",Rem_Liste);
+        materiale_Map.put("Spær", Spaer_Liste);
+        materiale_Map.put("Stolpe", Stolpe_Liste);
+        materiale_Map.put("Tag", Tag_Liste);
 
-        return materialeMap;
+        return materiale_Map;
     }
 
     public static List<Materiale> stykListe() throws Fejl_haendtering {
 
-        List<Materiale> alleMaterialer = new ArrayList<>();
+        List<Materiale> alle_Materialer = new ArrayList<>();
 
         try {
             Connection con = Connector.connection();
@@ -75,14 +75,14 @@ public class Stykliste_Mapper {
                 String navn = rs.getString("navn");
                 Materiale m = new Materiale(beskrivelse, navn, laengde);
 
-                alleMaterialer.add(m);
+                alle_Materialer.add(m);
             }
 
 
         } catch (ClassNotFoundException | SQLException ex) {
             ex.printStackTrace();
         }
-        return alleMaterialer;
+        return alle_Materialer;
     }
 
 }

@@ -3,7 +3,7 @@
 <%@include file="../indcludes/header.inc" %>
 <%
 
-    request.setAttribute("stykliste", Stykliste_Mapper.getMaterialeMap());
+    request.setAttribute("stykliste", Stykliste_Mapper.getMateriale_Map());
 
 
 %>
