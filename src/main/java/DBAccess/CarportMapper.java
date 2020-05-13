@@ -54,15 +54,15 @@ public class CarportMapper {
 
     public static void forespoergselList(int carportLaengde, int carportBredde, int carportFarve,
                                          int carportTraeType, int tagMateriale, int tagHaeldning, int redskabsrumsbredde,
-                                         int redskabsrumslaengde, int redskabsrumBeklaedningstype, int redskabsrumGulv, int kundeid) throws Fejl_haendtering {
+                                         int redskabsrumslaengde, int redskabsrumBeklaedningstype, int redskabsrumGulv, int kundeid, double pris) throws Fejl_haendtering {
 
     try {
         Connection con = Connector.connection();
 
         String SQL = "INSERT INTO `carportdb`.`forespoergsel` (`carportlaengde`, `carportbredde`, `carportfarve`," +
                 " `carporttraetype`, `tagmateriale`, `taghaeldning`, `redskabsrumbredde`," +
-                " `redskabsrumlaengde`, `redskabsrumbeklaedningstype`, `redskabsrumgulv`, `kundeID`)" +
-                " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+                " `redskabsrumlaengde`, `redskabsrumbeklaedningstype`, `redskabsrumgulv`, `kundeID`, `pris`)" +
+                " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
         PreparedStatement ps = con.prepareStatement(SQL);
 
@@ -77,6 +77,7 @@ public class CarportMapper {
         ps.setInt(9, redskabsrumBeklaedningstype);
         ps.setInt(10, redskabsrumGulv);
         ps.setInt(11, kundeid);
+        ps.setDouble(12, pris);
         ps.executeUpdate();
 
 
@@ -86,14 +87,14 @@ public class CarportMapper {
 
 }
     public static void forespoergselListUdenRedskabrum(int carportLaengde, int carportBredde, int carportFarve,
-                                         int carportTraeType, int tagMateriale, int tagHaeldning, int kundeid) throws Fejl_haendtering {
+                                         int carportTraeType, int tagMateriale, int tagHaeldning, int kundeid, double pris) throws Fejl_haendtering {
 
         try {
             Connection con = Connector.connection();
 
             String SQL = "INSERT INTO `carportdb`.`forespoergsel` (`carportlaengde`, `carportbredde`, `carportfarve`," +
-                    " `carporttraetype`, `tagmateriale`, `taghaeldning`, `kundeID`)" +
-                    " VALUES (?, ?, ?, ?, ?, ?, ?);";
+                    " `carporttraetype`, `tagmateriale`, `taghaeldning`, `kundeID`, `pris`)" +
+                    " VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
 
             PreparedStatement ps = con.prepareStatement(SQL);
 
@@ -104,6 +105,7 @@ public class CarportMapper {
             ps.setInt(5, tagMateriale);
             ps.setInt(6, tagHaeldning);
             ps.setInt(7, kundeid);
+            ps.setDouble(8, pris);
             ps.executeUpdate();
 
 

@@ -16,20 +16,20 @@ public class LogicFacade {
                                          int carportTraeType , int tagMateriale, int tagHaeldning, int redskabsrumsbredde,
                                          int redskabsrumslaengde, int redskabsrumBeklaedningstype, int redskabsrumGulv,
                                          String navn, String adresse, int postNummer, String by, int tlf,
-                                         String email) throws Fejl_haendtering {
+                                         String email, double pris) throws Fejl_haendtering {
 
         KundeMapper.lavKunde_MedRedskabsrum(navn, adresse, postNummer, by, tlf, email, carportLaengde, carportBredde, carportFarve, carportTraeType
-        , tagMateriale, tagHaeldning, redskabsrumsbredde, redskabsrumslaengde, redskabsrumBeklaedningstype, redskabsrumGulv);
+        , tagMateriale, tagHaeldning, redskabsrumsbredde, redskabsrumslaengde, redskabsrumBeklaedningstype, redskabsrumGulv, pris);
 
     }
 
     public static void lavForespoergsel_UdenRedskabsrum(int carportLaengde, int carportBredde, int carportFarve,
                                                         int carportTraeType , int tagMateriale, int tagHaeldning,
                                                         String navn, String adresse, int postNummer, String by, int tlf,
-                                                        String email) throws Fejl_haendtering {
+                                                        String email, double pris) throws Fejl_haendtering {
 
         KundeMapper.lavKunde_UdenRedskabsrum(navn, adresse, postNummer, by, tlf, email, carportLaengde, carportBredde,
-                carportFarve, carportTraeType, tagMateriale, tagHaeldning);
+                carportFarve, carportTraeType, tagMateriale, tagHaeldning, pris);
 
     }
 

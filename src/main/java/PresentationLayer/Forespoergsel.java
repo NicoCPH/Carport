@@ -50,16 +50,16 @@ public class Forespoergsel extends Command {
 
             if (redskabsrumBredde == null) {
                 Tegning_Algoritme.tegning_Uden_Redskabsrum(langde_cm, bredde_cm, request);
-                Carport_Behandler.PrisBehandler(bredde_cm, langde_cm, redskabsrumBredde, redskabsrumLaengde, tagHaeldning, request);
+               double pris = Carport_Behandler.PrisBehandler(bredde_cm, langde_cm, redskabsrumBredde, redskabsrumLaengde, tagHaeldning, request);
                 Carport_Behandler.carportBehandler(carportBredde, carportlaengde, redskabsrumBredde, redskabsrumLaengde, tagHaeldning,
                         redskabsrumbeklaedningstype,
-                        redskabsrumGulv, carportFarve, carportTraetype, tagMatriale, tlf, postNummer, by, navn, adresse, email);
+                        redskabsrumGulv, carportFarve, carportTraetype, tagMatriale, tlf, postNummer, by, navn, adresse, email, pris);
                 Carport_Behandler.konstruktion_beskrivelse(bredde_cm, langde_cm, redskabsrumBredde, redskabsrumLaengde, tagHaeldning, request, tagMatriale, redskabsrumbeklaedningstype, redskabsrumGulv);
             } else if (carportlaengde / 2 >= Integer.parseInt(redskabsrumLaengde) && carportBredde >= Integer.parseInt(redskabsrumBredde)) {
-                Carport_Behandler.PrisBehandler(bredde_cm, langde_cm, redskabsrumBredde, redskabsrumLaengde, tagHaeldning, request);
+                double pris = Carport_Behandler.PrisBehandler(bredde_cm, langde_cm, redskabsrumBredde, redskabsrumLaengde, tagHaeldning, request);
                 Carport_Behandler.carportBehandler(carportBredde, carportlaengde, redskabsrumBredde, redskabsrumLaengde, tagHaeldning,
                         redskabsrumbeklaedningstype,
-                        redskabsrumGulv, carportFarve, carportTraetype, tagMatriale, tlf, postNummer, by, navn, adresse, email);
+                        redskabsrumGulv, carportFarve, carportTraetype, tagMatriale, tlf, postNummer, by, navn, adresse, email, pris);
                 Carport_Behandler.konstruktion_beskrivelse(bredde_cm, langde_cm, redskabsrumBredde, redskabsrumLaengde, tagHaeldning, request, tagMatriale, redskabsrumbeklaedningstype, redskabsrumGulv);
 
                 Tegning_Algoritme.tegning_Med_Redskabsrum(langde_cm, bredde_cm, request, redskabsrumLaengde, redskabsrumBredde);

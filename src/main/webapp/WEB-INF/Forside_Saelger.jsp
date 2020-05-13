@@ -39,6 +39,11 @@
                     <th scope="col">Længde:</th>
                     <th scope="col">Bredde:</th>
                     <th scope="col">Farve:</th>
+                    <th scope="col">Adresse:</th>
+                    <th scope="col">By:</th>
+                    <th scope="col">Postnummer:</th>
+                    <th scope="col">Trætype:</th>
+                    <th scope="col">Hældning:</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -48,6 +53,11 @@
                     <td>${show.laengde}</td>
                     <td>${show.bredde}</td>
                     <td>${show.farve}</td>
+                    <td>${show.adresse}</td>
+                    <td>${show.kundeby}</td>
+                    <td>${show.kundepostnummer}</td>
+                    <td>${show.carport_traeType}</td>
+                    <td>${show.haeldning}</td>
                 </tr>
                 </tbody>
             </table>

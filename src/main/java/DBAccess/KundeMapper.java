@@ -13,13 +13,13 @@ public class KundeMapper {
     public static void lavKunde_MedRedskabsrum(String navn, String adresse, int postNummer, String by, int tlf,
                                                        String email, int carportLaengde, int carportBredde, int carportFarve,
                                 int carportTraeType, int tagMateriale, int tagHaeldning, int redskabsrumsbredde,
-                                int redskabsrumslaengde, int redskabsrumBeklaedningstype, int redskabsrumGulv) throws Fejl_haendtering {
+                                int redskabsrumslaengde, int redskabsrumBeklaedningstype, int redskabsrumGulv, double pris) throws Fejl_haendtering {
 
         if(findEmail(email).contains(email)){
             int kundeid = findKundeId(email);
             CarportMapper.forespoergselList(carportLaengde, carportBredde, carportFarve,
                     carportTraeType,  tagMateriale,  tagHaeldning,  redskabsrumsbredde,
-                    redskabsrumslaengde,  redskabsrumBeklaedningstype, redskabsrumGulv, kundeid);
+                    redskabsrumslaengde,  redskabsrumBeklaedningstype, redskabsrumGulv, kundeid, pris);
 
         } else {
 
@@ -50,7 +50,7 @@ public class KundeMapper {
             int kundeid = findKundeId(email);
             CarportMapper.forespoergselList(carportLaengde, carportBredde, carportFarve,
                     carportTraeType, tagMateriale, tagHaeldning, redskabsrumsbredde,
-                    redskabsrumslaengde, redskabsrumBeklaedningstype, redskabsrumGulv, kundeid);
+                    redskabsrumslaengde, redskabsrumBeklaedningstype, redskabsrumGulv, kundeid, pris);
 
         }
     }
@@ -77,12 +77,12 @@ public class KundeMapper {
 
     public static void lavKunde_UdenRedskabsrum(String navn, String adresse, int postNummer, String by, int tlf,
                                 String email, int carportLaengde, int carportBredde, int carportFarve,
-                                int carportTraeType, int tagMateriale, int tagHaeldning) throws Fejl_haendtering {
+                                int carportTraeType, int tagMateriale, int tagHaeldning, double pris) throws Fejl_haendtering {
 
         if(findEmail(email).contains(email)){
             int kundeid = findKundeId(email);
             CarportMapper.forespoergselListUdenRedskabrum(carportLaengde, carportBredde, carportFarve,
-                    carportTraeType,  tagMateriale,  tagHaeldning, kundeid);
+                    carportTraeType,  tagMateriale,  tagHaeldning, kundeid, pris);
 
         } else {
 
@@ -110,7 +110,7 @@ public class KundeMapper {
 
             int kundeid = findKundeId(email);
             CarportMapper.forespoergselListUdenRedskabrum(carportLaengde, carportBredde, carportFarve,
-                    carportTraeType, tagMateriale, tagHaeldning, kundeid);
+                    carportTraeType, tagMateriale, tagHaeldning, kundeid, pris);
 
         }
 
