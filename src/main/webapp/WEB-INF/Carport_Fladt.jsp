@@ -20,6 +20,7 @@
      CarportMapper.dropdownTagmatriale();
      CarportMapper.dropdownTraetype();
      CarportMapper.dropdownGulv();
+
     } catch (Fejl_haendtering e) {
         e.printStackTrace();
     }

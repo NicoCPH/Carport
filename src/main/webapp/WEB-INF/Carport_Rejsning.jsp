@@ -13,6 +13,7 @@
     @Override
     public void jspInit() {
     try {
+
     CarportMapper.dropdownBredde();
     CarportMapper.dropdownLaengde();
     CarportMapper.dropdownFarve();
@@ -20,6 +21,7 @@
     CarportMapper.dropdownTraetype();
     CarportMapper.dropdownHaeldning();
     CarportMapper.dropdownGulv();
+
     } catch (Fejl_haendtering e) {
     e.printStackTrace();
     }

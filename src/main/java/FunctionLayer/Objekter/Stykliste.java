@@ -83,35 +83,7 @@ public class Stykliste {
         return totalPlader;
     }
 
-    /*public static Materiale rem_Omregner(int bredde) throws ExceptionHandler {
-        Map<String, List<Materiale>> materialeMap = StyklisteMapper.findStykListe();
 
-    public static Materiale rem_Omregner(int bredde) throws Fejl_haendtering {
-        Map<String, List<Materiale>> materialeMap = Stykliste_Mapper.findStykListe();
-
-        List<Materiale> alleRem = materialeMap.get("Rem");
-        for (Materiale rem : alleRem) {
-            if (rem.getLaengde() == bredde) {
-                return rem;
-            }
-        }
-        return null;
-    }
-
-   /* public static Materiale spaer_Omregener(int laengde) throws ExceptionHandler {
-        Map<String, List<Materiale>> materialeMap = StyklisteMapper.findStykListe();
-
-    public static Materiale spær_Omregener(int laengde) throws Fejl_haendtering {
-        Map<String, List<Materiale>> materialeMap = Stykliste_Mapper.findStykListe();
-        List<Materiale> alleSpær = materialeMap.get("Spær");
-        for (Materiale spær : alleSpær) {
-            if (spær.getLaengde() == laengde) {
-                return spær;
-            }
-        }
-        return null;
-    }
-*/
 
     public static String rem_Omregner_beskrivelse() throws Fejl_haendtering {
         Map<String, List<Materiale>> materialeMap = Stykliste_Mapper.findStykListe();

@@ -17,8 +17,6 @@ public class Forespoergsel extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws Fejl_haendtering {
 
-        Svg svg = new Svg(800, 600, "0,0,800,600",0,0); // (ramme)
-
         try {
             HttpSession session = request.getSession();
 

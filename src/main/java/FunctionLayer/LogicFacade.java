@@ -18,10 +18,9 @@ public class LogicFacade {
                                          String email, double pris) throws Fejl_haendtering {
 
         KundeMapper.lavKunde_MedRedskabsrum(navn, adresse, postNummer, by, tlf, email, carportLaengde, carportBredde, carportFarve, carportTraeType
-        , tagMateriale, tagHaeldning, redskabsrumsbredde, redskabsrumslaengde, redskabsrumBeklaedningstype, redskabsrumGulv, pris);
+                , tagMateriale, tagHaeldning, redskabsrumsbredde, redskabsrumslaengde, redskabsrumBeklaedningstype, redskabsrumGulv, pris);
 
     }
-
 
 
     public static Medarbejder login(String email, String password ) throws Fejl_haendtering {
@@ -30,7 +29,7 @@ public class LogicFacade {
 
     public static Medarbejder createEmployee(String navn, String password, String email) throws Fejl_haendtering {
         Medarbejder user = new Medarbejder(navn, password, email);
-        Medarbejder_Mapper.createEmployee( user );
+        Medarbejder_Mapper.create_Employee( user );
         return user;
     }
 

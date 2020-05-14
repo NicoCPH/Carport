@@ -52,9 +52,12 @@ public class CarportMapper {
         return dropdown_Gulv_List;
     }
 
+
     public static void forespoergselList(int carportLaengde, int carportBredde, int carportFarve,
                                          int carportTraeType, int tagMateriale, int tagHaeldning, int redskabsrumsbredde,
                                          int redskabsrumslaengde, int redskabsrumBeklaedningstype, int redskabsrumGulv, int kundeid, double pris) throws Fejl_haendtering {
+
+
 
     try {
         Connection con = Connector.connection();
@@ -65,6 +68,7 @@ public class CarportMapper {
                 " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
         PreparedStatement ps = con.prepareStatement(SQL);
+
 
         ps.setInt(1, carportLaengde);
         ps.setInt(2, carportBredde);
@@ -78,6 +82,8 @@ public class CarportMapper {
         ps.setInt(10, redskabsrumGulv);
         ps.setInt(11, kundeid);
         ps.setDouble(12, pris);
+
+
         ps.executeUpdate();
 
 
@@ -87,8 +93,7 @@ public class CarportMapper {
 
 }
 
-
-    public static void dropdownHaeldning ()  throws Fejl_haendtering {
+    public static void dropdown_Haeldning()  throws Fejl_haendtering {
             if(dropdown_Haeldning_List == null) {
                 dropdown_Haeldning_List = new HashMap<>();
                 }
@@ -99,9 +104,9 @@ public class CarportMapper {
             ResultSet rs = st.executeQuery(SQL);
             while (rs.next()) {
 
-                int taghaeldning = rs.getInt("haeldninger");
-                int idtaghaeldning = rs.getInt("idhaeldning");
-                dropdown_Haeldning_List.put(idtaghaeldning, new Tag(taghaeldning, idtaghaeldning));
+                int tag_Haeldning = rs.getInt("haeldninger");
+                int id_Tag_Haeldning = rs.getInt("idhaeldning");
+                dropdown_Haeldning_List.put(id_Tag_Haeldning, new Tag(tag_Haeldning, id_Tag_Haeldning));
             }
 
         } catch (SQLException | ClassNotFoundException ex) {
@@ -110,7 +115,7 @@ public class CarportMapper {
 
     }
 
-    public static void dropdownGulv ()  throws Fejl_haendtering {
+    public static void dropdown_Gulv()  throws Fejl_haendtering {
         if(dropdown_Gulv_List == null) {
             dropdown_Gulv_List = new HashMap<>();
         }
@@ -131,7 +136,7 @@ public class CarportMapper {
         }
 
     }
-    public static void dropdownTagmatriale()  throws Fejl_haendtering {
+    public static void dropdown_Tagmatriale()  throws Fejl_haendtering {
         if(dropdown_Tagmatriale_List == null) {
             dropdown_Tagmatriale_List = new HashMap<>();
         }
@@ -142,9 +147,9 @@ public class CarportMapper {
             ResultSet rs = st.executeQuery(SQL);
             while (rs.next()) {
 
-                int idmatriale = rs.getInt("idtagmateriale");
+                int id_Matriale = rs.getInt("idtagmateriale");
                 String typer = rs.getString("typer");
-                dropdown_Tagmatriale_List.put(idmatriale, new Tag(typer, idmatriale));
+                dropdown_Tagmatriale_List.put(id_Matriale, new Tag(typer, id_Matriale));
             }
 
         } catch (SQLException | ClassNotFoundException ex) {
@@ -153,7 +158,7 @@ public class CarportMapper {
 
     }
 
-public static void dropdownBredde() throws Fejl_haendtering {
+public static void dropdown_Bredde() throws Fejl_haendtering {
     if(dropdown_Bredde_List == null) {
         dropdown_Bredde_List = new HashMap<>();
     }
@@ -166,10 +171,10 @@ public static void dropdownBredde() throws Fejl_haendtering {
 
         while (rs3.next()) {
 
-            int carportBredde = rs3.getInt("bredde");
-            int carportBreddeid = rs3.getInt("idbredder");
-            dropdown_Bredde_List.put(carportBreddeid, new Bredde(carportBredde,
-                    carportBreddeid));
+            int carport_Bredde = rs3.getInt("bredde");
+            int carport_Bredde_id = rs3.getInt("idbredder");
+            dropdown_Bredde_List.put(carport_Bredde_id, new Bredde(carport_Bredde,
+                    carport_Bredde_id));
         }
 
     } catch (SQLException | ClassNotFoundException ex) {
@@ -179,7 +184,7 @@ public static void dropdownBredde() throws Fejl_haendtering {
 
 }
 
-    public static void dropdownLaengde() throws Fejl_haendtering {
+    public static void dropdown_Laengde() throws Fejl_haendtering {
         if(dropdown_Laengde_List == null) {
             dropdown_Laengde_List = new HashMap<>();
         }
@@ -191,9 +196,9 @@ public static void dropdownBredde() throws Fejl_haendtering {
             ResultSet rs = st.executeQuery(SQL);
 
             while (rs.next()) {
-                int carportLaengde = rs.getInt("laengde");
-                int carportLaengdeid = rs.getInt("idlaengder");
-                dropdown_Laengde_List.put(carportLaengdeid, new Laengde(carportLaengdeid,carportLaengde));
+                int carport_Laengde = rs.getInt("laengde");
+                int carport_Laengde_id = rs.getInt("idlaengder");
+                dropdown_Laengde_List.put(carport_Laengde_id, new Laengde(carport_Laengde_id,carport_Laengde));
             }
 
         } catch (SQLException | ClassNotFoundException ex) {
@@ -203,7 +208,7 @@ public static void dropdownBredde() throws Fejl_haendtering {
 
     }
 
-    public static void dropdownFarve() throws Fejl_haendtering {
+    public static void dropdown_Farve() throws Fejl_haendtering {
         if(dropdown_Farve_List == null) {
             dropdown_Farve_List = new HashMap<>();
         }
@@ -216,9 +221,9 @@ public static void dropdownBredde() throws Fejl_haendtering {
 
             while (rs.next()) {
 
-                int carportFarveid = rs.getInt("idfarver");
-                String carportFarve = rs.getString("farve");
-                dropdown_Farve_List.put(carportFarveid, new Farve(carportFarve, carportFarveid));
+                int carport_Farve_id = rs.getInt("idfarver");
+                String carport_Farve = rs.getString("farve");
+                dropdown_Farve_List.put(carport_Farve_id, new Farve(carport_Farve, carport_Farve_id));
             }
 
         } catch (SQLException | ClassNotFoundException ex) {
@@ -227,7 +232,7 @@ public static void dropdownBredde() throws Fejl_haendtering {
 
 
     }
-    public static void dropdownTraetype() throws Fejl_haendtering {
+    public static void dropdown_Trae_type() throws Fejl_haendtering {
         if(dropdown_Traetype_List == null) {
             dropdown_Traetype_List = new HashMap<>();
         }
@@ -240,9 +245,9 @@ public static void dropdownBredde() throws Fejl_haendtering {
 
             while (rs.next()) {
 
-                int carporttraeTypeid = rs.getInt("idtraetyper");
-                String carporttraeType = rs.getString("traetype");
-                dropdown_Traetype_List.put(carporttraeTypeid, new Traetype(carporttraeTypeid, carporttraeType));
+                int carport_Trae_Type_id = rs.getInt("idtraetyper");
+                String carport_Trae_Type = rs.getString("traetype");
+                dropdown_Traetype_List.put(carport_Trae_Type_id, new Traetype(carport_Trae_Type_id, carport_Trae_Type));
             }
 
         } catch (SQLException | ClassNotFoundException ex) {

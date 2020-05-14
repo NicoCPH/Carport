@@ -31,7 +31,7 @@ public class Medarbejder_Mapper {
         }
     }
 
-    public static void createEmployee(Medarbejder medarbejder) throws Fejl_haendtering {
+    public static void create_Employee(Medarbejder medarbejder) throws Fejl_haendtering {
         try {
             Connection con = Connector.connection();
             String SQL = "INSERT INTO users (navn, password, email) VALUES (?, ?, ?)";
