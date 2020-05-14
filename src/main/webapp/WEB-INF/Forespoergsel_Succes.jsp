@@ -1,11 +1,18 @@
+
+
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="../indcludes/header.inc" %>
+
+
 <p class="text2">
 Tak for din forespørgsel ${sessionScope.navn}, vi vil vende tilbage snarest!
     <br>
     Der er sendt en email til: ${sessionScope.email}
     <br>
+    <br>
+    Her er en tegning over din valgte carport.
+    <br>
+    ${requestScope.carporttegning}
     <br>
     <br>
     <br>
@@ -13,6 +20,12 @@ Tak for din forespørgsel ${sessionScope.navn}, vi vil vende tilbage snarest!
     Konstruktions Beskrivelse:<br>
         ${sessionScope.beskrivelse}<br><br>
     Dit Tilbud er: ${sessionScope.pris}
+
+<br>
+
+<a href="FrontController?target=redirect&destination=Tilbud_Accept">
+    <button class="btn btn-sm mt-2 " style="background-color: #0c2069; color: #C0C0C0; font-weight: bold; width: 350px">Accepter Tilbud</button>
+</a>
 </div>
 </p>
 </body>

@@ -1,5 +1,5 @@
     <%@ page import="DBAccess.CarportMapper" %>
-    <%@ page import="FunctionLayer.ExceptionHandler" %><%--
+    <%@ page import="FunctionLayer.Fejl_haendtering" %><%--
     Created by IntelliJ IDEA.
     User: Lange
     Date: 20/04/2020
@@ -13,6 +13,7 @@
     @Override
     public void jspInit() {
     try {
+
     CarportMapper.dropdownBredde();
     CarportMapper.dropdownLaengde();
     CarportMapper.dropdownFarve();
@@ -20,20 +21,21 @@
     CarportMapper.dropdownTraetype();
     CarportMapper.dropdownHaeldning();
     CarportMapper.dropdownGulv();
-    } catch (ExceptionHandler e) {
+
+    } catch (Fejl_haendtering e) {
     e.printStackTrace();
     }
     }
     %>
 
     <%
-    request.setAttribute("gulv", CarportMapper.getDropdownGulvList());
-    request.setAttribute("bredde", CarportMapper.getDropdownBreddeList());
-    request.setAttribute("laengde", CarportMapper.getDropdownLaengdeList());
-    request.setAttribute("farve", CarportMapper.getDropdownFarveList());
-    request.setAttribute("traetype", CarportMapper.getDropdownTraetypeList());
-    request.setAttribute("tagmatriale", CarportMapper.getDropdownTagmatrialeList());
-    request.setAttribute("haeldning", CarportMapper.getDropdownHaeldningList());
+    request.setAttribute("gulv", CarportMapper.getDropdown_Gulv_List());
+    request.setAttribute("bredde", CarportMapper.get_Dropdown_Bredde_List());
+    request.setAttribute("laengde", CarportMapper.get_Dropdown_Laengde_List());
+    request.setAttribute("farve", CarportMapper.get_Dropdown_Farve_List());
+    request.setAttribute("traetype", CarportMapper.get_Dropdown_Traetype_List());
+    request.setAttribute("tagmatriale", CarportMapper.getDropdown_Tagmatriale_List());
+    request.setAttribute("haeldning", CarportMapper.getDropdown_Haeldning_List());
 
 
     %>
@@ -68,7 +70,7 @@
     <form name="forespoergsel" action="FrontController" method="POST">
             <label class="mt-4" style="background-color: white;color: #5f5f5f; font-weight: bold">Carport Bredde</label>
             <select class="form-control" name="bredde">
-                <c:forEach var="bredde" items="${bredde}">
+                <c:forEach var="bredde" begin="0" end="18" items="${bredde}">
                     <option value="${bredde.value.carportBreddeid}">${bredde.value.carportBredde}
                     </option>
                 </c:forEach>
@@ -76,7 +78,7 @@
 
         <label class="mt-4" style="background-color: white;color: #5f5f5f; font-weight: bold">Carport Længde</label>
         <select class="form-control" name="carportlaengde">
-            <c:forEach var="laengde" items="${laengde}">
+            <c:forEach var="laengde" begin="0" end="20" items="${laengde}">
                 <option value="${laengde.value.carportLaengdeid}">${laengde.value.carportLaengde}
                 </option>
             </c:forEach>
@@ -100,7 +102,7 @@
 
         <label class="mt-4" style="background-color: white;color: #5f5f5f; font-weight: bold">Carport Trætype</label>
         <select class="form-control" name="carporttraetype">
-            <c:forEach var="traetype" items="${traetype}">
+            <c:forEach var="traetype" begin="0" end="5" items="${traetype}">
                 <option value="${traetype.value.carporttraeTypeid}">${traetype.value.carporttraeType}
                 </option>
             </c:forEach>
@@ -122,13 +124,15 @@
 
     <p class="text2">
     Redskabsrum:<br>
-    NB! Der skal beregnes 15 cm tagudhæng på hver side af redskabsrummet*
+        NB! Der skal beregnes 15 cm tagudhæng på hver side af redskabsrummet*
+        <br>
+        NB! Redskabsrummet må max være halvt så langt som carporten*
     <br>
     <br>
     </p>
         <label class="mt-4" style="background-color: white;color: #5f5f5f; font-weight: bold">Redskabsrum bredde</label>
         <select class="form-control"  name="redskabsrumsbredde">
-            <c:forEach var="bredde" begin="0" end="17" items="${bredde}">
+            <c:forEach var="bredde" begin="0" end="20" items="${bredde}">
                 <option value="${bredde.value.carportBreddeid}">${bredde.value.carportBredde}
                 </option>
             </c:forEach>
@@ -136,7 +140,7 @@
 
         <label class="mt-4" style="background-color: white;color: #5f5f5f; font-weight: bold">Redskabsrum Længde</label>
         <select class="form-control" name="redskabsrumslaengde">
-            <c:forEach var="laengde" begin="0" end="17" items="${laengde}">
+            <c:forEach var="laengde" begin="0" end="8" items="${laengde}">
                 <option value="${laengde.value.carportLaengdeid}">${laengde.value.carportLaengde}
                 </option>
             </c:forEach>
@@ -144,7 +148,7 @@
 
     <label class="mt-4" style="background-color: white;color: #5f5f5f; font-weight: bold">Redskabsrum beklædnings type</label>
     <select class="form-control" name="redskabsrumbeklaedningstype">
-    <c:forEach var="traetype" items="${traetype}">
+    <c:forEach var="traetype" begin="0" end="5" items="${traetype}">
     <option value="${traetype.value.carporttraeTypeid}">${traetype.value.carporttraeType}
     </option>
     </c:forEach>
@@ -152,18 +156,11 @@
 
             <label class="mt-4" style="background-color: white;color: #5f5f5f; font-weight: bold">Redskabsrum gulv</label>
             <select class="form-control" name="redskabsrumGulv">
-                <c:forEach var="gulv" items="${gulv}">
+                <c:forEach var="gulv" begin="0" end="2" items="${gulv}">
                     <option value="${gulv.value.idGulv}">${gulv.value.gulv}
                     </option>
                 </c:forEach>
             </select>
-    <label class="mt-4">Redskabsrum position</label>
-    <select class="form-control">
-    <option value="kg">Højre oppe</option>
-    <option value="gm">Ventre oppe</option>
-    <option value="pound">Højre nede</option>
-    <option value="MetricTon">Ventre nede</option>
-    </select>
     </div>
     <br>
     <br>

@@ -1,4 +1,6 @@
-# Gruppe 555
+
+# Skabelon til Java webprojekter 
+
 
 Lavet af:
 Nicolas Allesøe, 
@@ -7,6 +9,5 @@ Henrik Thomasen
 
 ## Dokumentation
 
-Her kan man beskrive hvad projektet består af og hvordan man kan installere det på localhost og på en produktionsserver.
 
 

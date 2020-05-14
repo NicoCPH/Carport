@@ -1,13 +1,13 @@
 package PresentationLayer;
 
-import FunctionLayer.ExceptionHandler;
+import FunctionLayer.Fejl_haendtering;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class Carport_Fladt extends Command {
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response) throws ExceptionHandler {
+    String execute(HttpServletRequest request, HttpServletResponse response) throws Fejl_haendtering {
         return "Carport_Fladt";
     }
 }

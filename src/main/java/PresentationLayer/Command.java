@@ -1,9 +1,10 @@
 package PresentationLayer;
 
-import FunctionLayer.ExceptionHandler;
-import java.util.HashMap;
+import FunctionLayer.Fejl_haendtering;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
 
 abstract class Command {
 
@@ -14,10 +15,16 @@ abstract class Command {
         commands.put("forespoergsel", new Forespoergsel());
         commands.put("Carport_Rejsning", new Carport_Rejsning());
         commands.put("Carport_Fladt", new Carport_Fladt());
-        commands.put( "redirect", new Redirect() );
-        commands.put( "Forespoergsel_Succes", new Succes() );
-        commands.put( "Forside_Kunde", new Forside_Kunde() );
-        commands.put("Forside_Saelger", new Forside_Saelger() );
+        commands.put("Vis_forespoergsel", new Vis_Forespoergsel() );
+        commands.put( "redirect", new Redirect());
+        commands.put( "Forespoergsel_Succes", new Forespoergsel_Succes());
+        commands.put( "Forside_Kunde", new Forside_Kunde());
+        commands.put("Forside_Saelger", new Forside_Saelger());
+        commands.put("Fejl", new Fejl() );
+        commands.put("Tilbud_Accept", new Tilbud_Accept());
+        commands.put("Opdater_pris", new Opdater_pris());
+
+
     }
 
     static Command from( HttpServletRequest request ) {
@@ -29,6 +36,6 @@ abstract class Command {
     }
 
     abstract String execute( HttpServletRequest request, HttpServletResponse response ) 
-            throws ExceptionHandler;
+            throws Fejl_haendtering;
 
 }

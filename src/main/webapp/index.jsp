@@ -1,6 +1,19 @@
+<%@ page import="DBAccess.CarportMapper" %>
+<%@ page import="FunctionLayer.Fejl_haendtering" %>
+<%@ page import="DBAccess.Stykliste_Mapper" %>
 <%@include file="indcludes/header1.inc" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%!
+    @Override
+    public void jspInit() {
+        try {
+            Stykliste_Mapper.stykListe();
+        } catch (Fejl_haendtering e) {
+            e.printStackTrace();
+        }
+    }
+%>
 <div>
 <br>
 <br>

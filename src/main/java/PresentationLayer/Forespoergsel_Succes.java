@@ -5,9 +5,10 @@ import FunctionLayer.Fejl_haendtering;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class Carport_Rejsning extends Command {
+public class Forespoergsel_Succes extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws Fejl_haendtering {
-        return "Carport_Rejsning";
+
+        return "Forespoergsel_Succes";
     }
 }
