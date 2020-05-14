@@ -75,46 +75,7 @@ public class KundeMapper {
         return kundeid;
     }
 
-    public static void lavKunde_UdenRedskabsrum(String navn, String adresse, int postNummer, String by, int tlf,
-                                String email, int carportLaengde, int carportBredde, int carportFarve,
-                                int carportTraeType, int tagMateriale, int tagHaeldning, double pris) throws Fejl_haendtering {
 
-        if(findEmail(email).contains(email)){
-            int kundeid = findKundeId(email);
-            CarportMapper.forespoergselListUdenRedskabrum(carportLaengde, carportBredde, carportFarve,
-                    carportTraeType,  tagMateriale,  tagHaeldning, kundeid, pris);
-
-        } else {
-
-            try {
-                Connection con = Connector.connection();
-
-                String SQL = "INSERT INTO `carportdb`.`kunde` (`navn`, `adresse`," +
-                        " `postnummer`, `by`, `tlf`, `email`)" +
-                        " VALUES (?, ?, ?, ?, ?, ?);";
-
-                PreparedStatement ps = con.prepareStatement(SQL);
-
-                ps.setString(1, navn);
-                ps.setString(2, adresse);
-                ps.setInt(3, postNummer);
-                ps.setString(4, by);
-                ps.setInt(5, tlf);
-                ps.setString(6, email);
-                ps.executeUpdate();
-
-
-            } catch (SQLException | ClassNotFoundException ex) {
-                ex.printStackTrace();
-            }
-
-            int kundeid = findKundeId(email);
-            CarportMapper.forespoergselListUdenRedskabrum(carportLaengde, carportBredde, carportFarve,
-                    carportTraeType, tagMateriale, tagHaeldning, kundeid, pris);
-
-        }
-
-    }
 
     public static List findEmail (String email)  throws Fejl_haendtering {
         if(kundeEmails == null) {

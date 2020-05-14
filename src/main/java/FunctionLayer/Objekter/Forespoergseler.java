@@ -17,10 +17,12 @@ public class Forespoergseler {
     int kundepostnummer;
     String kundeemail;
     int kundetlf;
+    double pris;
+    int id;
 
 
-    public Forespoergseler(int laengde, int bredde, String farve, String carport_traeType, String tag, int haeldning,
-                           String navn, String adresse, String kundeby, int kundepostnummer, String kundeemail, int kundetlf) {
+    public Forespoergseler(String gulv, int id, int laengde, int bredde, String farve, String carport_traeType, String tag, int haeldning,
+                           String navn, String adresse, String kundeby, int kundepostnummer, String kundeemail, int kundetlf, double pris) {
         this.laengde = laengde;
         this.bredde = bredde;
         this.farve = farve;
@@ -33,17 +35,18 @@ public class Forespoergseler {
         this.kundepostnummer = kundepostnummer;
         this.kundeemail = kundeemail;
         this.kundetlf = kundetlf;
+        this.pris = pris;
+        this.id = id;
+        this.gulv = gulv;
     }
 
-    public Forespoergseler(int laengde, int bredde, String farve, String carport_traeType,
-                           String tag, int haeldning, String redskabs_traeType, String gulv, int redskab_laengde,
-                           int redskabs_bredde, String navn, String adresse, String kundeby, int kundepostnummer, String kundeemail,
-                           int kundetlf) {
+    public Forespoergseler(int id, int laengde, int bredde, String farve, String carport_traeType, String tag, int haeldning, String redskabs_traeType, String gulv, int redskab_laengde, int redskabs_bredde,
+                           String navn, String adresse, String kundeby, int kundepostnummer, String kundeemail, int kundetlf, double pris) {
         this.laengde = laengde;
         this.bredde = bredde;
         this.farve = farve;
         this.carport_traeType = carport_traeType;
-        Tag = tag;
+        this.Tag = tag;
         this.haeldning = haeldning;
         this.redskabs_traeType = redskabs_traeType;
         this.gulv = gulv;
@@ -55,6 +58,24 @@ public class Forespoergseler {
         this.kundepostnummer = kundepostnummer;
         this.kundeemail = kundeemail;
         this.kundetlf = kundetlf;
+        this.pris = pris;
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public double getPris() {
+        return pris;
+    }
+
+    public void setPris(double pris) {
+        this.pris = pris;
     }
 
     public int getLaengde() {

@@ -1,7 +1,6 @@
 package FunctionLayer;
 
 
-import DBAccess.CarportMapper;
 import DBAccess.KundeMapper;
 import DBAccess.Medarbejder_Mapper;
 
@@ -23,15 +22,7 @@ public class LogicFacade {
 
     }
 
-    public static void lavForespoergsel_UdenRedskabsrum(int carportLaengde, int carportBredde, int carportFarve,
-                                                        int carportTraeType , int tagMateriale, int tagHaeldning,
-                                                        String navn, String adresse, int postNummer, String by, int tlf,
-                                                        String email, double pris) throws Fejl_haendtering {
 
-        KundeMapper.lavKunde_UdenRedskabsrum(navn, adresse, postNummer, by, tlf, email, carportLaengde, carportBredde,
-                carportFarve, carportTraeType, tagMateriale, tagHaeldning, pris);
-
-    }
 
     public static Medarbejder login(String email, String password ) throws Fejl_haendtering {
         return Medarbejder_Mapper.login( email, password );
