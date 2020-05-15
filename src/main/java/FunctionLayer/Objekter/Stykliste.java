@@ -2,6 +2,7 @@ package FunctionLayer.Objekter;
 
 import DBAccess.Stykliste_Mapper;
 import FunctionLayer.Fejl_haendtering;
+import FunctionLayer.LogicFacade;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -86,7 +87,9 @@ public class Stykliste {
 
 
     public static String rem_Omregner_beskrivelse() throws Fejl_haendtering {
-        Map<String, List<Materiale>> materialeMap = Stykliste_Mapper.find_StykListe();
+
+        Map<String, List<Materiale>> materialeMap = LogicFacade.findStykListe();
+
         List<Materiale> alleRem = materialeMap.get("Rem");
         for (Materiale rem : alleRem) {
             return rem.getBeskrivelse();
@@ -96,7 +99,8 @@ public class Stykliste {
 
 
     public static String spaer_Omregner_beskrivelse() throws  Fejl_haendtering {
-        Map<String, List<Materiale>> materialeMap = Stykliste_Mapper.find_StykListe();
+
+        Map<String, List<Materiale>> materialeMap = LogicFacade.findStykListe();
         List<Materiale> alleSpær = materialeMap.get("Spær");
         for (Materiale spær : alleSpær) {
             return spær.getBeskrivelse();
@@ -105,7 +109,9 @@ public class Stykliste {
     }
 
     public static String stolpe_Omregner_beskrivlese() throws Fejl_haendtering {
-        Map<String, List<Materiale>> stolpeMap = Stykliste_Mapper.find_StykListe();
+
+        Map<String, List<Materiale>> stolpeMap = LogicFacade.findStykListe();
+
         List<Materiale> alleStolper = stolpeMap.get("Stolpe");
         for (Materiale stolpe : alleStolper) {
             return stolpe.getBeskrivelse();
@@ -114,7 +120,9 @@ public class Stykliste {
     }
 
     public static String tag_Omregner_beskrivelse(String tagMaterialeType) throws Fejl_haendtering {
-        Map<String, List<Materiale>> tagMap = Stykliste_Mapper.find_StykListe();
+
+        Map<String, List<Materiale>> tagMap = LogicFacade.findStykListe();
+
         List<Materiale> alleTag = tagMap.get("Tag");
 
 
