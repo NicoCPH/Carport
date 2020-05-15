@@ -1,4 +1,4 @@
-    <%@ page import="DBAccess.CarportMapper" %>
+    <%@ page import="DBAccess.Carport_Mapper" %>
     <%@ page import="FunctionLayer.Fejl_haendtering" %><%--
     Created by IntelliJ IDEA.
     User: Lange
@@ -14,13 +14,13 @@
     public void jspInit() {
     try {
 
-    CarportMapper.dropdownBredde();
-    CarportMapper.dropdownLaengde();
-    CarportMapper.dropdownFarve();
-    CarportMapper.dropdownTagmatriale();
-    CarportMapper.dropdownTraetype();
-    CarportMapper.dropdownHaeldning();
-    CarportMapper.dropdownGulv();
+    Carport_Mapper.dropdown_Bredde();
+    Carport_Mapper.dropdown_Laengde();
+    Carport_Mapper.dropdown_Farve();
+    Carport_Mapper.dropdown_Tagmatriale();
+    Carport_Mapper.dropdown_Trae_type();
+    Carport_Mapper.dropdown_Haeldning();
+    Carport_Mapper.dropdown_Gulv();
 
     } catch (Fejl_haendtering e) {
     e.printStackTrace();
@@ -29,13 +29,13 @@
     %>
 
     <%
-    request.setAttribute("gulv", CarportMapper.getDropdown_Gulv_List());
-    request.setAttribute("bredde", CarportMapper.get_Dropdown_Bredde_List());
-    request.setAttribute("laengde", CarportMapper.get_Dropdown_Laengde_List());
-    request.setAttribute("farve", CarportMapper.get_Dropdown_Farve_List());
-    request.setAttribute("traetype", CarportMapper.get_Dropdown_Traetype_List());
-    request.setAttribute("tagmatriale", CarportMapper.getDropdown_Tagmatriale_List());
-    request.setAttribute("haeldning", CarportMapper.getDropdown_Haeldning_List());
+    request.setAttribute("gulv", Carport_Mapper.getDropdown_Gulv_List());
+    request.setAttribute("bredde", Carport_Mapper.get_Dropdown_Bredde_List());
+    request.setAttribute("laengde", Carport_Mapper.get_Dropdown_Laengde_List());
+    request.setAttribute("farve", Carport_Mapper.get_Dropdown_Farve_List());
+    request.setAttribute("traetype", Carport_Mapper.get_Dropdown_Traetype_List());
+    request.setAttribute("tagmatriale", Carport_Mapper.getDropdown_Tagmatriale_List());
+    request.setAttribute("haeldning", Carport_Mapper.getDropdown_Haeldning_List());
 
 
     %>
@@ -110,7 +110,7 @@
 
     <label class="mt-4">Taghældning</label>
     <select class="form-control" name="tagHaeldning">
-        <c:forEach var="haeldning" items="${haeldning}">
+        <c:forEach var="haeldning" begin="0" end="6" items="${haeldning}">
             <option value="${haeldning.value.haeldningid}">${haeldning.value.haeldning}%
              </option>
         </c:forEach>
@@ -132,7 +132,7 @@
     </p>
         <label class="mt-4" style="background-color: white;color: #5f5f5f; font-weight: bold">Redskabsrum bredde</label>
         <select class="form-control"  name="redskabsrumsbredde">
-            <c:forEach var="bredde" begin="0" end="20" items="${bredde}">
+            <c:forEach var="bredde" begin="0" end="19" items="${bredde}">
                 <option value="${bredde.value.carportBreddeid}">${bredde.value.carportBredde}
                 </option>
             </c:forEach>
@@ -166,25 +166,34 @@
     <br>
     <br>
     <br>
-    <label for="navn">Navn:</label><br>
-    <input style="width: 450px" type="text" id="navn" name="navn"><br>
-
-    <label for="adresse">Adresse:</label><br>
-    <input style="width: 450px" type="text" id="adresse" name="adresse"><br>
-
-    <label for="pnr">Postnummer:</label><br>
-    <input style="width: 450px" type="text" id="pnr" name="postNummer"><br>
-
-    <label for="by">By:</label><br>
-    <input style="width: 450px" type="text" id="by" name="by"><br>
-
-    <label for="tlf">Telefon</label><br>
-    <input style="width: 450px" type="text" id="tlf" name="tlf"><br>
-
-    <label for="email">Email</label><br>
-    <input style="width: 450px" type="email" id="email" name="email">
-    <input type="hidden" name="target" value="forespoergsel">
-    <button class="btn btn-sm btn-primary mt-2 btn-block" type="submit">Send forespørgsel</button>
+        <div class='field'>
+            <label for="navn">Navn:</label><br>
+            <input style="width: 450px" type="text" id="navn" name="navn"><br>
+        </div>
+        <div class='field'>
+            <label for="adresse">Adresse:</label><br>
+            <input style="width: 450px" type="text" id="adresse" name="adresse"><br>
+        </div>
+        <div class='field'>
+            <label for="pnr">Postnummer:</label><br>
+            <input style="width: 450px" type="text" id="pnr" name="postNummer"><br>
+        </div>
+        <div class='field'>
+            <label for="by">By:</label><br>
+            <input style="width: 450px" type="text" id="by" name="by"><br>
+        </div>
+        <div class='field'>
+            <label for="tlf">Telefon</label><br>
+            <input style="width: 450px" type="text" id="tlf" name="tlf"><br>
+        </div>
+        <div class='field'>
+            <label for="email">Email</label><br>
+            <input style="width: 450px" type="email" id="email" name="email">
+        </div>
+        <div class='actions'>
+            <input type="hidden" name="target" value="forespoergsel">
+            <input  class="btn btn-sm btn-primary mt-2 btn-block" id="btnSubmit"  disabled="disabled" type="submit" value="Send Forespørgsel">
+        </div>
     </form>
     <br>
     <br>
@@ -207,6 +216,24 @@
                 } else {
                     $("div#select_div").show();
                     $("div#select_div").children().prop('disabled', false);
+                }
+            });
+        });
+
+        $(document).ready(function() {
+            $('.field input').keyup(function() {
+
+                var empty = false;
+                $('.field input').each(function() {
+                    if ($(this).val().length == 0) {
+                        empty = true;
+                    }
+                });
+
+                if (empty) {
+                    $('.actions input').attr('disabled', 'disabled');
+                } else {
+                    $('.actions input').attr('disabled', false);
                 }
             });
         });

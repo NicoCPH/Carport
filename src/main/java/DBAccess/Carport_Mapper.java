@@ -3,6 +3,7 @@ package DBAccess;
 
 import FunctionLayer.Fejl_haendtering;
 import FunctionLayer.Objekter.*;
+
 import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,7 +13,7 @@ import java.util.Map;
 
  @author Nicolas
  */
-public class CarportMapper {
+public class Carport_Mapper {
 
     protected static Map<Integer, Bredde> dropdown_Bredde_List = new HashMap<>();
     protected static Map<Integer, Laengde> dropdown_Laengde_List = new HashMap<>();

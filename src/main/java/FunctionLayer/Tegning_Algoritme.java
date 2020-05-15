@@ -1,6 +1,6 @@
 package FunctionLayer;
 
-import DBAccess.CarportMapper;
+import DBAccess.Carport_Mapper;
 
 import javax.servlet.http.HttpServletRequest;
 

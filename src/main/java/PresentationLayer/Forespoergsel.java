@@ -1,10 +1,9 @@
 package PresentationLayer;
 
-import DBAccess.CarportMapper;
+import DBAccess.Carport_Mapper;
 import FunctionLayer.Fejl_haendtering;
 import FunctionLayer.MetodeBehandler.Carport_Behandler;
 import FunctionLayer.Objekter.*;
-import FunctionLayer.Svg;
 import FunctionLayer.Tegning_Algoritme;
 
 
@@ -22,11 +21,11 @@ public class Forespoergsel extends Command {
 
 
             int carportBredde = Integer.parseInt(request.getParameter("bredde"));
-            int bredde_cm = CarportMapper.get_Dropdown_Bredde_List().get(carportBredde).getCarportBredde();
+            int bredde_cm = Carport_Mapper.get_Dropdown_Bredde_List().get(carportBredde).getCarportBredde();
             int carportlaengde = Integer.parseInt(request.getParameter("carportlaengde"));
-            int langde_cm = CarportMapper.get_Dropdown_Laengde_List().get(carportlaengde).getCarportLaengde();
+            int langde_cm = Carport_Mapper.get_Dropdown_Laengde_List().get(carportlaengde).getCarportLaengde();
             int tagMatriale = Integer.parseInt(request.getParameter("tagMateriale"));
-            String tagMaterialetype = CarportMapper.getDropdown_Tagmatriale_List().get(tagMatriale).getType();
+            String tagMaterialetype = Carport_Mapper.getDropdown_Tagmatriale_List().get(tagMatriale).getType();
             int carportFarve = Integer.parseInt(request.getParameter("carportfarve"));
             int carportTraetype = Integer.parseInt(request.getParameter("carporttraetype"));
             String tagHaeldning = request.getParameter("tagHaeldning");
