@@ -86,34 +86,7 @@ public class CarportMapper {
     }
 
 }
-    public static void forespoergselListUdenRedskabrum(int carportLaengde, int carportBredde, int carportFarve,
-                                         int carportTraeType, int tagMateriale, int tagHaeldning, int kundeid, double pris) throws Fejl_haendtering {
 
-        try {
-            Connection con = Connector.connection();
-
-            String SQL = "INSERT INTO `carportdb`.`forespoergsel` (`carportlaengde`, `carportbredde`, `carportfarve`," +
-                    " `carporttraetype`, `tagmateriale`, `taghaeldning`, `kundeID`, `pris`)" +
-                    " VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
-
-            PreparedStatement ps = con.prepareStatement(SQL);
-
-            ps.setInt(1, carportLaengde);
-            ps.setInt(2, carportBredde);
-            ps.setInt(3, carportFarve);
-            ps.setInt(4, carportTraeType);
-            ps.setInt(5, tagMateriale);
-            ps.setInt(6, tagHaeldning);
-            ps.setInt(7, kundeid);
-            ps.setDouble(8, pris);
-            ps.executeUpdate();
-
-
-        } catch (SQLException | ClassNotFoundException ex) {
-            ex.printStackTrace();
-        }
-
-    }
 
     public static void dropdownHaeldning ()  throws Fejl_haendtering {
             if(dropdown_Haeldning_List == null) {

@@ -3,9 +3,10 @@ package PresentationLayer;
 import DBAccess.CarportMapper;
 import FunctionLayer.Fejl_haendtering;
 import FunctionLayer.MetodeBehandler.Carport_Behandler;
-import FunctionLayer.Objekter.Stykliste;
+import FunctionLayer.Objekter.*;
 import FunctionLayer.Svg;
 import FunctionLayer.Tegning_Algoritme;
+
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

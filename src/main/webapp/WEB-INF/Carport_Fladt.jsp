@@ -69,7 +69,7 @@
     <form name="forespoergsel" action="FrontController" method="POST">
        <label class="mt-4" style="background-color: white;color: #5f5f5f; font-weight: bold">Carport Bredde</label>
        <select class="form-control" name="bredde">
-           <c:forEach var="bredde" items="${bredde}">
+           <c:forEach var="bredde" begin="0" end="18" items="${bredde}">
                <option value="${bredde.value.carportBreddeid}">${bredde.value.carportBredde}
                </option>
            </c:forEach>
@@ -77,7 +77,7 @@
 
     <label class="mt-4" style="background-color: white;color: #5f5f5f; font-weight: bold">Carport Længde</label>
     <select class="form-control" name="carportlaengde">
-    <c:forEach var="laengde" items="${laengde}">
+    <c:forEach var="laengde" begin="0" end="20" items="${laengde}">
         <option value="${laengde.value.carportLaengdeid}">${laengde.value.carportLaengde}
         </option>
     </c:forEach>
@@ -100,7 +100,7 @@
     </select>
          <label class="mt-4" style="background-color: white;color: #5f5f5f; font-weight: bold">Carport Trætype</label>
         <select class="form-control" name="carporttraetype">
-            <c:forEach var="traetype" items="${traetype}">
+            <c:forEach var="traetype" begin="0" end="5" items="${traetype}">
                 <option value="${traetype.value.carporttraeTypeid}">${traetype.value.carporttraeType}
                 </option>
             </c:forEach>
@@ -140,7 +140,7 @@
 
         <label class="mt-4" style="background-color: white;color: #5f5f5f; font-weight: bold">Redskabsrum beklædnings type</label>
         <select class="form-control" name="redskabsrumbeklaedningstype">
-            <c:forEach var="traetype" items="${traetype}">
+            <c:forEach var="traetype" begin="0" end="5" items="${traetype}">
                 <option value="${traetype.value.carporttraeTypeid}">${traetype.value.carporttraeType}
                 </option>
             </c:forEach>
@@ -148,7 +148,7 @@
 
         <label class="mt-4" style="background-color: white;color: #5f5f5f; font-weight: bold">Redskabsrum gulv</label>
         <select class="form-control" name="redskabsrumGulv">
-            <c:forEach var="gulv" items="${gulv}">
+            <c:forEach var="gulv" begin="0" end="2" items="${gulv}">
                 <option value="${gulv.value.idGulv}">${gulv.value.gulv}
                 </option>
             </c:forEach>

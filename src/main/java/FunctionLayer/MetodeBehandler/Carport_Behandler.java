@@ -14,14 +14,15 @@ public class Carport_Behandler {
                                         int tlf, int postNummer, String by, String navn, String adresse, String email, double pris) throws Fejl_haendtering {
 
         if (redskabsrumbeklaedningstype == null && tagHaeldning == null ) {
-            LogicFacade.lavForespoergsel_UdenRedskabsrum(laengde_cm, bredde_cm, carportFarve, carportTraetype, tagMatriale,
-                    8, navn, adresse, postNummer, by, tlf, email, pris);
+            LogicFacade.lav_Forespoergsel(laengde_cm, bredde_cm, carportFarve, carportTraetype, tagMatriale,
+                    8, 20, 22, 7, 4,
+                    navn, adresse, postNummer, by, tlf, email, pris);
 
         } else if(redskabsrumbeklaedningstype == null) {
             int TH = Integer.parseInt(tagHaeldning);
-            LogicFacade.lavForespoergsel_UdenRedskabsrum(laengde_cm, bredde_cm, carportFarve, carportTraetype, tagMatriale,
-                    TH, navn, adresse, postNummer, by, tlf, email, pris);
-
+            LogicFacade.lav_Forespoergsel(laengde_cm, bredde_cm, carportFarve, carportTraetype, tagMatriale,
+                    TH, 20, 22, 7, 4,
+                    navn, adresse, postNummer, by, tlf, email, pris);
         }else if (tagHaeldning == null){
             int RB = Integer.parseInt(rBredde);
             int RL = Integer.parseInt(rLaengde);
