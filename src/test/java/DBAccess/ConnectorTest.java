@@ -8,13 +8,12 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectorTest {
-
+//Test
     private static Connection testDBConnection;
     private static String USERNAME = "carport";
     private static String USERPASSWORD = "carport";
     private static String DBNAME = "carportdb?serverTimezone=CET";
     private static String HOST = "127.0.0.1";
-
 
 
     @org.junit.After
