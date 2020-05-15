@@ -63,7 +63,7 @@
                 <tr class="vis${show.id}" style="display:none">
                     <td></td>
                     <td><label>
-                        <input name="pris" type="number" class="form-control mb-3">
+                        <input name="pris" type="text" class="form-control mb-3">
                         <button name="id"  value="${show.id}" class="btn btn-sm mt-2"  style="background-color: #0c2069; color: #C0C0C0; font-weight: bold; width: 150px" >
                             Opdater pris</button>
                     </label></td>

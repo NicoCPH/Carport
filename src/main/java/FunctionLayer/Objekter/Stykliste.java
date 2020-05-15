@@ -86,7 +86,7 @@ public class Stykliste {
 
 
     public static String rem_Omregner_beskrivelse() throws Fejl_haendtering {
-        Map<String, List<Materiale>> materialeMap = Stykliste_Mapper.findStykListe();
+        Map<String, List<Materiale>> materialeMap = Stykliste_Mapper.find_StykListe();
         List<Materiale> alleRem = materialeMap.get("Rem");
         for (Materiale rem : alleRem) {
             return rem.getBeskrivelse();
@@ -96,7 +96,7 @@ public class Stykliste {
 
 
     public static String spaer_Omregner_beskrivelse() throws  Fejl_haendtering {
-        Map<String, List<Materiale>> materialeMap = Stykliste_Mapper.findStykListe();
+        Map<String, List<Materiale>> materialeMap = Stykliste_Mapper.find_StykListe();
         List<Materiale> alleSpær = materialeMap.get("Spær");
         for (Materiale spær : alleSpær) {
             return spær.getBeskrivelse();
@@ -105,7 +105,7 @@ public class Stykliste {
     }
 
     public static String stolpe_Omregner_beskrivlese() throws Fejl_haendtering {
-        Map<String, List<Materiale>> stolpeMap = Stykliste_Mapper.findStykListe();
+        Map<String, List<Materiale>> stolpeMap = Stykliste_Mapper.find_StykListe();
         List<Materiale> alleStolper = stolpeMap.get("Stolpe");
         for (Materiale stolpe : alleStolper) {
             return stolpe.getBeskrivelse();
@@ -114,7 +114,7 @@ public class Stykliste {
     }
 
     public static String tag_Omregner_beskrivelse(String tagMaterialeType) throws Fejl_haendtering {
-        Map<String, List<Materiale>> tagMap = Stykliste_Mapper.findStykListe();
+        Map<String, List<Materiale>> tagMap = Stykliste_Mapper.find_StykListe();
         List<Materiale> alleTag = tagMap.get("Tag");
 
 

@@ -17,7 +17,7 @@ public class KundeMapper {
 
         if(findEmail(email).contains(email)){
             int kundeid = findKundeId(email);
-            CarportMapper.forespoergselList(carportLaengde, carportBredde, carportFarve,
+            Carport_Mapper.forespoergselList(carportLaengde, carportBredde, carportFarve,
                     carportTraeType,  tagMateriale,  tagHaeldning,  redskabsrumsbredde,
                     redskabsrumslaengde,  redskabsrumBeklaedningstype, redskabsrumGulv, kundeid, pris);
 
@@ -48,7 +48,7 @@ public class KundeMapper {
 
 
             int kundeid = findKundeId(email);
-            CarportMapper.forespoergselList(carportLaengde, carportBredde, carportFarve,
+            Carport_Mapper.forespoergselList(carportLaengde, carportBredde, carportFarve,
                     carportTraeType, tagMateriale, tagHaeldning, redskabsrumsbredde,
                     redskabsrumslaengde, redskabsrumBeklaedningstype, redskabsrumGulv, kundeid, pris);
 

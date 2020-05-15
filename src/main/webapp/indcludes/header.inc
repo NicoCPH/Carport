@@ -34,6 +34,6 @@
 <nav class="navi">
     <a class="nav-link nav-item" href="FrontController?target=redirect&destination=Carport_Rejsning">Carport med rejsning</a>
     <a class="nav-link nav-item" href="FrontController?target=redirect&destination=Carport_Fladt">Carport med fladt tag</a>
-    <a class="nav-link nav-item" href="#">Standard carport</a>
+    <a class="nav-link nav-item" href="FrontController?target=redirect&destination=index">Forside</a>
 </nav>
 </div>
