@@ -14,52 +14,6 @@ import java.util.Map;
 
 public class Stykliste_Mapper {
 
-    protected static Map<String, List<Materiale>> materialeMap = new HashMap<>();
-
-    public static Map<String, List<Materiale>> getMaterialeMap() {
-        return materialeMap;
-    }
-
-    public static Map<String, List<Materiale>> findStykListe() throws Fejl_haendtering {
-
-        List<Materiale> alleMaterialer = stykListe();
-
-        List<Materiale> RemListe = new ArrayList<>();
-        List<Materiale> StolpeListe = new ArrayList<>();
-        List<Materiale> SpaerListe = new ArrayList<>();
-        List<Materiale> TagListe = new ArrayList<>();
-
-        if(materialeMap == null) {
-            materialeMap = new HashMap<>();
-        }
-
-        alleMaterialer.forEach(materiale -> {
-            switch(materiale.getNavn()){
-                case "Rem":
-                    RemListe.add(materiale);
-                    break;
-                case "Spær":
-                    SpaerListe.add(materiale);
-                    break;
-                case "Stolpe":
-                    StolpeListe.add(materiale);
-                    break;
-                case "Tag":
-                    TagListe.add(materiale);
-                    break;
-                default:
-                    break;
-            }
-        });
-
-        materialeMap.put("Rem",RemListe);
-        materialeMap.put("Spær", SpaerListe);
-        materialeMap.put("Stolpe", StolpeListe);
-        materialeMap.put("Tag", TagListe);
-
-        return materialeMap;
-    }
-
     public static List<Materiale> stykListe() throws Fejl_haendtering {
 
         List<Materiale> alleMaterialer = new ArrayList<>();
