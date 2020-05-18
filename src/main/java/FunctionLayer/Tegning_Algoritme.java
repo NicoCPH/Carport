@@ -22,9 +22,7 @@ public class Tegning_Algoritme {
                 }
             }
 
-            public static int rem_Bredde_Omregner(int bredde) {
-                return bredde-35;
-            }
+            public static int rem_Bredde_Omregner(int bredde) { return bredde-35; }
 
             public static void remme(int laengde, int bredde) {
                 svg.add_Rect(0,35,4, laengde); // rem
