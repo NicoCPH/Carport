@@ -1,5 +1,9 @@
 package FunctionLayer;
 
+/**
+ * Svg klassens formål er lave en veiwbox og div. tegninger som kundernes carporte skal bestå af, denne tegning skal
+ * vises på hjemmesiden. Klassen består af en række templates og en konstruktor.
+ */
 public class Svg {
 
     private int width;
@@ -9,6 +13,15 @@ public class Svg {
     private int y;
     private StringBuilder svg = new StringBuilder();
 
+    /**
+     * header_Template dette er en veiwbox.
+     * rect_Template dette er en firkant med 1 coordinat og en længde og bredde.
+     * kryds_Template dette er en stiplet line med 2 coordinater.
+     * textRotatedTemplate dette er en text som kan roteres med en rotation.
+     * textTemplate dette er en text som bliver sat fast på 1 coordinat.
+     * pilTemplate dette er en line med 2 coordinater.
+     * pilspidsTemplate dette er spidsen af pilene på tegningen.
+     */
     private final String header_Template = "<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" " +
             "width=\"%s\" height=\"%s\" x=\"%d\" y=\"%d\" viewBox=\"%s\" preserveAspectRatio=\"xMinYMin\">";
     private final String rect_Template = "<rect x=\"%d\" y=\"%d\" height=\"%d\" width=\"%d\" style=\"stroke:#000000; fill: #ffffff\" />";

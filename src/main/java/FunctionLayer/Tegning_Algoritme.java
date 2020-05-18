@@ -6,13 +6,29 @@ import javax.servlet.http.HttpServletRequest;
 
 public class Tegning_Algoritme {
 
-
+/**
+ * Tegning_Algoritme klassens formål er at tage parametre i form af variabler fra dropdown menuer på vores hjemmeside.
+ * De variabler metoderne i klassen tager, bruges til at skitsere en tegning af hvordan kundens ønskede carport ser ud.
+ * Klassen består af en række metoder med beregninger, antagelser og svg metoder.
+ */
+    /**
+     * Dette er et viewbox objekt taget fra klassen Svg til at kunne definere størrelsen af tegningen på hjemmesiden.
+     */
     private static Svg svg = new Svg(900, 700, "0,0,900,700",0,0); // (ramme)
 
+            /**
+             * spaer_Omregner() tager en længde fra dropdown menuen på hjemmesiden og dividere det med 55 for så at regne ud hvor
+             * mange spær der skal bruges pr. 55.
+             * De 55 er en antagelse.
+             */
             public static int spaer_Omregner(int laengde) {
                 return Math.round(laengde / 55);
             }
 
+            /**
+             * spaer_Taeller() tager den omregnet længde og carportens bredde, for så at lave de spær der skal bruges og hvor
+             * bredde de skal være.
+             */
             public static void spaer_Taeller(int laengde, int bredde) {
                 svg.add_Rect(0,0,bredde,2);
                 int count = 0;
@@ -22,53 +38,106 @@ public class Tegning_Algoritme {
                 }
             }
 
+            /**
+             * rem_Bredde_Omregner() bruges til at udregne hvor remmen skal ligge, carportens fulde bredde, minusetmed 35
+             * De minus 35 er en antagelse.
+             */
             public static int rem_Bredde_Omregner(int bredde) { return bredde-35; }
 
+            /**
+             * remme() tegner de remme der er i carporten og hvor bredde og lange de skal være, ved at tage længden
+             * fra dropdown menuen på vores hjemmeside og den omregnet bredde.
+             */
             public static void remme(int laengde, int bredde) {
                 svg.add_Rect(0,35,4, laengde); // rem
                 svg.add_Rect(0, rem_Bredde_Omregner(bredde),4, laengde); // rem
             }
 
+            /**
+             * kryds_Laengde_Omregner() tager en længde og minuser med 35 for at få krydsne til at sidde på remmene.
+             */
             public static int kryds_Laengde_Omregner(int laengde) {
                 return laengde-35;
             }
 
+            /**
+             * kryds() tager en omregnet længde og omregnet bredde, samt et predifineret x og y coordinat.
+             * Som tilsammen tegner krydsne på remmene, på carporten.
+             */
             public static void kryds(int laengde, int bredde) {
                 svg.add_Kryds(35,39 , kryds_Laengde_Omregner(laengde), rem_Bredde_Omregner(bredde)); // kryds linje
                 svg.add_Kryds(kryds_Laengde_Omregner(laengde),39 ,35, rem_Bredde_Omregner(bredde)); // kryds linje
             }
 
+            /**
+             * stolpe_Bredde_Omregner() er til at omregne hvor stolperne skal sidde i forhold til carportens bredde.
+             * Metoden tager carportens bredde og minuser med 38.
+             * Stolperne er minuset med 38 for at få dem lagt på midten af remmene. Dette er en antagelse.
+             */
             public static int stolpe_Bredde_Omregner(int bredde) {
                 return bredde-38;
             }
 
+            /**
+             * Redskabsrum_Vaeg_Bredde_Omregner() bruges til at omregne hvor redskabsrummets væg skal sidde i forhold
+             * til bredden.
+             * De minus 70 passer med carportens rem.
+             */
             public static int Redskabsrum_Vaeg_Bredde_Omregner(int bredde) {
                 return bredde-70;
             }
 
+            /**
+             * Redskabsrum_Vaeg_X_Omregner() bruges til at omregne hvor redskabsrummets væg skal sidde i forhold til
+             * x coordinatet.
+             * De plus 5 er for at få væggen til at være i midten af redskabsrummets stolper, hvilket er hvad der
+             * bliver omregnet.
+             */
             public static int Redskabsrum_Vaeg_X_Omregner(int x) {
                 return x+5;
             }
 
-            public static int Redskabsrum_Vaeg_Y_Omregner(int y) {
-                return y+5;
-            }
+            /**
+             * Redskabsrum_Vaeg_Y_Omregner() bruges til at omregne hvor redskabsrummets væg skal sidde i forhold til
+             * y coordinatet.
+             * De plus 5 er for at få væggen til at være i midten af redskabsrummets stolper, hvilket er hvad der
+             * bliver omregnet.
+             */
+            public static int Redskabsrum_Vaeg_Y_Omregner(int y) { return y+5; }
 
+            /**
+            * stolper_Laengde1() bruges til at sætte de 2 stolpers (fra venstre) længde.
+            * Metoden tager en længde og dividere med 5 som er en antagelse.
+            */
             public static int stolper_Laengde1(int laengde) {
                 double laengdeOmregnet = laengde / 5;
                 return Math.toIntExact(Math.round(laengdeOmregnet));
             }
 
+            /**
+            * stolper_Laengde2() bruges til at sætte de 2 midter stolpers længde.
+            * Metoden tager en længde og dividere med 2 som er en antagelse.
+            */
             public static int stolper_Laengde2(int laengde) {
                 double laengdeOmregnet = laengde / 2;
                 return Math.toIntExact(Math.round(laengdeOmregnet));
             }
 
+            /**
+            * stolper_Laengde3() bruges til at sætte de 2 stolpers (fra højre) længde.
+            * Metoden tager en længde og dividere med 1.25 som er en antagelse.
+            */
             public static int stolper_Laengde3(int laengde) {
                 double laengdeOmregnet = laengde / 1.25;
                 return Math.toIntExact(Math.round(laengdeOmregnet));
             }
 
+            /**
+             * Metoden bruger de beregnede længder og bredder til at sætte hvor stolperne skal være.
+             * Denne metode er uden redskabsrum.
+             * y coordinatet på de 3 første stolper er predifineret, for at sætte dem på remmene.
+             * Height og width er predifineret for at tegne størrelsen på stolperne.
+            */
             public static void stolper_Uden_redskabsrum(int laengde1, int laengde2, int laengde3, int bredde) {
                 svg.add_Rect(stolper_Laengde1(laengde1),32,10,10); // stolpe
                 svg.add_Rect(stolper_Laengde2(laengde2),32,10,10); // stolpe
@@ -78,6 +147,17 @@ public class Tegning_Algoritme {
                 svg.add_Rect(stolper_Laengde3(laengde3), stolpe_Bredde_Omregner(bredde),10,10); // stolpe
             }
 
+
+            /**
+             * Metoden bruger de beregnede længder og bredder til at sætte hvor stolperne skal være.
+             * Metoden laver også stolperne på redskabsrummet alt afhængigt af hvor stor carporten er.
+             * Hvis redskabsrummet er visse størrelser adder og fjernes stolper, baseret på antagelser lavet af os selv.
+             * Denne metode er med redskabsrum.
+             * Height og width er predifineret for at tegne størrelsen på stolperne.
+             * Nogle af stolpernes x og y coordinater er i denne metode er predifineret for at få redskabsrummets og
+             * carportens stolper til ikke at overlappe hinanden og for at give mening i forhold til vores antagelser.
+             * if statementsne i denne metode er der for at adde og fjerne div. stolper efter vores antagelser.
+             */
             public static void stolper_Med_redskabsrum(int laengde1, int laengde2, int laengde3, int redLaengde, int bredde, int red_Bredde) {
                 if (redLaengde <= laengde2 / 3) {
                     svg.add_Rect(stolper_Laengde2(laengde2), 32, 10, 10); // stolpe
@@ -106,6 +186,16 @@ public class Tegning_Algoritme {
                 svg.add_Rect(redLaengde, stolpe_Bredde_Omregner(red_Bredde),10,10); // redskabsrum stolpe
             }
 
+            /**
+            * Metoden her tager carportens længde og bredde fra forespørgslen som har taget dem fra dropdown menuerne
+             * på hjemmesiden. Metoden tager også et request fra forespørgslen for at kunne vise tegningen på siden.
+             * Metoden tegner en tegning af kundens ønskede carport, fra variablerne valgt af kunden fra dropdown menuen
+             * på hjemmesiden og tegner derefter carporten.
+             * Div. metoder bliver kaldt og laver de ting som carporten indeholder. I denne metode består carporten af:
+             * Carportens tag ramme, 2 remme, x antal spær (antallet er regnet ud efter længden på carporten), 1 kryds
+             * som består af to linjer sat på remmerne, stolper placeret efter antagelser, længder og bredder.
+             * Tilsidst er pilene sat ind for at kunne se længden og bredden på den ønskede carport.
+             */
             public static void tegning_Uden_Redskabsrum(int laengde, int bredde, HttpServletRequest request) {
 
                 try {
@@ -127,6 +217,16 @@ public class Tegning_Algoritme {
                 }
             }
 
+             /**
+            * Metoden her tager carportens og redskabsrummets længde og bredde fra forespørgslen som har taget dem fra dropdown menuerne
+            * på hjemmesiden. Metoden tager også et request fra forespørgslen for at kunne vise tegningen på siden.
+            * Metoden tegner en tegning af kundens ønskede carport, fra variablerne valgt af kunden fra dropdown menuen
+            * på hjemmesiden og tegner derefter carporten.
+            * Div. metoder bliver kaldt og laver de ting som carporten indeholder. I denne metode består carporten af:
+            * Carportens tag ramme, 2 remme, x antal spær (antallet er regnet ud efter længden på carporten), 1 kryds
+            * som består af to linjer sat på remmerne, stolper placeret efter antagelser, længder og bredder.
+            * Tilsidst er pilene sat ind for at kunne se længden og bredden på den ønskede carport.
+            */
             public static void tegning_Med_Redskabsrum(int laengde, int bredde, HttpServletRequest request, String red_Laengde, String red_Bredde) {
                 try {
                     svg.add_Rect(0, 0, bredde, laengde); // boks linjerne
