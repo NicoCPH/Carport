@@ -3,6 +3,7 @@ package DBAccess;
 
 import FunctionLayer.Fejl_haendtering;
 import FunctionLayer.Objekter.*;
+
 import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -52,82 +53,46 @@ public class Carport_Mapper {
         return dropdown_Gulv_List;
     }
 
-    public static void forespoergsel_List(int carport_Laengde, int carport_Bredde, int carport_Farve,
-                                          int carport_Trae_Type, int tag_Materiale, int tag_Haeldning, int redskabsrums_Bredde,
-                                          int redskabsrums_Laengde, int redskabsrum_Beklaedningstype, int redskabsrum_Gulv,
-                                          String navn, String adresse, int postNummer, String by, int tlf,
-                                          String email) throws Fejl_haendtering {
+
+    public static void forespoergselList(int carportLaengde, int carportBredde, int carportFarve,
+                                         int carportTraeType, int tagMateriale, int tagHaeldning, int redskabsrumsbredde,
+                                         int redskabsrumslaengde, int redskabsrumBeklaedningstype, int redskabsrumGulv, int kundeid, double pris) throws Fejl_haendtering {
+
+
 
     try {
         Connection con = Connector.connection();
 
         String SQL = "INSERT INTO `carportdb`.`forespoergsel` (`carportlaengde`, `carportbredde`, `carportfarve`," +
                 " `carporttraetype`, `tagmateriale`, `taghaeldning`, `redskabsrumbredde`," +
-                " `redskabsrumlaengde`, `redskabsrumbeklaedningstype`, `redskabsrumgulv`, `kundenavn`, `kundeadresse`," +
-                " `kundepostnummer`, `kundeby`, `kundetlf`, `kundeemail`)" +
-                " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+                " `redskabsrumlaengde`, `redskabsrumbeklaedningstype`, `redskabsrumgulv`, `kundeID`, `pris`)" +
+                " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
         PreparedStatement ps = con.prepareStatement(SQL);
 
-        ps.setInt(1, carport_Laengde);
-        ps.setInt(2, carport_Bredde);
-        ps.setInt(3, carport_Farve);
-        ps.setInt(4, carport_Trae_Type);
-        ps.setInt(5, tag_Materiale);
-        ps.setInt(6, tag_Haeldning);
-        ps.setInt(7, redskabsrums_Bredde);
-        ps.setInt(8, redskabsrums_Laengde);
-        ps.setInt(9, redskabsrum_Beklaedningstype);
-        ps.setInt(10, redskabsrum_Gulv);
-        ps.setString(11, navn);
-        ps.setString(12, adresse);
-        ps.setInt(13, postNummer);
-        ps.setString(14, by);
-        ps.setInt(15, tlf);
-        ps.setString(16, email);
+
+        ps.setInt(1, carportLaengde);
+        ps.setInt(2, carportBredde);
+        ps.setInt(3, carportFarve);
+        ps.setInt(4, carportTraeType);
+        ps.setInt(5, tagMateriale);
+        ps.setInt(6, tagHaeldning);
+        ps.setInt(7, redskabsrumsbredde);
+        ps.setInt(8, redskabsrumslaengde);
+        ps.setInt(9, redskabsrumBeklaedningstype);
+        ps.setInt(10, redskabsrumGulv);
+        ps.setInt(11, kundeid);
+        ps.setDouble(12, pris);
+
+
         ps.executeUpdate();
 
 
     } catch (SQLException | ClassNotFoundException ex) {
-      ex.getMessage();
+      ex.printStackTrace();
     }
 
 }
-    public static void forespoergsel_List_Uden_Redskabrum(int carport_Laengde, int carport_Bredde, int carport_Farve,
-                                                          int carport_Trae_Type, int tag_Materiale, int tag_Haeldning,
-                                                          String navn, String adresse, int postNummer, String by, int tlf,
-                                                          String email) throws Fejl_haendtering {
-
-        try {
-            Connection con = Connector.connection();
-
-            String SQL = "INSERT INTO `carportdb`.`forespoergsel` (`carportlaengde`, `carportbredde`, `carportfarve`," +
-                    " `carporttraetype`, `tagmateriale`, `taghaeldning`, `kundenavn`, `kundeadresse`," +
-                    " `kundepostnummer`, `kundeby`, `kundetlf`, `kundeemail`)" +
-                    " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
-
-            PreparedStatement ps = con.prepareStatement(SQL);
-
-            ps.setInt(1, carport_Laengde);
-            ps.setInt(2, carport_Bredde);
-            ps.setInt(3, carport_Farve);
-            ps.setInt(4, carport_Trae_Type);
-            ps.setInt(5, tag_Materiale);
-            ps.setInt(6, tag_Haeldning);
-            ps.setString(7, navn);
-            ps.setString(8, adresse);
-            ps.setInt(9, postNummer);
-            ps.setString(10, by);
-            ps.setInt(11, tlf);
-            ps.setString(12, email);
-            ps.executeUpdate();
-
-
-        } catch (SQLException | ClassNotFoundException ex) {
-            ex.getMessage();
-        }
-
-    }
 
     public static void dropdown_Haeldning()  throws Fejl_haendtering {
             if(dropdown_Haeldning_List == null) {

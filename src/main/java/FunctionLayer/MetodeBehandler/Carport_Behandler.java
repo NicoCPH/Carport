@@ -11,17 +11,18 @@ public class Carport_Behandler {
 
     public static void carportBehandler(int bredde_cm, int laengde_cm, String rBredde, String rLaengde, String tagHaeldning,
                                         String redskabsrumbeklaedningstype, String redskabsrumGulv, int carportFarve, int carportTraetype, int tagMatriale,
-                                        int tlf, int postNummer, String by, String navn, String adresse, String email) throws Fejl_haendtering {
+                                        int tlf, int postNummer, String by, String navn, String adresse, String email, double pris) throws Fejl_haendtering {
 
         if (redskabsrumbeklaedningstype == null && tagHaeldning == null ) {
-            LogicFacade.lavForespoergsel_UdenRedskabsrum(laengde_cm, bredde_cm, carportFarve, carportTraetype, tagMatriale,
-                    8, navn, adresse, postNummer, by, tlf, email);
+            LogicFacade.lav_Forespoergsel(laengde_cm, bredde_cm, carportFarve, carportTraetype, tagMatriale,
+                    8, 20, 22, 7, 4,
+                    navn, adresse, postNummer, by, tlf, email, pris);
 
         } else if(redskabsrumbeklaedningstype == null) {
             int TH = Integer.parseInt(tagHaeldning);
-            LogicFacade.lavForespoergsel_UdenRedskabsrum(laengde_cm, bredde_cm, carportFarve, carportTraetype, tagMatriale,
-                    TH, navn, adresse, postNummer, by, tlf, email);
-
+            LogicFacade.lav_Forespoergsel(laengde_cm, bredde_cm, carportFarve, carportTraetype, tagMatriale,
+                    TH, 20, 22, 7, 4,
+                    navn, adresse, postNummer, by, tlf, email, pris);
         }else if (tagHaeldning == null){
             int RB = Integer.parseInt(rBredde);
             int RL = Integer.parseInt(rLaengde);
@@ -29,7 +30,7 @@ public class Carport_Behandler {
             int RG = Integer.parseInt(redskabsrumGulv);
             LogicFacade.lav_Forespoergsel(laengde_cm, bredde_cm, carportFarve, carportTraetype, tagMatriale,
                     8, RB, RL, RBT, RG,
-                    navn, adresse, postNummer, by, tlf, email);
+                    navn, adresse, postNummer, by, tlf, email, pris);
 
         }else {
             int RB = Integer.parseInt(rBredde);
@@ -39,28 +40,31 @@ public class Carport_Behandler {
             int TH = Integer.parseInt(tagHaeldning);
             LogicFacade.lav_Forespoergsel(laengde_cm, bredde_cm, carportFarve, carportTraetype, tagMatriale,
                     TH, RB, RL, RBT, RG,
-                    navn, adresse, postNummer, by, tlf, email);
+                    navn, adresse, postNummer, by, tlf, email, pris);
         }
     }
 
 
-    public static void PrisBehandler(int bredde_cm, int laengde_cm, String rBredde, String rLaengde, String tagHaeldning, HttpServletRequest request){
+    public static double PrisBehandler(int bredde_cm, int laengde_cm, String rBredde, String rLaengde, String tagHaeldning, HttpServletRequest request){
         HttpSession session = request.getSession();
         if (rBredde == null && tagHaeldning == null ) {
             double URFLT = Carport_Udregner.udregning_Pris_UdenRedskab_Fladtag(laengde_cm,bredde_cm);
             session.setAttribute("pris", URFLT);
+            return URFLT;
 
         } else if(rBredde == null) {
             int TH = Integer.parseInt(tagHaeldning);
             int TH_final = Carport_Mapper.getDropdown_Haeldning_List().get(TH).getHaeldning();
             double MRTH = Carport_Udregner.udregning_Pris_UdenRedskab_Rejsning(laengde_cm, bredde_cm, TH_final);
             session.setAttribute("pris", MRTH);
+            return MRTH;
 
         }else if (tagHaeldning == null){
             int Rlangde_cm = Carport_Mapper.get_Dropdown_Laengde_List().get(Integer.parseInt(rLaengde)).getCarportLaengde();
             int Rbredde_cm = Carport_Mapper.get_Dropdown_Bredde_List().get(Integer.parseInt(rBredde)).getCarportBredde();
             double MRFLT = Carport_Udregner.udregning_Pris_MedRedskab_Fladtag(laengde_cm, bredde_cm, Rlangde_cm, Rbredde_cm);
             session.setAttribute("pris", MRFLT);
+            return MRFLT;
 
         }else {
             int Rlangde_cm = Carport_Mapper.get_Dropdown_Laengde_List().get(Integer.parseInt(rLaengde)).getCarportLaengde();
@@ -69,6 +73,7 @@ public class Carport_Behandler {
             int TH_final = Carport_Mapper.getDropdown_Haeldning_List().get(TH).getHaeldning();
             double MRTH = Carport_Udregner.udregning_Pris_MedRedskab_Rejsning(laengde_cm, bredde_cm, Rlangde_cm, Rbredde_cm, TH_final);
             session.setAttribute("pris", MRTH);
+            return MRTH;
 
         }
     }

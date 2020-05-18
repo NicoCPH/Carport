@@ -13,6 +13,7 @@
     @Override
     public void jspInit() {
     try {
+
     Carport_Mapper.dropdown_Bredde();
     Carport_Mapper.dropdown_Laengde();
     Carport_Mapper.dropdown_Farve();
@@ -20,6 +21,7 @@
     Carport_Mapper.dropdown_Trae_type();
     Carport_Mapper.dropdown_Haeldning();
     Carport_Mapper.dropdown_Gulv();
+
     } catch (Fejl_haendtering e) {
     e.printStackTrace();
     }
@@ -68,7 +70,7 @@
     <form name="forespoergsel" action="FrontController" method="POST">
             <label class="mt-4" style="background-color: white;color: #5f5f5f; font-weight: bold">Carport Bredde</label>
             <select class="form-control" name="bredde">
-                <c:forEach var="bredde" items="${bredde}">
+                <c:forEach var="bredde" begin="0" end="18" items="${bredde}">
                     <option value="${bredde.value.carportBreddeid}">${bredde.value.carportBredde}
                     </option>
                 </c:forEach>
@@ -76,7 +78,7 @@
 
         <label class="mt-4" style="background-color: white;color: #5f5f5f; font-weight: bold">Carport Længde</label>
         <select class="form-control" name="carportlaengde">
-            <c:forEach var="laengde" items="${laengde}">
+            <c:forEach var="laengde" begin="0" end="20" items="${laengde}">
                 <option value="${laengde.value.carportLaengdeid}">${laengde.value.carportLaengde}
                 </option>
             </c:forEach>
@@ -100,7 +102,7 @@
 
         <label class="mt-4" style="background-color: white;color: #5f5f5f; font-weight: bold">Carport Trætype</label>
         <select class="form-control" name="carporttraetype">
-            <c:forEach var="traetype" items="${traetype}">
+            <c:forEach var="traetype" begin="0" end="5" items="${traetype}">
                 <option value="${traetype.value.carporttraeTypeid}">${traetype.value.carporttraeType}
                 </option>
             </c:forEach>
@@ -108,7 +110,7 @@
 
     <label class="mt-4">Taghældning</label>
     <select class="form-control" name="tagHaeldning">
-        <c:forEach var="haeldning" items="${haeldning}">
+        <c:forEach var="haeldning" begin="0" end="6" items="${haeldning}">
             <option value="${haeldning.value.haeldningid}">${haeldning.value.haeldning}%
              </option>
         </c:forEach>
@@ -130,7 +132,7 @@
     </p>
         <label class="mt-4" style="background-color: white;color: #5f5f5f; font-weight: bold">Redskabsrum bredde</label>
         <select class="form-control"  name="redskabsrumsbredde">
-            <c:forEach var="bredde" begin="0" end="20" items="${bredde}">
+            <c:forEach var="bredde" begin="0" end="19" items="${bredde}">
                 <option value="${bredde.value.carportBreddeid}">${bredde.value.carportBredde}
                 </option>
             </c:forEach>
@@ -146,7 +148,7 @@
 
     <label class="mt-4" style="background-color: white;color: #5f5f5f; font-weight: bold">Redskabsrum beklædnings type</label>
     <select class="form-control" name="redskabsrumbeklaedningstype">
-    <c:forEach var="traetype" items="${traetype}">
+    <c:forEach var="traetype" begin="0" end="5" items="${traetype}">
     <option value="${traetype.value.carporttraeTypeid}">${traetype.value.carporttraeType}
     </option>
     </c:forEach>
@@ -154,7 +156,7 @@
 
             <label class="mt-4" style="background-color: white;color: #5f5f5f; font-weight: bold">Redskabsrum gulv</label>
             <select class="form-control" name="redskabsrumGulv">
-                <c:forEach var="gulv" items="${gulv}">
+                <c:forEach var="gulv" begin="0" end="2" items="${gulv}">
                     <option value="${gulv.value.idGulv}">${gulv.value.gulv}
                     </option>
                 </c:forEach>
@@ -164,25 +166,34 @@
     <br>
     <br>
     <br>
-    <label for="navn">Navn:</label><br>
-    <input style="width: 450px" type="text" id="navn" name="navn"><br>
-
-    <label for="adresse">Adresse:</label><br>
-    <input style="width: 450px" type="text" id="adresse" name="adresse"><br>
-
-    <label for="pnr">Postnummer:</label><br>
-    <input style="width: 450px" type="text" id="pnr" name="postNummer"><br>
-
-    <label for="by">By:</label><br>
-    <input style="width: 450px" type="text" id="by" name="by"><br>
-
-    <label for="tlf">Telefon</label><br>
-    <input style="width: 450px" type="text" id="tlf" name="tlf"><br>
-
-    <label for="email">Email</label><br>
-    <input style="width: 450px" type="email" id="email" name="email">
-    <input type="hidden" name="target" value="forespoergsel">
-    <button class="btn btn-sm btn-primary mt-2 btn-block" type="submit">Send forespørgsel</button>
+        <div class='field'>
+            <label for="navn">Navn:</label><br>
+            <input style="width: 450px" type="text" id="navn" name="navn"><br>
+        </div>
+        <div class='field'>
+            <label for="adresse">Adresse:</label><br>
+            <input style="width: 450px" type="text" id="adresse" name="adresse"><br>
+        </div>
+        <div class='field'>
+            <label for="pnr">Postnummer:</label><br>
+            <input style="width: 450px" type="text" id="pnr" name="postNummer"><br>
+        </div>
+        <div class='field'>
+            <label for="by">By:</label><br>
+            <input style="width: 450px" type="text" id="by" name="by"><br>
+        </div>
+        <div class='field'>
+            <label for="tlf">Telefon</label><br>
+            <input style="width: 450px" type="text" id="tlf" name="tlf"><br>
+        </div>
+        <div class='field'>
+            <label for="email">Email</label><br>
+            <input style="width: 450px" type="email" id="email" name="email">
+        </div>
+        <div class='actions'>
+            <input type="hidden" name="target" value="forespoergsel">
+            <input  class="btn btn-sm btn-primary mt-2 btn-block" id="btnSubmit"  disabled="disabled" type="submit" value="Send Forespørgsel">
+        </div>
     </form>
     <br>
     <br>
@@ -205,6 +216,24 @@
                 } else {
                     $("div#select_div").show();
                     $("div#select_div").children().prop('disabled', false);
+                }
+            });
+        });
+
+        $(document).ready(function() {
+            $('.field input').keyup(function() {
+
+                var empty = false;
+                $('.field input').each(function() {
+                    if ($(this).val().length == 0) {
+                        empty = true;
+                    }
+                });
+
+                if (empty) {
+                    $('.actions input').attr('disabled', 'disabled');
+                } else {
+                    $('.actions input').attr('disabled', false);
                 }
             });
         });

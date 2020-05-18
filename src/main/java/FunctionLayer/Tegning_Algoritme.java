@@ -134,6 +134,7 @@ public class Tegning_Algoritme {
                     spaer_Taeller(laengde, bredde);
                     kryds(laengde, bredde);
                     stolper_Med_redskabsrum(laengde, laengde, laengde,
+
                             Carport_Mapper.get_Dropdown_Laengde_List().get(Integer.parseInt(red_Laengde)).getCarportLaengde(),
                             bredde, Carport_Mapper.get_Dropdown_Bredde_List().get(Integer.parseInt(red_Bredde)).getCarportBredde());
 

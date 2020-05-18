@@ -9,6 +9,16 @@ public class Materiale {
     private int id;
     private String beskrivelse, navn;
     private int laengde;
+    private int antal;
+
+    public Materiale(String beskrivelse, String navn, int laengde, int antal) {
+        this.beskrivelse = beskrivelse;
+        this.navn = navn;
+        this.laengde = laengde;
+        this.antal = antal;
+    }
+
+
 
     public int getId() {
         return id;
@@ -61,4 +71,11 @@ public class Materiale {
         this.laengde = laengde;
     }
 
+    public int getAntal() {
+        return antal;
+    }
+
+    public void setAntal(int antal) {
+        this.antal = antal;
+    }
 }
