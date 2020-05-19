@@ -69,7 +69,7 @@ public class Carport_Behandler {
     /**
      *Metoden her behandler alt input fra brugern, og vælger derefter hvilken metode den skal ind i for at beregne den rigtige pris til brugern.
      * alt efter om der er hældning, med eller uden redskabsrum
-     *
+     *aaaaa
      * @param bredde_cm bredde i cm
      * @param laengde_cm længde i cm
      * @param rBredde redskabs bredde
