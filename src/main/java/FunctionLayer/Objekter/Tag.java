@@ -2,10 +2,10 @@ package FunctionLayer.Objekter;
 
 public class Tag {
 
-    String tagmateriale;
-    int haeldning;
-    int tagmaterialeid;
-    int haeldningid;
+    private  String tagmateriale;
+    private int haeldning;
+    private int tagmaterialeid;
+    private int haeldningid;
 
     public Tag(int haeldning, int haeldningid) {
         this.haeldning = haeldning;

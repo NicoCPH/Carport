@@ -1,8 +1,8 @@
 package FunctionLayer.Objekter;
 
 public class Farve {
-    String carportFarve;
-    int carportFarveid;
+    private String carportFarve;
+    private int carportFarveid;
 
     public Farve(String carportFarve, int carportFarveid) {
         this.carportFarve = carportFarve;

@@ -1,7 +1,7 @@
 package PresentationLayer;
 
-import DBAccess.Forespoergsels_Mapper;
 import FunctionLayer.Fejl_haendtering;
+import FunctionLayer.LogicFacade;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,7 +16,7 @@ public class Opdater_pris extends Command {
 
             double pris = Double.parseDouble(request.getParameter("pris"));
 
-            Forespoergsels_Mapper.Update_Pris(id, pris);
+            LogicFacade.opdater_pris(id, pris);
 
         }catch (NumberFormatException ex){
             ex.printStackTrace();

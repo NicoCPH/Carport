@@ -1,14 +1,14 @@
-package FunctionLayer.Objekter;
+package FunctionLayer.MetodeBehandler;
 
-import DBAccess.Stykliste_Mapper;
 import FunctionLayer.Fejl_haendtering;
 import FunctionLayer.LogicFacade;
+import FunctionLayer.Objekter.Materiale;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class Stykliste {
+public class Stykliste_Behandler {
 
     private static ArrayList<Materiale> materialeArrayList = new ArrayList<>();
 

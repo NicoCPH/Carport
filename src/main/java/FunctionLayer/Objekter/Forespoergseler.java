@@ -1,24 +1,24 @@
 package FunctionLayer.Objekter;
 
 public class Forespoergseler {
-    int laengde;
-    int bredde;
-    String farve;
-    String carport_traeType;
-    String Tag;
-    int haeldning;
-    String redskabs_traeType;
-    String gulv;
-    int redskab_laengde;
-    int redskabs_bredde;
-    String navn;
-    String adresse;
-    String kundeby;
-    int kundepostnummer;
-    String kundeemail;
-    int kundetlf;
-    double pris;
-    int id;
+    private int laengde;
+    private int bredde;
+    private String farve;
+    private String carport_traeType;
+    private  String Tag;
+    private int haeldning;
+    private String redskabs_traeType;
+    private String gulv;
+    private int redskab_laengde;
+    private int redskabs_bredde;
+    private String navn;
+    private String adresse;
+    private String kundeby;
+    private int kundepostnummer;
+    private String kundeemail;
+    private int kundetlf;
+    private double pris;
+    private int id;
 
 
     public Forespoergseler(String gulv, int id, int laengde, int bredde, String farve, String carport_traeType, String tag, int haeldning,

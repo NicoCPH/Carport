@@ -22,7 +22,7 @@ public class Carport_Mapper {
     protected static Map<Integer, Tag> dropdown_Haeldning_List = new HashMap<>();
     protected static Map<Integer, Tag> dropdown_Tagmatriale_List = new HashMap<>();
     protected static Map<Integer, Gulv> dropdown_Gulv_List = new HashMap<>();
-    //private static List<Kunde> dropdown_Kunde_List = new ArrayList<>();
+
 
 
     public static Map<Integer, Bredde> get_Dropdown_Bredde_List() {
@@ -94,7 +94,14 @@ public class Carport_Mapper {
 
 }
 
-    public static void dropdown_Haeldning()  throws Fejl_haendtering {
+
+    /**
+     * Metoden laver en connection til databasen, og henter alle data til hældninger.
+     * @return Map<Integer, Tag>
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
+    public static Map<Integer,Tag> dropdown_Haeldning()  throws Fejl_haendtering {
             if(dropdown_Haeldning_List == null) {
                 dropdown_Haeldning_List = new HashMap<>();
                 }
@@ -113,10 +120,17 @@ public class Carport_Mapper {
         } catch (SQLException | ClassNotFoundException ex) {
             throw new Fejl_haendtering(ex.getMessage());
         }
-
+return dropdown_Haeldning_List;
     }
 
-    public static void dropdown_Gulv()  throws Fejl_haendtering {
+
+    /**
+     * Metoden laver en connection til databasen, og henter alle data til Gulv.
+     * @return Map<Integer, Gulv>
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
+    public static Map<Integer,Gulv> dropdown_Gulv()  throws Fejl_haendtering {
         if(dropdown_Gulv_List == null) {
             dropdown_Gulv_List = new HashMap<>();
         }
@@ -135,9 +149,17 @@ public class Carport_Mapper {
         } catch (SQLException | ClassNotFoundException ex) {
             throw new Fejl_haendtering(ex.getMessage());
         }
-
+return dropdown_Gulv_List;
     }
-    public static void dropdown_Tagmatriale()  throws Fejl_haendtering {
+
+
+    /**
+     * Metoden laver en connection til databasen, og henter alle data til Tag matriale.
+     * @return Map<Integer, Tag>
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
+    public static Map<Integer,Tag>dropdown_Tagmatriale()  throws Fejl_haendtering {
         if(dropdown_Tagmatriale_List == null) {
             dropdown_Tagmatriale_List = new HashMap<>();
         }
@@ -156,10 +178,16 @@ public class Carport_Mapper {
         } catch (SQLException | ClassNotFoundException ex) {
             throw new Fejl_haendtering(ex.getMessage());
         }
+        return dropdown_Tagmatriale_List;
 
     }
-
-public static void dropdown_Bredde() throws Fejl_haendtering {
+    /**
+     * Metoden laver en connection til databasen, og henter alle data til bredde.
+     * @return Map<Integer, Bredde>
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
+public static Map<Integer,Bredde> dropdown_Bredde() throws Fejl_haendtering {
     if(dropdown_Bredde_List == null) {
         dropdown_Bredde_List = new HashMap<>();
     }
@@ -182,10 +210,15 @@ public static void dropdown_Bredde() throws Fejl_haendtering {
         throw new Fejl_haendtering(ex.getMessage());
     }
 
-
+return dropdown_Bredde_List;
 }
-
-    public static void dropdown_Laengde() throws Fejl_haendtering {
+    /**
+     * Metoden laver en connection til databasen, og henter alle data til laengder.
+     * @return Map<Integer, Laengde>
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
+    public static Map<Integer, Laengde> dropdown_Laengde() throws Fejl_haendtering {
         if(dropdown_Laengde_List == null) {
             dropdown_Laengde_List = new HashMap<>();
         }
@@ -206,10 +239,16 @@ public static void dropdown_Bredde() throws Fejl_haendtering {
             throw new Fejl_haendtering(ex.getMessage());
         }
 
-
+return dropdown_Laengde_List;
     }
 
-    public static void dropdown_Farve() throws Fejl_haendtering {
+    /**
+     * Metoden laver en connection til databasen, og henter alle data til farver.
+     * @return Map<Integer, Farve>
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
+    public static Map<Integer,Farve> dropdown_Farve() throws Fejl_haendtering {
         if(dropdown_Farve_List == null) {
             dropdown_Farve_List = new HashMap<>();
         }
@@ -230,10 +269,17 @@ public static void dropdown_Bredde() throws Fejl_haendtering {
         } catch (SQLException | ClassNotFoundException ex) {
             throw new Fejl_haendtering(ex.getMessage());
         }
-
+return dropdown_Farve_List;
 
     }
-    public static void dropdown_Trae_type() throws Fejl_haendtering {
+
+    /**
+     * Metoden laver en connection til databasen, og henter alle data til trae typer.
+     * @return Map<Integer, Traetype>
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
+    public static Map<Integer,Traetype> dropdown_Trae_type() throws Fejl_haendtering {
         if(dropdown_Traetype_List == null) {
             dropdown_Traetype_List = new HashMap<>();
         }
@@ -254,6 +300,6 @@ public static void dropdown_Bredde() throws Fejl_haendtering {
         } catch (SQLException | ClassNotFoundException ex) {
             throw new Fejl_haendtering(ex.getMessage());
         }
-
+return dropdown_Traetype_List;
     }
 }

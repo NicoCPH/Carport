@@ -9,13 +9,34 @@ import java.util.List;
 public class KundeMapper {
 
     public static List<String> kundeEmails = new ArrayList<>();
+    /**
+     *Metoden finder ud af
+     *
+     * @param adresse adressen
+     * @param carportBredde bredde i cm
+     * @param by by
+     * @param carportFarve carport farven
+     * @param carportTraeType carport trætype
+     * @param email kunde email
+     * @param carportLaengde længde i cm
+     * @param navn kunde navn
+     * @param postNummer kunde postnummer
+     * @param pris pris på tilbud
+     * @param redskabsrumsbredde  redskabs bredde
+     * @param redskabsrumBeklaedningstype redskabs beklædningstype
+     * @param redskabsrumGulv redskabs gulv
+     * @param redskabsrumslaengde redskabs længde
+     * @param tagHaeldning hældning på taget
+     * @param tagMateriale tag matriale
+     * @param tlf kunde tlf
+     * @throws Fejl_haendtering
+     */
+    public static void lav_Kunde(String navn, String adresse, int postNummer, String by, int tlf,
+                                 String email, int carportLaengde, int carportBredde, int carportFarve,
+                                 int carportTraeType, int tagMateriale, int tagHaeldning, int redskabsrumsbredde,
+                                 int redskabsrumslaengde, int redskabsrumBeklaedningstype, int redskabsrumGulv, double pris) throws Fejl_haendtering {
 
-    public static void lavKunde_MedRedskabsrum(String navn, String adresse, int postNummer, String by, int tlf,
-                                                       String email, int carportLaengde, int carportBredde, int carportFarve,
-                                int carportTraeType, int tagMateriale, int tagHaeldning, int redskabsrumsbredde,
-                                int redskabsrumslaengde, int redskabsrumBeklaedningstype, int redskabsrumGulv, double pris) throws Fejl_haendtering {
-
-        if(findEmail(email).contains(email)){
+        if(findEmail().contains(email)){
             int kundeid = findKundeId(email);
             Carport_Mapper.forespoergselList(carportLaengde, carportBredde, carportFarve,
                     carportTraeType,  tagMateriale,  tagHaeldning,  redskabsrumsbredde,
@@ -77,7 +98,7 @@ public class KundeMapper {
 
 
 
-    public static List findEmail (String email)  throws Fejl_haendtering {
+    public static List<String> findEmail ()  throws Fejl_haendtering {
         if(kundeEmails == null) {
             kundeEmails = new ArrayList<>();
         }

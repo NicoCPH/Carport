@@ -2,14 +2,14 @@ package FunctionLayer.Objekter;
 
 public class Carport {
 
-    int carportBredde;
-    int carportLaengde;
-    String carportFarve;
-    String carporttraeType;
-    int carportBreddeid;
-    int carportLaengdeid;
-    int carportFarveid;
-    int carporttraeTypeid;
+    private int carportBredde;
+    private int carportLaengde;
+    private String carportFarve;
+    private  String carporttraeType;
+    private int carportBreddeid;
+    private int carportLaengdeid;
+    private int carportFarveid;
+    private int carporttraeTypeid;
 
 
 

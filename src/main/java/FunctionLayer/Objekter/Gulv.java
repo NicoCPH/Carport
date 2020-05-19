@@ -1,8 +1,8 @@
     package FunctionLayer.Objekter;
 
     public class Gulv {
-     int idGulv;
-     String gulv;
+        private int idGulv;
+        private  String gulv;
 
     public Gulv(int idGulv, String gulv) {
         this.idGulv = idGulv;

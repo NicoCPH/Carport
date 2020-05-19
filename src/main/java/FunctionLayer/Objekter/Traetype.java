@@ -1,8 +1,8 @@
 package FunctionLayer.Objekter;
 
 public class Traetype {
-    int carporttraeTypeid;
-    String carporttraeType;
+    private  int carporttraeTypeid;
+    private String carporttraeType;
 
     public Traetype(int carporttraeTypeid, String carporttraeType) {
         this.carporttraeTypeid = carporttraeTypeid;

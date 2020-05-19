@@ -2,13 +2,35 @@ package FunctionLayer.MetodeBehandler;
 
 import DBAccess.Carport_Mapper;
 import FunctionLayer.Fejl_haendtering;
-import FunctionLayer.*;
+import FunctionLayer.LogicFacade;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 public class Carport_Behandler {
 
+    /**
+     *Metoden her behandler alt input fra brugeren og derefter vælger hvilken type carport der skal indsættes i databasen,
+     *
+     * @param adresse adressen
+     * @param bredde_cm bredde i cm
+     * @param by by
+     * @param carportFarve carport farven
+     * @param carportTraetype carport trætype
+     * @param email kunde email
+     * @param laengde_cm længde i cm
+     * @param navn kunde navn
+     * @param postNummer kunde postnummer
+     * @param pris pris på tilbud
+     * @param rBredde redskabs bredde
+     * @param redskabsrumbeklaedningstype redskabs beklædningstype
+     * @param redskabsrumGulv redskabs gulv
+     * @param rLaengde redskabs længde
+     * @param tagHaeldning hældning på taget
+     * @param tagMatriale tag matriale
+     * @param tlf kunde tlf
+     * @throws Fejl_haendtering
+     */
     public static void carportBehandler(int bredde_cm, int laengde_cm, String rBredde, String rLaengde, String tagHaeldning,
                                         String redskabsrumbeklaedningstype, String redskabsrumGulv, int carportFarve, int carportTraetype, int tagMatriale,
                                         int tlf, int postNummer, String by, String navn, String adresse, String email, double pris) throws Fejl_haendtering {
@@ -44,7 +66,18 @@ public class Carport_Behandler {
         }
     }
 
-
+    /**
+     *Metoden her behandler alt input fra brugern, og vælger derefter hvilken metode den skal ind i for at beregne den rigtige pris til brugern.
+     * alt efter om der er hældning, med eller uden redskabsrum
+     *
+     * @param bredde_cm bredde i cm
+     * @param laengde_cm længde i cm
+     * @param rBredde redskabs bredde
+     * @param rLaengde redskabs længde
+     * @param tagHaeldning hældning på taget
+     * @param request finder sessionen
+     * @return double
+     */
     public static double PrisBehandler(int bredde_cm, int laengde_cm, String rBredde, String rLaengde, String tagHaeldning, HttpServletRequest request){
         HttpSession session = request.getSession();
         if (rBredde == null && tagHaeldning == null ) {
@@ -78,6 +111,22 @@ public class Carport_Behandler {
         }
     }
 
+
+
+    /**
+     *Metoden her behandler alt input fra brugeren og derefter vælger hvordan vores konstruktions beskrivelse skal se ud.
+     *
+     *
+     * @param bredde_cm bredde i cm
+     * @param laengde_cm længde i cm
+     * @param rBredde redskabs bredde
+     * @param redskabsrumbeklaedningstype redskabs beklædningstype
+     * @param redskabsrumGulv redskabs gulv
+     * @param rLaengde redskabs længde
+     * @param tagHaeldning hældning på taget
+     * @param tagmatriale tag matriale
+     * @param request finder sessionen
+     */
     public static void konstruktion_beskrivelse(int bredde_cm, int laengde_cm, String rBredde, String rLaengde, String tagHaeldning,
                                                 HttpServletRequest request, int tagmatriale, String redskabsrumbeklaedningstype, String redskabsrumGulv){
         HttpSession session = request.getSession();

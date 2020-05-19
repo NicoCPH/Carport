@@ -3,7 +3,7 @@ package PresentationLayer;
 import DBAccess.Carport_Mapper;
 import FunctionLayer.Fejl_haendtering;
 import FunctionLayer.MetodeBehandler.Carport_Behandler;
-import FunctionLayer.Objekter.*;
+import FunctionLayer.MetodeBehandler.Stykliste_Behandler;
 import FunctionLayer.Tegning_Algoritme;
 
 
@@ -67,7 +67,7 @@ public class Forespoergsel extends Command {
 
             session.setAttribute("navn", navn);
             session.setAttribute("email", email);
-            session.setAttribute("stykliste", Stykliste.styklisten(langde_cm,bredde_cm,redskabsrumbeklaedningstype,tagHaeldning,tagMaterialetype));
+            session.setAttribute("stykliste", Stykliste_Behandler.styklisten(langde_cm,bredde_cm,redskabsrumbeklaedningstype,tagHaeldning,tagMaterialetype));
         } catch (Exception ex) {
             ex.printStackTrace();
         }

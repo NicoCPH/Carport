@@ -1,6 +1,7 @@
     <%@ page import="DBAccess.Carport_Mapper" %>
     <%@ page import="FunctionLayer.Fejl_haendtering" %>
-    <%@ page import="FunctionLayer.Objekter.Carport" %><%--
+    <%@ page import="FunctionLayer.Objekter.Carport" %>
+    <%@ page import="FunctionLayer.LogicFacade" %><%--
     Created by IntelliJ IDEA.
     User: Lange
     Date: 20/04/2020
@@ -29,12 +30,16 @@
 
         <%
 
-        request.setAttribute("gulv", Carport_Mapper.getDropdown_Gulv_List());
-        request.setAttribute("bredde", Carport_Mapper.get_Dropdown_Bredde_List());
-        request.setAttribute("laengde", Carport_Mapper.get_Dropdown_Laengde_List());
-        request.setAttribute("farve", Carport_Mapper.get_Dropdown_Farve_List());
-        request.setAttribute("traetype", Carport_Mapper.get_Dropdown_Traetype_List());
-        request.setAttribute("tagmatriale", Carport_Mapper.getDropdown_Tagmatriale_List());
+            try {
+                request.setAttribute("gulv", LogicFacade.dropdown_Gulv());
+                request.setAttribute("bredde", LogicFacade.dropdown_Bredde());
+                request.setAttribute("laengde", LogicFacade.dropdown_Laengde());
+                request.setAttribute("farve", LogicFacade.dropdown_Farve());
+                request.setAttribute("traetype", LogicFacade.dropdown_TraeType());
+                request.setAttribute("tagmatriale", LogicFacade.dropdown_Tagmatriale());
+            } catch (Fejl_haendtering fejl_haendtering) {
+                fejl_haendtering.printStackTrace();
+            }
 
 
         %>

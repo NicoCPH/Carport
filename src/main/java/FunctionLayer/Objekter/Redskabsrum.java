@@ -3,10 +3,10 @@ package FunctionLayer.Objekter;
 public class Redskabsrum {
 
 
-    String beklaedningsType;
-    String reskabsrumGulv;
-    int beklaedningsTypeid;
-    int redskabsrumGulvid;
+    private String beklaedningsType;
+    private String reskabsrumGulv;
+    private  int beklaedningsTypeid;
+    private int redskabsrumGulvid;
 
 
     public Redskabsrum(String beklaedningsType, int beklaedningsTypeid) {

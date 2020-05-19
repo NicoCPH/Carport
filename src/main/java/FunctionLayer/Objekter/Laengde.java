@@ -2,8 +2,8 @@ package FunctionLayer.Objekter;
 
 public class Laengde {
 
-    int carportLaengdeid;
-    int carportLaengde;
+    private int carportLaengdeid;
+    private int carportLaengde;
 
     public Laengde(int carportLaengdeid, int carportLaengde) {
         this.carportLaengdeid = carportLaengdeid;
