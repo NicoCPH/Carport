@@ -19,9 +19,6 @@ public class LogicFacade {
 
     protected static Map<String, List<Materiale>> materialeMap = new HashMap<>();
 
-    public static Map<String, List<Materiale>> getMaterialeMap() {
-        return materialeMap;
-    }
 
     public static Map<String, List<Materiale>> findStykListe() throws Fejl_haendtering {
 
@@ -75,16 +72,6 @@ public class LogicFacade {
     }
 
 
-    public static Medarbejder login(String email, String password) throws Fejl_haendtering {
-        return Medarbejder_Mapper.login(email, password);
-    }
-
-    public static Medarbejder createEmployee(String navn, String password, String email) throws Fejl_haendtering {
-        Medarbejder user = new Medarbejder(navn, password, email);
-        Medarbejder_Mapper.create_Employee(user);
-        return user;
-    }
-
     public static Map<Integer, Bredde> dropdown_Bredde() throws Fejl_haendtering {
         return Carport_Mapper.dropdown_Bredde();
     }
@@ -117,7 +104,7 @@ public class LogicFacade {
         return Forespoergsels_Mapper.Alle_Forespoerelser(email);
     }
 
-    public static void opdater_pris(int id, double pris) throws Fejl_haendtering {
+    public static void opdater_pris(int id, double pris) {
        Forespoergsels_Mapper.Update_Pris(id,pris);
     }
 
