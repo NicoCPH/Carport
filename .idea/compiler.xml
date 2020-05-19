@@ -12,7 +12,6 @@
         <module name="Carport_Projekt" />
         <module name="Projektskabelon-master" />
         <module name="Projektskabelon" />
-        <module name="Carport" />
       </profile>
     </annotationProcessing>
   </component>
@@ -20,10 +19,10 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Carport" options="-endorseddirs C:\Users\Henne\Desktop\Eksamensprojekt\Carport\target/endorsed" />
       <module name="Carport_Projekt" options="-endorseddirs C:\Users\Nicol\Documents\Skole\Carport\Carport_Projekt\target/endorsed" />
-      <module name="ProjektSkabelon-master" options="-endorseddirs &quot;$PROJECT_DIR$/../../../../Marks/Henne/Desktop/Eksamensprojekt/Carport/target/endorsed&quot;" />
+      <module name="ProjektSkabelon-master" options="-endorseddirs &quot;$USER_HOME$/Marks/Henne/Desktop/Eksamensprojekt/Carport/target/endorsed&quot;" />
       <module name="Projektskabelon" options="-endorseddirs C:\Users\Nicol\Documents\Skole\Carport\Projektskabelon\target/endorsed" />
-      <module name="Projektskabelon-master" options="-endorseddirs $PROJECT_DIR$/../../../../Marks/Henne/Desktop/Eksamensprojekt/Carport/target/endorsed" />
-      <module name="prejektSkabelon" options="-endorseddirs &quot;$PROJECT_DIR$/../../../../Marks/Henne/Desktop/Eksamensprojekt/Carport/target/endorsed&quot;" />
+      <module name="Projektskabelon-master" options="-endorseddirs $USER_HOME$/Marks/Henne/Desktop/Eksamensprojekt/Carport/target/endorsed" />
+      <module name="prejektSkabelon" options="-endorseddirs &quot;$USER_HOME$/Marks/Henne/Desktop/Eksamensprojekt/Carport/target/endorsed&quot;" />
       <module name="projektskabelon" options="-endorseddirs C:\Users\Marks\.IntelliJIdea2019.3\Carport_projekt\Carport\target/endorsed" />
     </option>
   </component>

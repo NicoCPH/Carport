@@ -157,6 +157,12 @@ public class Tegning_Algoritme {
              * Nogle af stolpernes x og y coordinater er i denne metode er predifineret for at få redskabsrummets og
              * carportens stolper til ikke at overlappe hinanden og for at give mening i forhold til vores antagelser.
              * if statementsne i denne metode er der for at adde og fjerne div. stolper efter vores antagelser.
+             * @param laengde1
+             * @param laengde2
+             * @param laengde3
+             * @param redLaengde
+             * @param bredde
+             * @param red_Bredde
              */
             public static void stolper_Med_redskabsrum(int laengde1, int laengde2, int laengde3, int redLaengde, int bredde, int red_Bredde) {
                 if (redLaengde <= laengde2 / 3) {
@@ -195,6 +201,10 @@ public class Tegning_Algoritme {
              * Carportens tag ramme, 2 remme, x antal spær (antallet er regnet ud efter længden på carporten), 1 kryds
              * som består af to linjer sat på remmerne, stolper placeret efter antagelser, længder og bredder.
              * Tilsidst er pilene sat ind for at kunne se længden og bredden på den ønskede carport.
+             * @param laengde
+             * @param bredde
+             * @param request
+             * @throws Exception
              */
             public static void tegning_Uden_Redskabsrum(int laengde, int bredde, HttpServletRequest request) {
 
@@ -226,6 +236,12 @@ public class Tegning_Algoritme {
             * Carportens tag ramme, 2 remme, x antal spær (antallet er regnet ud efter længden på carporten), 1 kryds
             * som består af to linjer sat på remmerne, stolper placeret efter antagelser, længder og bredder.
             * Tilsidst er pilene sat ind for at kunne se længden og bredden på den ønskede carport.
+              * @param laengde
+              * @param bredde
+              * @param red_Bredde
+              * @param red_Laengde
+              * @param request
+              * @throws Exception
             */
             public static void tegning_Med_Redskabsrum(int laengde, int bredde, HttpServletRequest request, String red_Laengde, String red_Bredde) {
                 try {

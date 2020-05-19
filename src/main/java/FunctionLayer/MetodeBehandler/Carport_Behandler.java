@@ -10,7 +10,8 @@ import javax.servlet.http.HttpSession;
 public class Carport_Behandler {
 
     /**
-     *Metoden her behandler alt input fra brugeren og derefter vælger hvilken type carport der skal indsættes i databasen,
+     *Metoden her behandler alt input fra brugeren og derefter vælger hvilken type carport der skal indsættes i databasen,alt efter om den har
+     * Hældning eller ej og med eller uden redskabsrum.
      *
      * @param adresse adressen
      * @param bredde_cm bredde i cm
@@ -69,7 +70,7 @@ public class Carport_Behandler {
     /**
      *Metoden her behandler alt input fra brugern, og vælger derefter hvilken metode den skal ind i for at beregne den rigtige pris til brugern.
      * alt efter om der er hældning, med eller uden redskabsrum
-     *aaaaa
+     *
      * @param bredde_cm bredde i cm
      * @param laengde_cm længde i cm
      * @param rBredde redskabs bredde

@@ -10,7 +10,9 @@ public class KundeMapper {
 
     public static List<String> kundeEmails = new ArrayList<>();
     /**
-     *Metoden finder ud af
+     *Metoden finder ud af om man allerede har en kunde med den email, og hvis den har, laver den ikke en ny kunde men derimod,
+     * tilføjer forespørgslen til den givne email.
+     * Ellers laver den en nye kunde. og tilføjer forespørgslen til den.
      *
      * @param adresse adressen
      * @param carportBredde bredde i cm
@@ -75,7 +77,12 @@ public class KundeMapper {
 
         }
     }
-
+    /**
+     *Metoden her behandler alt input fra brugern, og finder derefter id på kunden ved en givent email.
+     *
+     * @param email Kundens email
+     * @return int
+     */
     public static int findKundeId (String email)  throws Fejl_haendtering {
         int kundeid = 0;
         try {
@@ -97,7 +104,11 @@ public class KundeMapper {
     }
 
 
-
+    /**
+     *Metoden her finder alle email i databasen.
+     *
+     * @return List<String>
+     */
     public static List<String> findEmail ()  throws Fejl_haendtering {
         if(kundeEmails == null) {
             kundeEmails = new ArrayList<>();
