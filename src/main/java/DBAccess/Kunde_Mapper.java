@@ -6,7 +6,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class KundeMapper {
+public class Kunde_Mapper {
 
     public static List<String> kundeEmails = new ArrayList<>();
     /**

@@ -69,7 +69,7 @@ public class LogicFacade {
                                          String navn, String adresse, int postNummer, String by, int tlf,
                                          String email, double pris) throws Fejl_haendtering {
 
-        KundeMapper.lav_Kunde(navn, adresse, postNummer, by, tlf, email, carportLaengde, carportBredde, carportFarve, carportTraeType
+        Kunde_Mapper.lav_Kunde(navn, adresse, postNummer, by, tlf, email, carportLaengde, carportBredde, carportFarve, carportTraeType
                 , tagMateriale, tagHaeldning, redskabsrumsbredde, redskabsrumslaengde, redskabsrumBeklaedningstype, redskabsrumGulv, pris);
 
     }

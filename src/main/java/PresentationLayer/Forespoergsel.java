@@ -4,7 +4,7 @@ import DBAccess.Carport_Mapper;
 import FunctionLayer.Fejl_haendtering;
 import FunctionLayer.MetodeBehandler.Carport_Behandler;
 import FunctionLayer.MetodeBehandler.Stykliste_Behandler;
-import FunctionLayer.Tegning_Algoritme;
+import FunctionLayer.MetodeBehandler.Tegning_Algoritme;
 
 
 import javax.servlet.http.HttpServletRequest;

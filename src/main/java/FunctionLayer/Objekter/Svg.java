@@ -1,4 +1,4 @@
-package FunctionLayer;
+package FunctionLayer.Objekter;
 
 /**
  * Svg klassens formål er lave en veiwbox og div. tegninger som kundernes carporte skal bestå af, denne tegning skal
