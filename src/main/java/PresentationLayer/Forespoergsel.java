@@ -11,6 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * Forespoergsel klassens formål er at tage en række variabler fra hjemmesidens dropdown menuer og sende dem videre til
+ * databasen via. LogicFacaden klassen. Div. variabler bruges også til carportens tegning.
+ */
 
 public class Forespoergsel extends Command {
     @Override
@@ -18,7 +22,6 @@ public class Forespoergsel extends Command {
 
         try {
             HttpSession session = request.getSession();
-
 
             int carportBredde = Integer.parseInt(request.getParameter("bredde"));
             int bredde_cm = Carport_Mapper.get_Dropdown_Bredde_List().get(carportBredde).getCarportBredde();
@@ -34,10 +37,6 @@ public class Forespoergsel extends Command {
             String redskabsrumbeklaedningstype = request.getParameter("redskabsrumbeklaedningstype");
             String redskabsrumGulv = request.getParameter("redskabsrumGulv");
 
-
-
-
-
             String navn = request.getParameter("navn");
             String adresse = request.getParameter("adresse");
             int postNummer = Integer.parseInt(request.getParameter("postNummer"));
@@ -45,7 +44,10 @@ public class Forespoergsel extends Command {
             int tlf = Integer.parseInt(request.getParameter("tlf"));
             String email = request.getParameter("email");
 
-
+            /*
+            * Her tages bredden på redskabsrummet for at finde ud af om tegning skal laves med eller uden redskabsrum.
+            * Hvis redskabsrummet er over halvt så langt som carporten laver den en fejl og sender dig til fejl.jsp
+             */
             if (redskabsrumBredde == null) {
                 Tegning_Algoritme.tegning_Uden_Redskabsrum(langde_cm, bredde_cm, request);
                double pris = Carport_Behandler.PrisBehandler(bredde_cm, langde_cm, redskabsrumBredde, redskabsrumLaengde, tagHaeldning, request);
