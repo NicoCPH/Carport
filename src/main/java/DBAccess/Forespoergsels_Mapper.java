@@ -12,7 +12,6 @@ import java.util.List;
 
 public class Forespoergsels_Mapper {
 
-    private static List<Forespoergseler> UR = new ArrayList<>();
     private static List<Forespoergseler> MR = new ArrayList<>();
 
     private static final String Update_Pris = "UPDATE forespoergsel\n" +
@@ -34,7 +33,18 @@ public class Forespoergsels_Mapper {
             "where ku.email = ?;";
 
 
-
+    /**
+     *Metoden henter alle forespørgsler fra databasen og ligger ned i et arraylist af forespørgsles objekter.
+     * Derudover er der en if statement der tager sig af om der er et redskabsrum eller ej.
+     *
+     *
+     * @param email Kundens email
+     * @return List<Forespoergseler>
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     * @throws NullPointerException
+     * @throws IndexOutOfBoundsException
+     */
     public static List<Forespoergseler> Alle_Forespoerelser(String email) throws Fejl_haendtering {
         if (MR == null) {
             MR = new ArrayList<>();
@@ -84,6 +94,15 @@ public class Forespoergsels_Mapper {
         return MR;
     }
 
+
+    /**
+     *Metoden opdatere prisen på kundens forespørgsel.
+     *
+     *
+     * @param id kundens id
+     * @param pris Pris på tilbud
+     * @return List<Forespoergseler>
+     */
     public static void Update_Pris(int id, double pris){
 
         try {
