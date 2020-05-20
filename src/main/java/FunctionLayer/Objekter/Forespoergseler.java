@@ -12,8 +12,6 @@ public class Forespoergseler {
     private int redskab_laengde;
     private int redskabs_bredde;
     private String navn;
-    private String adresse;
-    private String kundeby;
     private int kundepostnummer;
     private String kundeemail;
     private int kundetlf;
@@ -22,7 +20,7 @@ public class Forespoergseler {
 
 
     public Forespoergseler(String gulv, int id, int laengde, int bredde, String farve, String carport_traeType, String tag, int haeldning,
-                           String navn, String adresse, String kundeby, int kundepostnummer, String kundeemail, int kundetlf, double pris) {
+                           String navn, int kundepostnummer, String kundeemail, int kundetlf, double pris) {
         this.laengde = laengde;
         this.bredde = bredde;
         this.farve = farve;
@@ -30,8 +28,6 @@ public class Forespoergseler {
         Tag = tag;
         this.haeldning = haeldning;
         this.navn = navn;
-        this.adresse = adresse;
-        this.kundeby = kundeby;
         this.kundepostnummer = kundepostnummer;
         this.kundeemail = kundeemail;
         this.kundetlf = kundetlf;
@@ -41,7 +37,7 @@ public class Forespoergseler {
     }
 
     public Forespoergseler(int id, int laengde, int bredde, String farve, String carport_traeType, String tag, int haeldning, String redskabs_traeType, String gulv, int redskab_laengde, int redskabs_bredde,
-                           String navn, String adresse, String kundeby, int kundepostnummer, String kundeemail, int kundetlf, double pris) {
+                           String navn, int kundepostnummer, String kundeemail, int kundetlf, double pris) {
         this.laengde = laengde;
         this.bredde = bredde;
         this.farve = farve;
@@ -53,14 +49,14 @@ public class Forespoergseler {
         this.redskab_laengde = redskab_laengde;
         this.redskabs_bredde = redskabs_bredde;
         this.navn = navn;
-        this.adresse = adresse;
-        this.kundeby = kundeby;
         this.kundepostnummer = kundepostnummer;
         this.kundeemail = kundeemail;
         this.kundetlf = kundetlf;
         this.pris = pris;
         this.id = id;
     }
+
+
 
     public int getId() {
         return id;
@@ -166,21 +162,6 @@ public class Forespoergseler {
         this.navn = navn;
     }
 
-    public String getAdresse() {
-        return adresse;
-    }
-
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
-    }
-
-    public String getKundeby() {
-        return kundeby;
-    }
-
-    public void setKundeby(String kundeby) {
-        this.kundeby = kundeby;
-    }
 
     public int getKundepostnummer() {
         return kundepostnummer;

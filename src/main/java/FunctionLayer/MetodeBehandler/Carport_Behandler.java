@@ -34,18 +34,18 @@ public class Carport_Behandler {
      */
     public static void carportBehandler(int bredde_cm, int laengde_cm, String rBredde, String rLaengde, String tagHaeldning,
                                         String redskabsrumbeklaedningstype, String redskabsrumGulv, int carportFarve, int carportTraetype, int tagMatriale,
-                                        int tlf, int postNummer, String by, String navn, String adresse, String email, double pris) throws Fejl_haendtering {
+                                        int tlf, int postNummer, String navn, String email, double pris) throws Fejl_haendtering {
 
         if (redskabsrumbeklaedningstype == null && tagHaeldning == null ) {
             LogicFacade.lav_Forespoergsel(laengde_cm, bredde_cm, carportFarve, carportTraetype, tagMatriale,
                     8, 20, 22, 7, 4,
-                    navn, adresse, postNummer, by, tlf, email, pris);
+                    navn,  postNummer,  tlf, email, pris);
 
         } else if(redskabsrumbeklaedningstype == null) {
             int TH = Integer.parseInt(tagHaeldning);
             LogicFacade.lav_Forespoergsel(laengde_cm, bredde_cm, carportFarve, carportTraetype, tagMatriale,
                     TH, 20, 22, 7, 4,
-                    navn, adresse, postNummer, by, tlf, email, pris);
+                    navn, postNummer,  tlf, email, pris);
         }else if (tagHaeldning == null){
             int RB = Integer.parseInt(rBredde);
             int RL = Integer.parseInt(rLaengde);
@@ -53,7 +53,7 @@ public class Carport_Behandler {
             int RG = Integer.parseInt(redskabsrumGulv);
             LogicFacade.lav_Forespoergsel(laengde_cm, bredde_cm, carportFarve, carportTraetype, tagMatriale,
                     8, RB, RL, RBT, RG,
-                    navn, adresse, postNummer, by, tlf, email, pris);
+                    navn,  postNummer, tlf, email, pris);
 
         }else {
             int RB = Integer.parseInt(rBredde);
@@ -63,7 +63,7 @@ public class Carport_Behandler {
             int TH = Integer.parseInt(tagHaeldning);
             LogicFacade.lav_Forespoergsel(laengde_cm, bredde_cm, carportFarve, carportTraetype, tagMatriale,
                     TH, RB, RL, RBT, RG,
-                    navn, adresse, postNummer, by, tlf, email, pris);
+                    navn,  postNummer,  tlf, email, pris);
         }
     }
 

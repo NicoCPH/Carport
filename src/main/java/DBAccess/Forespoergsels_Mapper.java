@@ -17,7 +17,7 @@ public class Forespoergsels_Mapper {
     private static final String Update_Pris = "UPDATE forespoergsel\n" +
             "SET pris = ?\n" +
             "WHERE idforespoergsel = ?;";
-    private static final String Select_All_From_Forespoegsel = "SELECT ku.by, ku.postnummer, ku.kundeId, ku.adresse, ku.tlf, idforespoergsel, CL.laengde, CLB.bredde, farve, TC.traetype, typer, haeldninger, RL.laengde," +
+    private static final String Select_All_From_Forespoegsel = "SELECT  ku.postnummer, ku.kundeId,  ku.tlf, idforespoergsel, CL.laengde, CLB.bredde, farve, TC.traetype, typer, haeldninger, RL.laengde," +
             "RLB.bredde, gulv, TC2.traetype, ku.navn, ku.email, pris FROM carportdb.forespoergsel p \n" +
             "inner join laengder CL on carportlaengde = CL.idlaengder\n" +
             "inner join laengder RL on redskabsrumlaengde = RL.idlaengder\n" +
@@ -67,22 +67,20 @@ public class Forespoergsels_Mapper {
                 String Tag = rs.getString("typer");
                 int haeldning = rs.getInt("haeldninger");
                 String navn = rs.getString("ku.navn");
-                String adresse = rs.getString("ku.adresse");
                 String kundeemail = rs.getString("ku.email");
                 int kundetlf = rs.getInt("ku.tlf");
-                String by = rs.getString("ku.by");
                 int postnummer = rs.getInt("ku.postnummer");
                 String redskabs_traeType = rs.getString("TC2.traetype");
                 double pris = rs.getFloat("pris");
                 int id = rs.getInt("idforespoergsel");
 
                 MR.add(new Forespoergseler(id, laengde, bredde, farve, carport_traeType, Tag, haeldning, redskabs_traeType, gulv,
-                        redskab_laengde, redskabs_bredde, navn, adresse, by, postnummer, kundeemail, kundetlf, pris));
+                        redskab_laengde, redskabs_bredde, navn, postnummer, kundeemail, kundetlf, pris));
 
                 if (redskab_laengde == 0) {
                     MR.remove(i);
                     MR.add(new Forespoergseler(gulv, id, laengde, bredde, farve, carport_traeType, Tag, haeldning,
-                            navn, adresse, by, postnummer, kundeemail, kundetlf, pris));
+                            navn,  postnummer, kundeemail, kundetlf, pris));
                 }
             }
 

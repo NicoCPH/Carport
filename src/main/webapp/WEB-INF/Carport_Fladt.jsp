@@ -169,16 +169,8 @@
     <input style="width: 450px" type="text" id="navn" name="navn"><br>
         </div>
         <div class='field'>
-    <label for="adresse">Adresse:</label><br>
-    <input style="width: 450px" type="text" id="adresse" name="adresse"><br>
-        </div>
-        <div class='field'>
     <label for="pnr">Postnummer:</label><br>
     <input style="width: 450px" type="text" id="pnr" name="postNummer"><br>
-        </div>
-        <div class='field'>
-    <label for="by">By:</label><br>
-    <input style="width: 450px" type="text" id="by" name="by"><br>
         </div>
         <div class='field'>
     <label for="tlf">Telefon</label><br>

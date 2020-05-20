@@ -63,10 +63,10 @@ public class LogicFacade {
     public static void lav_Forespoergsel(int carportLaengde, int carportBredde, int carportFarve,
                                          int carportTraeType, int tagMateriale, int tagHaeldning, int redskabsrumsbredde,
                                          int redskabsrumslaengde, int redskabsrumBeklaedningstype, int redskabsrumGulv,
-                                         String navn, String adresse, int postNummer, String by, int tlf,
+                                         String navn,  int postNummer,  int tlf,
                                          String email, double pris) throws Fejl_haendtering {
 
-        Kunde_Mapper.lav_Kunde(navn, adresse, postNummer, by, tlf, email, carportLaengde, carportBredde, carportFarve, carportTraeType
+        Kunde_Mapper.lav_Kunde(navn, postNummer, tlf, email, carportLaengde, carportBredde, carportFarve, carportTraeType
                 , tagMateriale, tagHaeldning, redskabsrumsbredde, redskabsrumslaengde, redskabsrumBeklaedningstype, redskabsrumGulv, pris);
 
     }

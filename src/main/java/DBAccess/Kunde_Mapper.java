@@ -33,7 +33,7 @@ public class Kunde_Mapper {
      * @param tlf kunde tlf
      * @throws Fejl_haendtering
      */
-    public static void lav_Kunde(String navn, String adresse, int postNummer, String by, int tlf,
+    public static void lav_Kunde(String navn, int postNummer,  int tlf,
                                  String email, int carportLaengde, int carportBredde, int carportFarve,
                                  int carportTraeType, int tagMateriale, int tagHaeldning, int redskabsrumsbredde,
                                  int redskabsrumslaengde, int redskabsrumBeklaedningstype, int redskabsrumGulv, double pris) throws Fejl_haendtering {
@@ -50,18 +50,16 @@ public class Kunde_Mapper {
             try {
                 Connection con = Connector.connection();
 
-                String SQL = "INSERT INTO `carportdb`.`kunde` (`navn`, `adresse`," +
-                        " `postnummer`, `by`, `tlf`, `email`)" +
-                        " VALUES (?, ?, ?, ?, ?, ?);";
+                String SQL = "INSERT INTO `carportdb`.`kunde` (`navn`," +
+                        " `postnummer`, `tlf`, `email`)" +
+                        " VALUES (?, ?, ?, ?);";
 
                 PreparedStatement ps = con.prepareStatement(SQL);
 
                 ps.setString(1, navn);
-                ps.setString(2, adresse);
-                ps.setInt(3, postNummer);
-                ps.setString(4, by);
-                ps.setInt(5, tlf);
-                ps.setString(6, email);
+                ps.setInt(2, postNummer);
+                ps.setInt(3, tlf);
+                ps.setString(4, email);
                 ps.executeUpdate();
 
 

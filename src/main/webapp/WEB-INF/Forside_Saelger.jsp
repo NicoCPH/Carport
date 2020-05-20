@@ -66,14 +66,10 @@
                         </c:otherwise>
                     </c:choose>
                 <thead class="thead-light">
-                <th scope="col">Adresse:</th>
-                <th scope="col">By:</th>
                 <th scope="col">Postnummer:</th>
                 <th scope="col">Hældning:</th>
                 <th scope="col">Pris:</th>
                 </thead>
-                    <td>${show.adresse}</td>
-                    <td>${show.kundeby}</td>
                     <td>${show.kundepostnummer}</td>
                     <td>${show.haeldning}</td>
                     <td>${show.pris}</td>

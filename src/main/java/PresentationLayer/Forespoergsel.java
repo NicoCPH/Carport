@@ -38,9 +38,7 @@ public class Forespoergsel extends Command {
             String redskabsrumGulv = request.getParameter("redskabsrumGulv");
 
             String navn = request.getParameter("navn");
-            String adresse = request.getParameter("adresse");
             int postNummer = Integer.parseInt(request.getParameter("postNummer"));
-            String by = request.getParameter("by");
             int tlf = Integer.parseInt(request.getParameter("tlf"));
             String email = request.getParameter("email");
 
@@ -53,13 +51,13 @@ public class Forespoergsel extends Command {
                double pris = Carport_Behandler.PrisBehandler(bredde_cm, langde_cm, redskabsrumBredde, redskabsrumLaengde, tagHaeldning, request);
                 Carport_Behandler.carportBehandler(carportBredde, carportlaengde, redskabsrumBredde, redskabsrumLaengde, tagHaeldning,
                         redskabsrumbeklaedningstype,
-                        redskabsrumGulv, carportFarve, carportTraetype, tagMatriale, tlf, postNummer, by, navn, adresse, email, pris);
+                        redskabsrumGulv, carportFarve, carportTraetype, tagMatriale, tlf, postNummer,  navn,  email, pris);
                 Carport_Behandler.konstruktion_beskrivelse(bredde_cm, langde_cm, redskabsrumBredde, redskabsrumLaengde, tagHaeldning, request, tagMatriale, redskabsrumbeklaedningstype, redskabsrumGulv);
             } else if (carportlaengde / 2 >= Integer.parseInt(redskabsrumLaengde) && carportBredde >= Integer.parseInt(redskabsrumBredde)) {
                 double pris = Carport_Behandler.PrisBehandler(bredde_cm, langde_cm, redskabsrumBredde, redskabsrumLaengde, tagHaeldning, request);
                 Carport_Behandler.carportBehandler(carportBredde, carportlaengde, redskabsrumBredde, redskabsrumLaengde, tagHaeldning,
                         redskabsrumbeklaedningstype,
-                        redskabsrumGulv, carportFarve, carportTraetype, tagMatriale, tlf, postNummer, by, navn, adresse, email, pris);
+                        redskabsrumGulv, carportFarve, carportTraetype, tagMatriale, tlf, postNummer,  navn,  email, pris);
                 Carport_Behandler.konstruktion_beskrivelse(bredde_cm, langde_cm, redskabsrumBredde, redskabsrumLaengde, tagHaeldning, request, tagMatriale, redskabsrumbeklaedningstype, redskabsrumGulv);
 
                 Tegning_Algoritme.tegning_Med_Redskabsrum(langde_cm, bredde_cm, request, redskabsrumLaengde, redskabsrumBredde);
