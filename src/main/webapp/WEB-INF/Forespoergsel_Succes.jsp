@@ -12,7 +12,7 @@ Tak for din forespørgsel ${sessionScope.navn}, vi vil vende tilbage snarest!
     <br>
     Her er en tegning over din valgte carport.
     <br>
-    ${requestScope.carporttegning}
+    ${sessionScope.carporttegning}
     <br>
     <br>
     <br>

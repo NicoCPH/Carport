@@ -12,10 +12,8 @@ public class Carport_Behandler {
     /**
      *Metoden her behandler alt input fra brugeren og derefter vælger hvilken type carport der skal indsættes i databasen,alt efter om den har
      * Hældning eller ej og med eller uden redskabsrum.
-     *
-     * @param adresse adressen
+
      * @param bredde_cm bredde i cm
-     * @param by by
      * @param carportFarve carport farven
      * @param carportTraetype carport trætype
      * @param email kunde email
@@ -185,5 +183,28 @@ public class Carport_Behandler {
 
 
     }
+public static Boolean Carport_Behandlern(int carportBredde, int carportlaengde, String redskabsrumBredde, int langde_cm, int bredde_cm, HttpServletRequest request, String redskabsrumLaengde, String tagHaeldning,
+                                      String redskabsrumbeklaedningstype, String redskabsrumGulv, int carportFarve, int carportTraetype, int tagMatriale, int tlf, int postNummer, String navn, String email) throws Fejl_haendtering {
+
+    if (redskabsrumBredde == null) {
+        Tegning_Algoritme.tegning_Uden_Redskabsrum(langde_cm, bredde_cm, request);
+        double pris = Carport_Behandler.PrisBehandler(bredde_cm, langde_cm, redskabsrumBredde, redskabsrumLaengde, tagHaeldning, request);
+        Carport_Behandler.carportBehandler(carportBredde, carportlaengde, redskabsrumBredde, redskabsrumLaengde, tagHaeldning,
+                redskabsrumbeklaedningstype,
+                redskabsrumGulv, carportFarve, carportTraetype, tagMatriale, tlf, postNummer, navn, email, pris);
+        Carport_Behandler.konstruktion_beskrivelse(bredde_cm, langde_cm, redskabsrumBredde, redskabsrumLaengde, tagHaeldning, request, tagMatriale, redskabsrumbeklaedningstype, redskabsrumGulv);
+    } else if (carportlaengde / 2 >= Integer.parseInt(redskabsrumLaengde) && carportBredde >= Integer.parseInt(redskabsrumBredde)) {
+        double pris = Carport_Behandler.PrisBehandler(bredde_cm, langde_cm, redskabsrumBredde, redskabsrumLaengde, tagHaeldning, request);
+        Carport_Behandler.carportBehandler(carportBredde, carportlaengde, redskabsrumBredde, redskabsrumLaengde, tagHaeldning,
+                redskabsrumbeklaedningstype,
+                redskabsrumGulv, carportFarve, carportTraetype, tagMatriale, tlf, postNummer, navn, email, pris);
+        Carport_Behandler.konstruktion_beskrivelse(bredde_cm, langde_cm, redskabsrumBredde, redskabsrumLaengde, tagHaeldning, request, tagMatriale, redskabsrumbeklaedningstype, redskabsrumGulv);
+
+        Tegning_Algoritme.tegning_Med_Redskabsrum(langde_cm, bredde_cm, request, redskabsrumLaengde, redskabsrumBredde);
+    } else {
+        return false;
+    }
+    return true;
+}
 
 }

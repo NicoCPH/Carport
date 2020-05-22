@@ -27,12 +27,10 @@ CREATE TABLE `kunde` (
   `navn` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
   `tlf` int NOT NULL,
-  `adresse` varchar(45) NOT NULL,
   `postnummer` varchar(45) NOT NULL,
-  `by` varchar(45) NOT NULL,
   PRIMARY KEY (`kundeId`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +39,7 @@ CREATE TABLE `kunde` (
 
 LOCK TABLES `kunde` WRITE;
 /*!40000 ALTER TABLE `kunde` DISABLE KEYS */;
-INSERT INTO `kunde` VALUES (1,'f','sefse',234234,'','',''),(5,'ada','awdad',22423,'fesfes','2312','edad'),(6,'ksks','jalla@cph.dk',3423511,'dadaa','2990','nivaa'),(7,'Henrik og mark','Lange@cph.dk',45435432,'dada','2990','nivaa'),(8,'l','jp@cph.dk',45435432,'dadaa','2314','nivaa'),(9,'Henrik og mark','jon@cph.dk',45435432,'dada','2990','nivaa'),(10,'test','lawldwad@xn--dawkdawd-p0a.adw',45435432,'dada','2990','nivaa'),(11,'ksks','robin@somewhere.com',45435432,'dadaa','2990','nivaa'),(12,'test','someone@nowhere.comsss',45435432,'dada','2990','nivaa'),(13,'ksks','someone@nowhere.co',45435432,'dadaa','2990','nivaa');
+INSERT INTO `kunde` VALUES (14,'test','someone@nowhere.co',45435432,'2990'),(15,'test','Lange@cph.dk',45435432,'2990');
 /*!40000 ALTER TABLE `kunde` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-05-19 13:40:19
+-- Dump completed on 2020-05-20 11:28:49

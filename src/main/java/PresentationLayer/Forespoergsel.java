@@ -4,8 +4,6 @@ import DBAccess.Carport_Mapper;
 import FunctionLayer.Fejl_haendtering;
 import FunctionLayer.MetodeBehandler.Carport_Behandler;
 import FunctionLayer.MetodeBehandler.Stykliste_Behandler;
-import FunctionLayer.MetodeBehandler.Tegning_Algoritme;
-
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -46,24 +44,11 @@ public class Forespoergsel extends Command {
             * Her tages bredden på redskabsrummet for at finde ud af om tegning skal laves med eller uden redskabsrum.
             * Hvis redskabsrummet er over halvt så langt som carporten laver den en fejl og sender dig til fejl.jsp
              */
-            if (redskabsrumBredde == null) {
-                Tegning_Algoritme.tegning_Uden_Redskabsrum(langde_cm, bredde_cm, request);
-               double pris = Carport_Behandler.PrisBehandler(bredde_cm, langde_cm, redskabsrumBredde, redskabsrumLaengde, tagHaeldning, request);
-                Carport_Behandler.carportBehandler(carportBredde, carportlaengde, redskabsrumBredde, redskabsrumLaengde, tagHaeldning,
-                        redskabsrumbeklaedningstype,
-                        redskabsrumGulv, carportFarve, carportTraetype, tagMatriale, tlf, postNummer,  navn,  email, pris);
-                Carport_Behandler.konstruktion_beskrivelse(bredde_cm, langde_cm, redskabsrumBredde, redskabsrumLaengde, tagHaeldning, request, tagMatriale, redskabsrumbeklaedningstype, redskabsrumGulv);
-            } else if (carportlaengde / 2 >= Integer.parseInt(redskabsrumLaengde) && carportBredde >= Integer.parseInt(redskabsrumBredde)) {
-                double pris = Carport_Behandler.PrisBehandler(bredde_cm, langde_cm, redskabsrumBredde, redskabsrumLaengde, tagHaeldning, request);
-                Carport_Behandler.carportBehandler(carportBredde, carportlaengde, redskabsrumBredde, redskabsrumLaengde, tagHaeldning,
-                        redskabsrumbeklaedningstype,
-                        redskabsrumGulv, carportFarve, carportTraetype, tagMatriale, tlf, postNummer,  navn,  email, pris);
-                Carport_Behandler.konstruktion_beskrivelse(bredde_cm, langde_cm, redskabsrumBredde, redskabsrumLaengde, tagHaeldning, request, tagMatriale, redskabsrumbeklaedningstype, redskabsrumGulv);
+if(!Carport_Behandler.Carport_Behandlern(carportBredde, carportlaengde, redskabsrumBredde, langde_cm, bredde_cm, request, redskabsrumLaengde, tagHaeldning,
+        redskabsrumbeklaedningstype, redskabsrumGulv, carportFarve, carportTraetype, tagMatriale, tlf, postNummer, navn, email)) {
+return "Fejl";
+}
 
-                Tegning_Algoritme.tegning_Med_Redskabsrum(langde_cm, bredde_cm, request, redskabsrumLaengde, redskabsrumBredde);
-            } else {
-                return "Fejl";
-            }
 
             session.setAttribute("navn", navn);
             session.setAttribute("email", email);

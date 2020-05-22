@@ -4,6 +4,7 @@ import DBAccess.Carport_Mapper;
 import FunctionLayer.Objekter.Svg;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 public class Tegning_Algoritme {
 
@@ -208,7 +209,7 @@ public class Tegning_Algoritme {
              * @throws Exception
              */
             public static void tegning_Uden_Redskabsrum(int laengde, int bredde, HttpServletRequest request) {
-
+                HttpSession session = request.getSession();
                 try {
                     svg.add_Rect(0, 0, bredde, laengde); // boks linjerne
                     remme(laengde, bredde);
@@ -222,7 +223,7 @@ public class Tegning_Algoritme {
                     svg.add_text(laengde / 2 , bredde + 30, laengde + " cm");
                     svg.add_pilspids();
 
-                    request.setAttribute("carporttegning", svg.toString());
+                    session.setAttribute("carporttegning", svg.toString());
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
@@ -245,6 +246,7 @@ public class Tegning_Algoritme {
               * @throws Exception
             */
             public static void tegning_Med_Redskabsrum(int laengde, int bredde, HttpServletRequest request, String red_Laengde, String red_Bredde) {
+                HttpSession session = request.getSession();
                 try {
                     svg.add_Rect(0, 0, bredde, laengde); // boks linjerne
                     remme(laengde, bredde);
@@ -261,7 +263,7 @@ public class Tegning_Algoritme {
                     svg.add_text(laengde / 2 , bredde + 30, laengde + " cm");
                     svg.add_pilspids();
 
-                    request.setAttribute("carporttegning", svg.toString());
+                    session.setAttribute("carporttegning", svg.toString());
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }

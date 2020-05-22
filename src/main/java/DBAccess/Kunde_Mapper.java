@@ -14,9 +14,7 @@ public class Kunde_Mapper {
      * tilføjer forespørgslen til den givne email.
      * Ellers laver den en nye kunde. og tilføjer forespørgslen til den.
      *
-     * @param adresse adressen
      * @param carportBredde bredde i cm
-     * @param by by
      * @param carportFarve carport farven
      * @param carportTraeType carport trætype
      * @param email kunde email

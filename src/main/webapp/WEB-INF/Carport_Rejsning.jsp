@@ -138,7 +138,7 @@
     </p>
         <label class="mt-4" style="background-color: white;color: #5f5f5f; font-weight: bold">Redskabsrum bredde</label>
         <select class="form-control"  name="redskabsrumsbredde">
-            <c:forEach var="bredde" begin="0" end="19" items="${bredde}">
+            <c:forEach var="bredde" begin="0" end="18" items="${bredde}">
                 <option value="${bredde.value.carportBreddeid}">${bredde.value.carportBredde}
                 </option>
             </c:forEach>
