@@ -23,7 +23,7 @@ public class Tegning_Algoritme {
              * if statementet sørger for at længden ikke kan blive for lille eller for stor.
              */
             public static int spaer_Omregner(int laengde) throws Fejl_haendtering {
-                if (laengde < 0 || laengde < 780) {
+                if (laengde < 0 || laengde > 780) {
                     throw new Fejl_haendtering("Længden på carporten skal mindst være 0 og max 780");
                 }
                 return Math.round(laengde / 55);
@@ -35,7 +35,7 @@ public class Tegning_Algoritme {
              * if statementet sørger for at længden og bredden ikke kan blive for lille eller for stor.
              */
             public static void spaer_Taeller(int laengde, int bredde) throws Fejl_haendtering {
-                if (laengde < 0 || laengde < 780 || bredde < 175 || bredde > 750) {
+                if (laengde < 0 || laengde > 780 || bredde < 175 || bredde > 750) {
                     throw new Fejl_haendtering("Bredden på carporten skal mindst være 210 og max 750 samtidig må længden ikke være mindre end 0 og større end 780");
                 }
                 svg.add_Rect(0,0,bredde,2);
@@ -64,7 +64,7 @@ public class Tegning_Algoritme {
              * if statementet sørger for at længden og bredden ikke bliver for stor eller for lille.
              */
             public static void remme(int laengde, int bredde) throws Fejl_haendtering {
-                if (laengde < 0 || laengde < 780 || bredde < 175 || bredde > 750) {
+                if (laengde < 0 || laengde > 780 || bredde < 175 || bredde > 750) {
                     throw new Fejl_haendtering("Bredden på carporten skal mindst være 210 og max 750 samtidig må længden ikke være mindre end 0 og større end 780");
                 }
                 svg.add_Rect(0,35,4, laengde); // rem
@@ -76,8 +76,8 @@ public class Tegning_Algoritme {
              * if statementet sørger for at længden ikke bliver for stor eller for lille.
              */
             public static int kryds_Laengde_Omregner(int laengde) throws Fejl_haendtering {
-                if (laengde < 0 || laengde < 780) {
-                    throw new Fejl_haendtering("Længden på carporten skal mindst være 0 og max 780");
+                if (laengde < 35 || laengde > 780) {
+                    throw new Fejl_haendtering("Længden på carportens kryds skal mindst være 35 og max 780");
                 }
                 return laengde-35;
             }
@@ -88,7 +88,7 @@ public class Tegning_Algoritme {
              * if statementet sørger for at længden og bredden ikke bliver for stor eller for lille.
              */
             public static void kryds(int laengde, int bredde) throws Fejl_haendtering {
-                if (laengde < 0 || laengde < 780 || bredde < 175 || bredde > 750) {
+                if (laengde < 35 || laengde > 780 || bredde < 175 || bredde > 750) {
                     throw new Fejl_haendtering("Bredden på carporten skal mindst være 210 og max 750 samtidig må længden ikke være mindre end 0 og større end 780");
                 }
                 svg.add_Kryds(35,39 , kryds_Laengde_Omregner(laengde), rem_Bredde_Omregner(bredde)); // kryds linje
@@ -145,7 +145,7 @@ public class Tegning_Algoritme {
              * * if statementet sørger for at længden ikke bliver for stor eller for lille.
             */
             public static int stolper_Laengde1(int laengde) throws Fejl_haendtering {
-                if (laengde < 0 || laengde < 780) {
+                if (laengde < 0 || laengde > 780) {
                     throw new Fejl_haendtering("Længden på carporten skal mindst være 0 og max 780");
                 }
                 double laengdeOmregnet = laengde / 5;
@@ -158,7 +158,7 @@ public class Tegning_Algoritme {
              * * if statementet sørger for at længden ikke bliver for stor eller for lille.
             */
             public static int stolper_Laengde2(int laengde) throws Fejl_haendtering {
-                if (laengde < 0 || laengde < 780) {
+                if (laengde < 0 || laengde > 780) {
                     throw new Fejl_haendtering("Længden på carporten skal mindst være 0 og max 780");
                 }
                 double laengdeOmregnet = laengde / 2;
@@ -171,7 +171,7 @@ public class Tegning_Algoritme {
              * if statementet sørger for at længden ikke bliver for stor eller for lille.
             */
             public static int stolper_Laengde3(int laengde) throws Fejl_haendtering {
-                if (laengde < 0 || laengde < 780) {
+                if (laengde < 0 || laengde > 780) {
                     throw new Fejl_haendtering("Længden på carporten skal mindst være 0 og max 780");
                 }
                 double laengdeOmregnet = laengde / 1.25;
@@ -186,7 +186,7 @@ public class Tegning_Algoritme {
              * if statementet sørger for at længderne og bredderne ikke bliver for store eller for små.
             */
             public static void stolper_Uden_redskabsrum(int laengde1, int laengde2, int laengde3, int bredde) throws Fejl_haendtering {
-                if (laengde1 < 0 || laengde1 < 780 || laengde2 < 0 || laengde2 < 780 || laengde3 < 0 || laengde3 < 780 || bredde < 175 || bredde > 750) {
+                if (laengde1 < 0 || laengde1 > 780 || laengde2 < 0 || laengde2 > 780 || laengde3 < 0 || laengde3 > 780 || bredde < 175 || bredde > 750) {
                     throw new Fejl_haendtering("Bredden på carporten skal mindst være 210 og max 750 samtidig må længden ikke være mindre end 0 og større end 780");
                 }
                 svg.add_Rect(stolper_Laengde1(laengde1),32,10,10); // stolpe
@@ -209,7 +209,7 @@ public class Tegning_Algoritme {
              * if statementsne i denne metode er der for at adde og fjerne div. stolper efter vores antagelser.
              */
             public static void stolper_Med_redskabsrum(int laengde1, int laengde2, int laengde3, int redLaengde, int bredde, int red_Bredde) throws Fejl_haendtering {
-                if (laengde1 < 0 || laengde1 < 780 || laengde2 < 0 || laengde2 < 780 || laengde3 < 0 || laengde3 < 780 || redLaengde < 0 || redLaengde < 780 || bredde < 175 || bredde > 750 || red_Bredde < 175 || red_Bredde > 750) {
+                if (laengde1 < 0 || laengde1 > 780 || laengde2 < 0 || laengde2 > 780 || laengde3 < 0 || laengde3 > 780 || redLaengde < 0 || redLaengde > 780 || bredde < 175 || bredde > 750 || red_Bredde < 175 || red_Bredde > 750) {
                     throw new Fejl_haendtering("Bredden på carporten skal mindst være 210 og max 750 samtidig må længden ikke være mindre end 0 og større end 780");
                 }
                 if (redLaengde <= laengde2 / 3) {
@@ -251,11 +251,11 @@ public class Tegning_Algoritme {
              * if statementet sørger for at længden og bredden ikke bliver for store eller for lille.
              */
             public static void tegning_Uden_Redskabsrum(int laengde, int bredde, HttpServletRequest request) throws Fejl_haendtering {
-                if (laengde < 0 || laengde < 780 || bredde < 175 || bredde > 750) {
+                if (laengde < 0 || laengde > 780 || bredde < 175 || bredde > 750) {
                     throw new Fejl_haendtering("Bredden på carporten skal mindst være 210 og max 750 samtidig må længden ikke være mindre end 0 og større end 780");
                 }
                 try {
-                    svg.add_Rect(0, 0, bredde, laengde); // boks linjerne
+                    svg.add_Rect(0, 0, bredde, laengde); // Carportens tag
                     remme(laengde, bredde);
                     spaer_Taeller(laengde, bredde);
                     kryds(laengde, bredde);
@@ -285,11 +285,11 @@ public class Tegning_Algoritme {
               * if statementet sørger for at længderne og bredderne ikke bliver for store eller for små.
             */
             public static void tegning_Med_Redskabsrum(int laengde, int bredde, HttpServletRequest request, String red_Laengde, String red_Bredde) throws Fejl_haendtering {
-                if (laengde < 0 || laengde < 780 || bredde < 175 || bredde > 750 || Integer.parseInt(red_Laengde) < 0 || Integer.parseInt(red_Laengde) > 780 || Integer.parseInt(red_Bredde) < 175 || Integer.parseInt(red_Bredde) > 750) {
+                if (laengde < 0 || laengde > 780 || bredde < 175 || bredde > 750 || Integer.parseInt(red_Laengde) < 0 || Integer.parseInt(red_Laengde) > 780 || Integer.parseInt(red_Bredde) < 175 || Integer.parseInt(red_Bredde) > 750) {
                     throw new Fejl_haendtering("Bredden på carporten skal mindst være 210 og max 750 samtidig må længden ikke være mindre end 0 og større end 780");
                 }
                 try {
-                    svg.add_Rect(0, 0, bredde, laengde); // boks linjerne
+                    svg.add_Rect(0, 0, bredde, laengde); // Carportens tag
                     remme(laengde, bredde);
                     spaer_Taeller(laengde, bredde);
                     kryds(laengde, bredde);
