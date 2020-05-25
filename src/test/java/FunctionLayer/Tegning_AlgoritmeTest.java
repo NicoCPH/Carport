@@ -45,21 +45,15 @@ public class Tegning_AlgoritmeTest {
     }
 
     @Test
-    public void spaer_Taeller() {
+    public void spaer_Taeller() throws Fejl_haendtering {
         Svg svg = new Svg(800,600,"800,600,0,0",0,0);
         svg.add_Rect(0,0,100,110);
         String expected = "<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" " +
                "" + "width=\"600\" height=\"800\" x=\"0\" y=\"0\" viewBox=\"800,600,0,0\" preserveAspectRatio=\"xMinYMin\">" +
                "<rect x=\"0\" y=\"0\" height=\"100\" width=\"110\" style=\"stroke:#000000; fill: #ffffff\" />" + "</svg>";
-        /*
-        Tegning_Algoritme.spaer_Taeller(110,100);
-        String expected2 = "<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" " +
-                "" + "width=\"600\" height=\"800\" x=\"0\" y=\"0\" viewBox=\"800,600,0,0\" preserveAspectRatio=\"xMinYMin\">" +
-                "<rect x=\"0\" y=\"0\" height=\"100\" width=\"110\" style=\"stroke:#000000; fill: #ffffff\" />" +
-                "<rect x=\"0\" y=\"0\" height=\"100\" width=\"110\" style=\"stroke:#000000; fill: #ffffff\" /></svg>";
-        */
+        
         assertEquals(expected, svg.toString());
-        //assertEquals(expected2, svg.toString());
+
     }
 
     @Test
@@ -83,14 +77,7 @@ public class Tegning_AlgoritmeTest {
         String expected = "<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" " +
                 "" + "width=\"600\" height=\"800\" x=\"0\" y=\"0\" viewBox=\"800,600,0,0\" preserveAspectRatio=\"xMinYMin\">" +
                 "<rect x=\"0\" y=\"0\" height=\"100\" width=\"110\" style=\"stroke:#000000; fill: #ffffff\" />" + "</svg>";
-        /*
-        Tegning_Algoritme.remme(110,100);
-        String expected2 = "<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" " +
-                "" + "width=\"600\" height=\"800\" x=\"0\" y=\"0\" viewBox=\"800,600,0,0\" preserveAspectRatio=\"xMinYMin\">" +
-                "<rect x=\"0\" y=\"0\" height=\"100\" width=\"110\" style=\"stroke:#000000; fill: #ffffff\" />" +
-                "<rect x=\"0\" y=\"0\" height=\"100\" width=\"110\" style=\"stroke:#000000; fill: #ffffff\" /></svg>";
-        */
-        //assertEquals(expected2, svg.toString());
+
         assertEquals(expected, svg.toString());
     }
 
@@ -115,14 +102,7 @@ public class Tegning_AlgoritmeTest {
         String expectedS = "<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" " +
                 "" + "width=\"600\" height=\"800\" x=\"0\" y=\"0\" viewBox=\"800,600,0,0\" preserveAspectRatio=\"xMinYMin\">" +
                 "<line x1=\"35\" y1=\"39\" x2=\"465\" y2=\"195\" style=\"stroke:#000000; stroke-dasharray: 5 5;\" />" + "</svg>";
-        /*
-        Tegning_Algoritme.kryds(110,100);
-        String expected2 = "<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" " +
-                "" + "width=\"600\" height=\"800\" x=\"0\" y=\"0\" viewBox=\"800,600,0,0\" preserveAspectRatio=\"xMinYMin\">" +
-                "<rect x=\"0\" y=\"0\" height=\"100\" width=\"110\" style=\"stroke:#000000; fill: #ffffff\" />" +
-                "<rect x=\"0\" y=\"0\" height=\"100\" width=\"110\" style=\"stroke:#000000; fill: #ffffff\" /></svg>";
-        */
-        //assertEquals(expected2, svg.toString());
+
         assertEquals(expectedS, svg.toString());
     }
 
@@ -270,19 +250,6 @@ public class Tegning_AlgoritmeTest {
         int laengde = 400;
         int bredde = 210;
         Tegning_Algoritme.stolper_Uden_redskabsrum(laengde,laengde,laengde,bredde);
-        /*
-        String expectedS = "<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" " +
-                "" + "width=\"600\" height=\"800\" x=\"0\" y=\"0\" viewBox=\"800,600,0,0\" preserveAspectRatio=\"xMinYMin\">" +
-                "<rect x=\"%d\" y=\"%d\" height=\"%d\" width=\"%d\" style=\"stroke:#000000; fill: #ffffff\" />" +
-                "<rect x=\"%d\" y=\"%d\" height=\"%d\" width=\"%d\" style=\"stroke:#000000; fill: #ffffff\" />" +
-                "<rect x=\"%d\" y=\"%d\" height=\"%d\" width=\"%d\" style=\"stroke:#000000; fill: #ffffff\" />" +
-                "<rect x=\"%d\" y=\"%d\" height=\"%d\" width=\"%d\" style=\"stroke:#000000; fill: #ffffff\" />" +
-                "<rect x=\"%d\" y=\"%d\" height=\"%d\" width=\"%d\" style=\"stroke:#000000; fill: #ffffff\" />" +
-                "<rect x=\"%d\" y=\"%d\" height=\"%d\" width=\"%d\" style=\"stroke:#000000; fill: #ffffff\" />" + "</svg>";
-        assertEquals(expectedS, svg.toString());
-        */
-
-        // hvordan finder jeg ud af om den laver mine objekter via. svg korrekt.
 
     }
 
@@ -295,19 +262,6 @@ public class Tegning_AlgoritmeTest {
         int breddeR = 420;
         Tegning_Algoritme.stolper_Med_redskabsrum(laengde, laengde, laengde, laengdeR, bredde, breddeR);
 
-        /*
-        String expectedS = "<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" " +
-                "" + "width=\"600\" height=\"800\" x=\"0\" y=\"0\" viewBox=\"800,600,0,0\" preserveAspectRatio=\"xMinYMin\">" +
-                "<rect x=\"%d\" y=\"%d\" height=\"%d\" width=\"%d\" style=\"stroke:#000000; fill: #ffffff\" />" +
-                "<rect x=\"%d\" y=\"%d\" height=\"%d\" width=\"%d\" style=\"stroke:#000000; fill: #ffffff\" />" +
-                "<rect x=\"%d\" y=\"%d\" height=\"%d\" width=\"%d\" style=\"stroke:#000000; fill: #ffffff\" />" +
-                "<rect x=\"%d\" y=\"%d\" height=\"%d\" width=\"%d\" style=\"stroke:#000000; fill: #ffffff\" />" +
-                "<rect x=\"%d\" y=\"%d\" height=\"%d\" width=\"%d\" style=\"stroke:#000000; fill: #ffffff\" />" +
-                "<rect x=\"%d\" y=\"%d\" height=\"%d\" width=\"%d\" style=\"stroke:#000000; fill: #ffffff\" />" + "</svg>";
-        assertEquals(expectedS, svg.toString());
-        */
-
-        // hvordan finder jeg ud af om den laver mine objekter via. svg korrekt.
     }
     @Test
     public void Text() {
