@@ -28,8 +28,8 @@ public class LogicFacade {
         List<Materiale> StolpeListe = new ArrayList<>();
         List<Materiale> SpaerListe = new ArrayList<>();
         List<Materiale> TagListe = new ArrayList<>();
-
-        if (materialeMap == null) {
+        if(materialeMap.size() > 0){
+            materialeMap.clear();
             materialeMap = new HashMap<>();
         }
 

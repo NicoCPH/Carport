@@ -312,9 +312,6 @@ public class Tegning_Algoritme {
 
 
             public static void tegning_Med_Redskabsrum(int laengde, int bredde, HttpServletRequest request, String red_Laengde, String red_Bredde) throws Fejl_haendtering {
-                if (laengde < 0 || laengde > 780 || bredde < 175 || bredde > 750 || Integer.parseInt(red_Laengde) < 0 || Integer.parseInt(red_Laengde) > 780 || Integer.parseInt(red_Bredde) < 175 || Integer.parseInt(red_Bredde) > 750) {
-                    throw new Fejl_haendtering("Bredden på carporten skal mindst være 210 og max 750 samtidig må længden ikke være mindre end 0 og større end 780");
-                }
                 HttpSession session = request.getSession();
                 try {
                     svg.add_Rect(0, 0, bredde, laengde); // Carportens tag

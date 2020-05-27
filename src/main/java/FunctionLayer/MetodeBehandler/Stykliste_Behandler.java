@@ -26,8 +26,9 @@ public class Stykliste_Behandler {
      */
 
     public static ArrayList<Materiale> styklisten(int laengde, int bredde,
-                                                  String redskabsrumbeklaedningstype, String tagHaeldning, String tagMaterialeType) throws Fejl_haendtering {
-        if(materialeArrayList == null){
+                                                    String redskabsrumbeklaedningstype, String tagHaeldning, String tagMaterialeType) throws Fejl_haendtering {
+        if(materialeArrayList.size() > 0) {
+            materialeArrayList.clear();
             materialeArrayList = new ArrayList<>();
         }
         materialeArrayList.add(new Materiale(spaer_Omregner_beskrivelse(),  "Spær", laengde, spaer_Omregner(laengde)));
