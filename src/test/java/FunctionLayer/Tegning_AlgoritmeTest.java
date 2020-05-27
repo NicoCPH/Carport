@@ -1,8 +1,8 @@
 package FunctionLayer;
 
 import FunctionLayer.Fejl_haendtering;
-import FunctionLayer.Svg;
-import FunctionLayer.Tegning_Algoritme;
+import FunctionLayer.MetodeBehandler.Tegning_Algoritme;
+import FunctionLayer.Objekter.Svg;
 import org.hamcrest.core.StringContains;
 import org.junit.After;
 import org.junit.Before;
