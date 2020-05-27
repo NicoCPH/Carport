@@ -12,6 +12,7 @@
         <module name="Carport_Projekt" />
         <module name="Projektskabelon-master" />
         <module name="Projektskabelon" />
+        <module name="Carport" />
       </profile>
     </annotationProcessing>
   </component>
