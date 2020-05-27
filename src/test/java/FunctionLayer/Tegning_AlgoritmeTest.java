@@ -1,18 +1,21 @@
 package FunctionLayer;
 
+<<<<<<< HEAD
 import FunctionLayer.Fejl_haendtering;
 import FunctionLayer.MetodeBehandler.Tegning_Algoritme;
 import FunctionLayer.Objekter.Svg;
 import org.hamcrest.core.StringContains;
+=======
+
+import FunctionLayer.MetodeBehandler.Tegning_Algoritme;
+import FunctionLayer.Objekter.Svg;
+
+
+>>>>>>> 63799457fc74a9707753a2a1bde38c12ecbcd1d4
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import sun.plugin.dom.core.Element;
 
-import javax.net.ssl.HandshakeCompletedEvent;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import static org.junit.Assert.*;
 
