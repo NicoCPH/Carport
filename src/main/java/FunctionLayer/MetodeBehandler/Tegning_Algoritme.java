@@ -1,6 +1,7 @@
 package FunctionLayer.MetodeBehandler;
 
 import DBAccess.Carport_Mapper;
+import FunctionLayer.Fejl_haendtering;
 import FunctionLayer.Objekter.Svg;
 
 import javax.servlet.http.HttpServletRequest;
