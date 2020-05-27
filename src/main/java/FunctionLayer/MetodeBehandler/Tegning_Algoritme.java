@@ -189,9 +189,7 @@ public class Tegning_Algoritme {
              * if statementet sørger for at længderne og bredderne ikke bliver for store eller for små.
             */
             public static void stolper_Uden_redskabsrum(int laengde1, int laengde2, int laengde3, int bredde) throws Fejl_haendtering {
-                if (laengde1 < 0 || laengde1 > 780 || laengde2 < 0 || laengde2 > 780 || laengde3 < 0 || laengde3 > 780 || bredde < 175 || bredde > 750) {
-                    throw new Fejl_haendtering("Bredden på carporten skal mindst være 210 og max 750 samtidig må længden ikke være mindre end 0 og større end 780");
-                }
+             
                 svg.add_Rect(stolper_Laengde1(laengde1),32,10,10); // stolpe
                 svg.add_Rect(stolper_Laengde2(laengde2),32,10,10); // stolpe
                 svg.add_Rect(stolper_Laengde3(laengde3),32,10,10); // stolpe
