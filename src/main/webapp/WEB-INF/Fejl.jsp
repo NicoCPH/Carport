@@ -10,7 +10,7 @@
     <br>
     <br>
     <label>
-        HUSK at længden på redskabsrummet kun må være halvt så stort som carporten.
+        HUSK at længden på redskabsrummet kun må være halvt så stort som carporten og bredden max må være ligeså stor som carportens bredde.
     </label>
     <br>
     <br>
