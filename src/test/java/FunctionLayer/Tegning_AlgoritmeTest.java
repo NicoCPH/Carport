@@ -311,16 +311,6 @@ public class Tegning_AlgoritmeTest {
         assertEquals(expected, svg.toString());
     }
 
-    @Test
-    public void tegning_Uden_Redskabsrum() {
-        // hjælp
-    }
-
-    @Test
-    public void tegning_Med_Redskabsrum() {
-        // hjælp
-    }
-
     @Test(expected = Fejl_haendtering.class)
     public void testAfFejl() throws Fejl_haendtering {
         Tegning_Algoritme.spaer_Omregner(-1);
