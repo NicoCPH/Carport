@@ -11,7 +11,7 @@ public class Svg {
     private String view_box;
     private int x;
     private int y;
-    private StringBuilder svg = new StringBuilder();
+    private static StringBuilder svg = new StringBuilder();
 
     /**
      * header_Template dette er en veiwbox.
@@ -44,6 +44,10 @@ public class Svg {
         this.x = x;
         this.y = y;
         svg.append(String.format(header_Template, height, width, x, y, viewbox));
+    }
+
+    public static void newSVG(){
+        svg.setLength(0);
     }
 
     public void add_text_Rotated(int x, int y, String cm) {

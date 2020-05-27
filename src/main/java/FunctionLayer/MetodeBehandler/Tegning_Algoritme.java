@@ -271,6 +271,8 @@ public class Tegning_Algoritme {
                 }
                 HttpSession session = request.getSession();
                 try {
+                    FunctionLayer.Objekter.Svg.newSVG();
+                    Svg svg = new Svg(900, 700, "0,0,900,700",0,0);
                     svg.add_Rect(0, 0, bredde, laengde); // Carportens tag
                     remme(laengde, bredde);
                     spaer_Taeller(laengde, bredde);
@@ -312,6 +314,8 @@ public class Tegning_Algoritme {
             public static void tegning_Med_Redskabsrum(int laengde, int bredde, HttpServletRequest request, String red_Laengde, String red_Bredde) throws Fejl_haendtering {
                 HttpSession session = request.getSession();
                 try {
+                    FunctionLayer.Objekter.Svg.newSVG();
+                    Svg svg = new Svg(900, 700, "0,0,900,700",0,0);
                     svg.add_Rect(0, 0, bredde, laengde); // Carportens tag
                     remme(laengde, bredde);
                     spaer_Taeller(laengde, bredde);
