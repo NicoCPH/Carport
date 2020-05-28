@@ -18,7 +18,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="Carport" options="-endorseddirs C:\Users\Nicol\Documents\Skole\Carport\Carport\target/endorsed" />
+      <module name="Carport" options="-endorseddirs C:\Users\Henne\Desktop\Eksamensprojekt\Carport\target/endorsed" />
       <module name="Carport_Projekt" options="-endorseddirs C:\Users\Nicol\Documents\Skole\Carport\Carport_Projekt\target/endorsed" />
       <module name="ProjektSkabelon-master" options="-endorseddirs &quot;$USER_HOME$/Marks/Henne/Desktop/Eksamensprojekt/Carport/target/endorsed&quot;" />
       <module name="Projektskabelon" options="-endorseddirs C:\Users\Nicol\Documents\Skole\Carport\Projektskabelon\target/endorsed" />

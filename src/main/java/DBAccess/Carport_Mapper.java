@@ -108,7 +108,7 @@ public class Carport_Mapper {
         try {
             Connection con = Connector.connection();
             Statement st = con.createStatement();
-            String SQL = "SELECT * FROM carportdb.haeldning;";
+            String SQL = "SELECT * FROM haeldning;";
             ResultSet rs = st.executeQuery(SQL);
             while (rs.next()) {
 
@@ -137,7 +137,7 @@ return dropdown_Haeldning_List;
         try {
             Connection con = Connector.connection();
             Statement st = con.createStatement();
-            String SQL = "SELECT * FROM carportdb.gulv;";
+            String SQL = "SELECT * FROM gulv;";
             ResultSet rs = st.executeQuery(SQL);
             while (rs.next()) {
 
@@ -166,7 +166,7 @@ return dropdown_Gulv_List;
         try {
             Connection con = Connector.connection();
             Statement st = con.createStatement();
-            String SQL = "SELECT * FROM carportdb.tagmateriale;";
+            String SQL = "SELECT * FROM tagmateriale;";
             ResultSet rs = st.executeQuery(SQL);
             while (rs.next()) {
 
@@ -195,7 +195,7 @@ public static Map<Integer,Bredde> dropdown_Bredde() throws Fejl_haendtering {
         Connection con = Connector.connection();
         Statement st2 = con.createStatement();
 
-        String SQL3 = "Select * from carportdb.bredder;";
+        String SQL3 = "Select * from bredder;";
         ResultSet rs3 = st2.executeQuery(SQL3);
 
         while (rs3.next()) {
@@ -226,7 +226,7 @@ return dropdown_Bredde_List;
             Connection con = Connector.connection();
             Statement st = con.createStatement();
 
-            String SQL = "select * from carportdb.laengder;";
+            String SQL = "select * from laengder;";
             ResultSet rs = st.executeQuery(SQL);
 
             while (rs.next()) {
@@ -256,7 +256,7 @@ return dropdown_Laengde_List;
             Connection con = Connector.connection();
             Statement st = con.createStatement();
 
-            String SQL = "select * from carportdb.farver;";
+            String SQL = "select * from farver;";
             ResultSet rs = st.executeQuery(SQL);
 
             while (rs.next()) {
@@ -287,7 +287,7 @@ return dropdown_Farve_List;
             Connection con = Connector.connection();
             Statement st = con.createStatement();
 
-            String SQL = "select * from carportdb.traetyper;";
+            String SQL = "select * from traetyper;";
             ResultSet rs = st.executeQuery(SQL);
 
             while (rs.next()) {
