@@ -63,7 +63,7 @@ public class Carport_Mapper {
     try {
         Connection con = Connector.connection();
 
-        String SQL = "INSERT INTO `carportdb`.`forespoergsel` (`carportlaengde`, `carportbredde`, `carportfarve`," +
+        String SQL = "INSERT INTO `forespoergsel` (`carportlaengde`, `carportbredde`, `carportfarve`," +
                 " `carporttraetype`, `tagmateriale`, `taghaeldning`, `redskabsrumbredde`," +
                 " `redskabsrumlaengde`, `redskabsrumbeklaedningstype`, `redskabsrumgulv`, `kundeID`, `pris`)" +
                 " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";

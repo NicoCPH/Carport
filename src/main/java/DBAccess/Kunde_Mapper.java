@@ -48,7 +48,7 @@ public class Kunde_Mapper {
             try {
                 Connection con = Connector.connection();
 
-                String SQL = "INSERT INTO `carportdb`.`kunde` (`navn`," +
+                String SQL = "INSERT INTO `kunde` (`navn`," +
                         " `postnummer`, `tlf`, `email`)" +
                         " VALUES (?, ?, ?, ?);";
 
