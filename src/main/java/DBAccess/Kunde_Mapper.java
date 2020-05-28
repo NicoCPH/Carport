@@ -84,7 +84,7 @@ public class Kunde_Mapper {
         try {
             Connection con = Connector.connection();
             Statement st = con.createStatement();
-            String SQL = "SELECT kundeId FROM carportdb.kunde where email = ?;";
+            String SQL = "SELECT kundeId FROM kunde where email = ?;";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setString(1, email);
             ResultSet rs = ps.executeQuery();
@@ -113,7 +113,7 @@ public class Kunde_Mapper {
         try {
             Connection con = Connector.connection();
             Statement st = con.createStatement();
-            String SQL = "SELECT email FROM carportdb.kunde;";
+            String SQL = "SELECT email FROM kunde;";
             ResultSet rs = st.executeQuery(SQL);
             while(rs.next()) {
                String kundeemail = rs.getString("email");

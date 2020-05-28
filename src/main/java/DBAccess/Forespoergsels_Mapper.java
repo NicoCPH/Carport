@@ -18,7 +18,7 @@ public class Forespoergsels_Mapper {
             "SET pris = ?\n" +
             "WHERE idforespoergsel = ?;";
     private static final String Select_All_From_Forespoegsel = "SELECT  ku.postnummer, ku.kundeId,  ku.tlf, idforespoergsel, CL.laengde, CLB.bredde, farve, TC.traetype, typer, haeldninger, RL.laengde," +
-            "RLB.bredde, gulv, TC2.traetype, ku.navn, ku.email, pris FROM carportdb.forespoergsel p \n" +
+            "RLB.bredde, gulv, TC2.traetype, ku.navn, ku.email, pris FROM forespoergsel p \n" +
             "inner join laengder CL on carportlaengde = CL.idlaengder\n" +
             "inner join laengder RL on redskabsrumlaengde = RL.idlaengder\n" +
             "inner join bredder CLB on carportbredde = CLB.idbredder\n" +
